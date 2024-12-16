@@ -10,6 +10,7 @@ h1 {
 
 #filters {
   display: flex;
+  flex-direction: row;
   margin-bottom: 20px;
 }
 
@@ -31,7 +32,7 @@ h1 {
   width: 30%;
   margin-bottom: 20px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #181717;
   border-radius: 5px;
   text-align: center;
 }

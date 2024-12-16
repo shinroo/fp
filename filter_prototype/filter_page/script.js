@@ -443,6 +443,18 @@ function renderPets(filteredPets) {
   });
 }
 
+function renderAlertButton() {
+  petContainer.innerHTML = '';
+  const noPetsCard = document.createElement('div');
+  noPetsCard.classList.add('pet-card');
+  noPetsCard.innerHTML = `
+    <h3>No pets found matching your filters</h3>
+    <button disabled>Setup Alert (coming soon)</button>
+    <p>We will alert you when a matching pet is added to the system</p>
+  `;
+  petContainer.appendChild(noPetsCard);
+}
+
 function filterPets() {
   const searchTerm = searchInput.value.toLowerCase();
   const selectedSex = sexSelect.value;
@@ -468,7 +480,13 @@ function filterPets() {
     return nameMatches && sexMatches && ageMatches && typeMatches;
   });
 
-  renderPets(filteredPets);
+  if (filteredPets.length == 0) {
+    // We did not find any matching pets, show the setup alert button
+    renderAlertButton();
+  } else {
+    // We found matching pets, render them
+    renderPets(filteredPets);
+  }
 }
 
 searchButton.addEventListener('click', filterPets);

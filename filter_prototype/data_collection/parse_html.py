@@ -59,6 +59,8 @@ def reference_from_description(description: str):
 
 # Define a function to extract pet type from the HTML
 def pet_type_from_html(tag):
+    # We know that dogs fall under a section tag with id 'gallery1' 
+    # and cats under 'gallery2'
     is_dog = tag.find_parent(id='gallery1')
     is_cat = tag.find_parent(id='gallery2')
 
