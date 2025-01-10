@@ -1,0 +1,732 @@
+[
+  {
+    "name": "ALBERTON SPCA",
+    "telephone": "011 907 1568",
+    "emergency_telephone": "065 616 9004",
+    "address": "General Albert Park 29 Heidelberg Road, Lincoln Road, Alberton, 1449",
+    "lat": -26.28726211088119,
+    "lon": 28.125854299626578,
+    "province": "Gauteng",
+    "website": "http://spcaalberton.org.za/"
+  },
+  {
+    "name": "AMAHLATHI SPCA (Stutterheim)",
+    "telephone": "043 683 1414",
+    "emergency_telephone": "072 356 4565",
+    "address": "Xholorha, Stutterheim, 4930",
+    "lat": -32.56572233497482,
+    "lon": 27.39632129240478,
+    "province": "Eastern Cape",
+    "website": null
+  },
+  {
+    "name": "AMANZIMTOTI SPCA",
+    "telephone": "031 904 2424/5",
+    "emergency_telephone": "072 122 7288",
+    "address": "1 Nyati Rd, Athlone Park, eManzimtoti, 4126",
+    "lat": -30.00626909038645,
+    "lon": 30.92074694155968,
+    "province": "KwaZulu-Natal",
+    "website": "https://www.spcatoti.co.za/"
+  },
+  {
+    "name": "ASSISI SPCA (Humansdorp)",
+    "telephone": "066 297 9010",
+    "emergency_telephone": "073 121 8963",
+    "address": "St Francis Dr, Humansdorp, 6300",
+    "lat": -34.03682686931918,
+    "lon": 24.783318494306457,
+    "province": "Eastern Cape",
+    "website": "http://www.spcaassisi.com/"
+  },
+  {
+    "name": "BALLITO SPCA (DOLPHIN COAST - Branch of DURBAN & COAST SPCA)",
+    "telephone": "087 550 0512",
+    "emergency_telephone": null,
+    "address": "22 Sandra Rd, Ballito, 4420",
+    "lat": -29.543882072990478,
+    "lon": 31.21448648564344,
+    "province": "KwaZulu-Natal",
+    "website": null
+  },
+  {
+    "name": "BEAUFORT WEST SPCA (KAROO)",
+    "telephone": "072 847 7312",
+    "emergency_telephone": "072 847 7312",
+    "address": "cnr Grimbeeck & Jooste Street, Beaufort West, 6970",
+    "lat": -32.369586,
+    "lon": 22.592221,
+    "province": "Western Cape",
+    "website": null
+  },
+  {
+    "name": "BENONI SPCA",
+    "telephone": "011 894 2814/5",
+    "emergency_telephone": "073 511 2261",
+    "address": "3-2, Klein St, Lakefield, Benoni, 1501",
+    "lat": -26.178064,
+    "lon": 28.289333,
+    "province": "Gauteng",
+    "website": null
+  },
+  {
+    "name": "BETHAL SPCA",
+    "telephone": "017 647 5360 / 066 397 1630",
+    "emergency_telephone": "072 573 3122",
+    "address": "Jabulani Selepe Street, Bethal, 2309",
+    "lat": -26.451179,
+    "lon": 29.467527,
+    "province": "Mpumalanga",
+    "website": null
+  },
+  {
+    "name": "BETHLEHEM SPCA",
+    "telephone": "058 303 3998",
+    "emergency_telephone": "083 629 6403",
+    "address": "4 Witteberg St, Bethlehem, 9701",
+    "lat": -28.214165,
+    "lon": 28.299165,
+    "province": "Freestate",
+    "website": null
+  },
+  {
+    "name": "BLOEMFONTEIN SPCA",
+    "telephone": "051 447 3801",
+    "emergency_telephone": "078 322 8332",
+    "address": "Mcgregor St, White City, Bloemfontein, 9323",
+    "lat": -29.122651,
+    "lon": 26.238812,
+    "province": "Freestate",
+    "website": "https://bloemfonteinspca.co.za/"
+  },
+  {
+    "name": "BOKSBURG SPCA",
+    "telephone": "011 916 5906/7",
+    "emergency_telephone": "083 763 6311",
+    "address": "cnr Kruger Street & Railway Street, Boksburg, 1459",
+    "lat": -26.21615795660606,
+    "lon": 28.263043474496364,
+    "province": "Gauteng",
+    "website": null
+  },
+  {
+    "name": "BRAKPAN SPCA",
+    "telephone": "011 742 2007",
+    "emergency_telephone": "083 696 9052",
+    "address": "96 Denne Rd, Witpoortjie 117-Ir, Brakpan, 1543",
+    "lat": -26.28085361726846,
+    "lon": 28.351526707813523,
+    "province": "Gauteng",
+    "website": "https://www.brakpanspca.co.za/"
+  },
+  {
+    "name": "CAPE OF GOOD HOPE SPCA",
+    "telephone": "021 700 4140",
+    "emergency_telephone": "083 326 1604",
+    "address": "cnr 1st Ave & First Rd, Grassy Park, Cape Town, 8000",
+    "lat": -34.040950443257884,
+    "lon": 18.499005891709402,
+    "province": "Western Cape",
+    "website": "http://www.capespca.co.za/"
+  },
+  {
+    "name": "CARLETONVILLE SPCA",
+    "telephone": "018 788 6262",
+    "emergency_telephone": "064 752 6035",
+    "address": "Beerster St, Oberholzer, Carletonville, 2499",
+    "lat": -26.33956356041327,
+    "lon": 27.391513323593163,
+    "province": "Gauteng",
+    "website": null
+  },
+  {
+    "name": "DUNDEE & DISTRICT SPCA",
+    "telephone": "034 212 2851",
+    "emergency_telephone": "072 949 6235",
+    "address": "14 Watt Rd, Dundee, 3000",
+    "lat": -28.169837090676225,
+    "lon": 30.253081863845285,
+    "province": "KwaZulu-Natal",
+    "website": null
+  },
+  {
+    "name": "DURBAN & COAST SPCA",
+    "telephone": "031 579 6500",
+    "emergency_telephone": "083 212 6103",
+    "address": "Springfield Park, 2 Willowfield Cres, Sea Cow Lake, Durban, 4001",
+    "lat": -29.8037274694218,
+    "lon": 30.993672704477955,
+    "province": "KwaZulu-Natal",
+    "website": "http://www.spcadbn.org.za/"
+  },
+  {
+    "name": "EAST LONDON SPCA",
+    "telephone": "043 745 1441",
+    "emergency_telephone": null,
+    "address": "Main Rd, Amalinda, East London, 5247",
+    "lat": -32.97390032052415,
+    "lon": 27.854078806390376,
+    "province": "Eastern Cape",
+    "website": null
+  },
+  {
+    "name": "EDENVALE SPCA",
+    "telephone": "011 974 9387",
+    "emergency_telephone": "072 183 9794",
+    "address": "Bhacus Road, Sebenza, Edenvale, 1609",
+    "lat": -26.129092733183057,
+    "lon": 28.1853008104526,
+    "province": "Gauteng",
+    "website": "http://www.edenvalespca.co.za/"
+  },
+  {
+    "name": "EMPANGENI SPCA",
+    "telephone": "071 174 4746",
+    "emergency_telephone": "083 482 3866",
+    "address": "Eshowe St, Empangeni Central, Empangeni, 3880",
+    "lat": -28.72341409387297,
+    "lon": 31.835867520120882,
+    "province": "KwaZulu-Natal",
+    "website": "https://www.empangenispca.co.za/"
+  },
+  {
+    "name": "ESHOWE SPCA",
+    "telephone": "087 802 1737",
+    "emergency_telephone": "078 306 1439",
+    "address": "Unnamed Road, Eshowe, 3815",
+    "lat": -28.890431983836436,
+    "lon": 31.441484028031105,
+    "province": "KwaZulu-Natal",
+    "website": null
+  },
+  {
+    "name": "FRANSCHHOEK SPCA",
+    "telephone": "083 745 5344",
+    "emergency_telephone": "083 745 5344",
+    "address": "6 La Provence St, Le Roux, Franschhoek, 7690",
+    "lat": -33.89460387789283,
+    "lon": 19.104420726205436,
+    "province": "Western Cape",
+    "website": "http://spcafhk.co.za/"
+  },
+  {
+    "name": "GARDEN ROUTE SPCA - GEORGE",
+    "telephone": "044 878 1990/3",
+    "emergency_telephone": "082 378 7384",
+    "address": "Ossie Urbanweg, George, 6529",
+    "lat": -33.98811556890754,
+    "lon": 22.447929010180776,
+    "province": "Western Cape",
+    "website": "http://www.grspca.co.za/"
+  },
+  {
+    "name": "GARDEN ROUTE SPCA - MOSSEL BAY BRANCH",
+    "telephone": "0446930824",
+    "emergency_telephone": null,
+    "address": "18 Bill Jeffery St, Boplaas, Mossel Bay, 6506",
+    "lat": -34.18178783241108,
+    "lon": 22.09947679548454,
+    "province": "Western Cape",
+    "website": null
+  },
+  {
+    "name": "GERMISTON & BEDFORDVIEW SPCA",
+    "telephone": "011 825 5033",
+    "emergency_telephone": "081 399 1781",
+    "address": "12 Junction Rd, Elandsfontein 90-Ir, Germiston, 1400",
+    "lat": -26.20822556142953,
+    "lon": 28.152908270724495,
+    "province": "Gauteng",
+    "website": null
+  },
+  {
+    "name": "GRAHAMSTOWN SPCA",
+    "telephone": "046 622 3233",
+    "emergency_telephone": "064 820 8496",
+    "address": "Old Bay Road, Makhanda, 6139",
+    "lat": -33.319364722513775,
+    "lon": 26.498221006922343,
+    "province": "Eastern Cape",
+    "website": null
+  },
+  {
+    "name": "GREYTOWN SPCA",
+    "telephone": "072 096 9634",
+    "emergency_telephone": "072 096 9634",
+    "address": "Whinstone Farm, 1 R74, Greytown, 3250",
+    "lat": -29.049429669884017,
+    "lon": 30.54630154503186,
+    "province": "KwaZulu-Natal",
+    "website": null
+  },
+  {
+    "name": "HEIDELBERG SPCA",
+    "telephone": "016 342 4114",
+    "emergency_telephone": "071 994 9960",
+    "address": "1 Retief St, Heidelberg, Heidelberg - GP, 1441",
+    "lat": -26.50092166982545,
+    "lon": 28.370331983639606,
+    "province": "Gauteng",
+    "website": "http://heidelbergspca.co.za/"
+  },
+  {
+    "name": "JOHANNESBURG SPCA",
+    "telephone": "011 681 3600",
+    "emergency_telephone": "083 604 1172",
+    "address": "5 Benray Rd, Reuven, Johannesburg, 2091",
+    "lat": -26.235724982870156,
+    "lon": 28.02968145925956,
+    "province": "Gauteng",
+    "website": "http://www.jhbspca.co.za/"
+  },
+  {
+    "name": "KEMPTON PARK SPCA",
+    "telephone": "011 975 6537/8",
+    "emergency_telephone": "079 509 7859",
+    "address": "130 Fitter Rd, Spartan, Kempton Park, 1620",
+    "lat": -26.120102484671584,
+    "lon": 28.210904675162663,
+    "province": "Gauteng",
+    "website": "http://www.kemptonspca.co.za/"
+  },
+  {
+    "name": "KIMBERLEY SPCA",
+    "telephone": "053 831 7625",
+    "emergency_telephone": "082 376 7679",
+    "address": "Molyneaux Rd, Cassandra, Kimberley, 8301",
+    "lat": -28.749780530149344,
+    "lon": 24.795553873177173,
+    "province": "Northern Cape",
+    "website": "https://kimberleyspca.com/"
+  },
+  {
+    "name": "KING WILLIAM'S TOWN SPCA",
+    "telephone": "043 050 5169",
+    "emergency_telephone": "082 255 4991",
+    "address": "Old Stutterheim Road, Qonce, 5601",
+    "lat": -32.84643885982766,
+    "lon": 27.3795021762704,
+    "province": "Eastern Cape",
+    "website": null
+  },
+  {
+    "name": "KLOOF & HIGHWAY SPCA",
+    "telephone": "031 764 1212/3",
+    "emergency_telephone": "073 335 9322",
+    "address": "29 Village Rd, Kloof, 3610",
+    "lat": -29.797839526191087,
+    "lon": 30.829630530473473,
+    "province": "KwaZulu-Natal",
+    "website": "http://www.kloofspca.co.za/"
+  },
+  {
+    "name": "KROONSTAD SPCA",
+    "telephone": "056 110 0041",
+    "emergency_telephone": "071 271 1731",
+    "address": "Kraalkop, Maokeng Rural, Maokeng, 9500",
+    "lat": -27.664483718359826,
+    "lon": 27.256142601728268,
+    "province": "Freestate",
+    "website": null
+  },
+  {
+    "name": "LEPHALALE SPCA (ELLISRAS)",
+    "telephone": "079 398 6784",
+    "emergency_telephone": "078 499 2645",
+    "address": "1443, Chris Hani Ave, Lephalale, 0555",
+    "lat": -23.67028276397573,
+    "lon": 27.704845188072074,
+    "province": "Limpopo",
+    "website": null
+  },
+  {
+    "name": "LETABA SPCA (TZANEEN)",
+    "telephone": "015 307 2611",
+    "emergency_telephone": "",
+    "address": "1 Jubilee Rd, Hamaboya, Tzaneen, 2029",
+    "lat": -23.855006685413976,
+    "lon": 30.15300111380179,
+    "province": "Limpopo",
+    "website": "http://www.letabaspca-dbv.co.za/"
+  },
+  {
+    "name": "LOUIS TRICHARDT SPCA",
+    "telephone": "082 965 5151",
+    "emergency_telephone": null,
+    "address": "121 Commercial St, Louis Trichardt, 0922",
+    "lat": -23.05503430385892,
+    "lon": 29.917832851106464,
+    "province": "Limpopo",
+    "website": null
+  },
+  {
+    "name": "LOWER SOUTH COAST SPCA",
+    "telephone": "039 312 0962",
+    "emergency_telephone": "083 222 6354",
+    "address": "cnr Sea Slopes & Quarry Rd, Uvongo, Margate, 4270",
+    "lat": -30.839764586126776,
+    "lon": 30.372028531856127,
+    "province": "KwaZulu-Natal",
+    "website": "https://lscspca.org.za/"
+  },
+  {
+    "name": "MAFIKENG SPCA",
+    "telephone": "018 381 0374",
+    "emergency_telephone": "079 018 9552",
+    "address": "Old Cooke's lake entrance Moloporivier, Mahikeng, 2735",
+    "lat": -25.867544464254095,
+    "lon": 25.649723475524066,
+    "province": "North West",
+    "website": null
+  },
+  {
+    "name": "MIDDELBURG SPCA",
+    "telephone": "013 246 1201",
+    "emergency_telephone": "084 432 6278",
+    "address": "41 Wicht St, Middelburg, 1050",
+    "lat": -25.77860134575445,
+    "lon": 29.480914194678494,
+    "province": "Mpumalanga",
+    "website": null
+  },
+  {
+    "name": "MIDRAND SPCA",
+    "telephone": "011 265 9935",
+    "emergency_telephone": "083 441 1564",
+    "address": "6 Dale Rd, Glen Austin AH, Midrand, 1685",
+    "lat": -25.98132290566681,
+    "lon": 28.16483816615925,
+    "province": "Gauteng",
+    "website": "http://www.midrandspca.co.za/"
+  },
+  {
+    "name": "MOKOPANE SPCA (POTGIETERSRUS)",
+    "telephone": "015 491 3661",
+    "emergency_telephone": "076 538 6291",
+    "address": "Municipal grounds, 1 Zebediela Road, Mokopane, 0601",
+    "lat": -24.188532086123306,
+    "lon": 29.02079159274767,
+    "province": "Limpopo",
+    "website": null
+  },
+  {
+    "name": "MOOI RIVER & DISTRICT SPCA",
+    "telephone": "033 263 1526",
+    "emergency_telephone": "083 385 0807",
+    "address": "Mooi River, 3300",
+    "lat": -29.20058976451834,
+    "lon": 29.99231498155611,
+    "province": "KwaZulu-Natal",
+    "website": null
+  },
+  {
+    "name": "MTHATHA SPCA (UMTATA)",
+    "telephone": "047 004 0014",
+    "emergency_telephone": "083 759 0576",
+    "address": "1 Eagle St, Umtata Central, Mthatha, 5100",
+    "lat": -31.586998324609926,
+    "lon": 28.800108567271902,
+    "province": "Eastern Cape",
+    "website": null
+  },
+  {
+    "name": "NELSPRUIT SPCA",
+    "telephone": "013 753 3582",
+    "emergency_telephone": "082 755 8687",
+    "address": "6 Meidlinger St, Mbombela, 1200",
+    "lat": -25.46169252614689,
+    "lon": 30.976661257804874,
+    "province": "Mpumalanga",
+    "website": "http://www.spcanelspruit.co.za/"
+  },
+  {
+    "name": "NEWCASTLE SPCA",
+    "telephone": "081 258 0178",
+    "emergency_telephone": null,
+    "address": "Sampson Avenue, Barry Hertzog Park, Newcastle, 2945",
+    "lat": -27.743203201376602,
+    "lon": 29.94628098099925,
+    "province": "KwaZulu-Natal",
+    "website": null
+  },
+  {
+    "name": "NIGEL SPCA",
+    "telephone": "084 485 7029",
+    "emergency_telephone": "084 485 7020",
+    "address": "Greater Nigel, Nigel, 1496",
+    "lat": -26.39358087373657,
+    "lon": 28.43867964873898,
+    "province": "Gauteng",
+    "website": null
+  },
+  {
+    "name": "PAARL SPCA",
+    "telephone": "021 863 2720",
+    "emergency_telephone": null,
+    "address": "9 Ben Barnard Estate, cnr Old Paarl & Klapmuts - Simondium Rd, Southern Paarl, Paarl, 7646",
+    "lat": -33.790255646620466,
+    "lon": 18.94021152934589,
+    "province": "Western Cape",
+    "website": "http://www.paarlspca.co.za/"
+  },
+  {
+    "name": "PARYS SPCA",
+    "telephone": "056 811 3671",
+    "emergency_telephone": null,
+    "address": "Abattoir St, Parys, 9585",
+    "lat": -26.9076104693966,
+    "lon": 27.46544524087927,
+    "province": "Freestate",
+    "website": null
+  },
+  {
+    "name": "PHALABORWA SPCA",
+    "telephone": "015 781 2415",
+    "emergency_telephone": "082 494 2147",
+    "address": "1 Copper Rd, Phalaborwa, 1389",
+    "lat": -23.95124338811593,
+    "lon": 31.155700121520994,
+    "province": "Limpopo",
+    "website": null
+  },
+  {
+    "name": "PIETERMARITZBURG SPCA",
+    "telephone": "033 386 9267",
+    "emergency_telephone": null,
+    "address": "235 Woodhouse Rd, Scottsville, Pietermaritzburg, 3201",
+    "lat": -29.604207728249225,
+    "lon": 30.412604584201016,
+    "province": "KwaZulu-Natal",
+    "website": null
+  },
+  {
+    "name": "POLOKWANE SPCA (PIETERSBURG)",
+    "telephone": "015 291 1088",
+    "emergency_telephone": null,
+    "address": "46, Lansdale, Roodepoort, Polokwane, 0700",
+    "lat": -23.960235962809037,
+    "lon": 29.447091605642946,
+    "province": "Limpopo",
+    "website": null
+  },
+  {
+    "name": "PORT ALFRED & NDLAMBE DISTRICT SPCA",
+    "telephone": "046 624 1919 / 081 280 3178",
+    "emergency_telephone": "082 676 8605",
+    "address": "3510 Dickerson Dr, Port Alfred, 6170",
+    "lat": -33.58314277310711,
+    "lon": 26.889965256872113,
+    "province": "Eastern Cape",
+    "website": null
+  },
+  {
+    "name": "RANDBURG SPCA",
+    "telephone": "011 462 1610",
+    "emergency_telephone": null,
+    "address": "229 Northumberland Ave, Northriding, Randburg, 2162",
+    "lat": -26.047389694070645,
+    "lon": 27.953305056505794,
+    "province": "Gauteng",
+    "website": "http://www.spca-rbg.org.za/"
+  },
+  {
+    "name": "RANDWEST SPCA (Randfontein)",
+    "telephone": "011 412 3114",
+    "emergency_telephone": "078 911 0538",
+    "address": "Randfontein Rd, Uitvalfontein 244-Iq, Randfontein, 1779",
+    "lat": -26.1743431288538,
+    "lon": 27.712902569408595,
+    "province": "Gauteng",
+    "website": null
+  },
+  {
+    "name": "RICHARDS BAY SPCA",
+    "telephone": "035 753 2086",
+    "emergency_telephone": "073 551 4564",
+    "address": "Bayview Boulevard, Meer En See, Richards Bay, 3901",
+    "lat": -28.787346995837325,
+    "lon": 32.087164439161334,
+    "province": "KwaZulu-Natal",
+    "website": null
+  },
+  {
+    "name": "ROODEPOORT SPCA",
+    "telephone": "011 672 0448",
+    "emergency_telephone": "076 070 1400",
+    "address": "Gauteng",
+    "lat": -26.184806925870202,
+    "lon": 27.92910771979352,
+    "province": "Gauteng",
+    "website": "http://www.spcaroodepoort.org.za/"
+  },
+  {
+    "name": "RUSTENBURG SPCA",
+    "telephone": "014 592 3181",
+    "emergency_telephone": "072 933 7723",
+    "address": "11 Escom St, Rustenburg, 2999",
+    "lat": -25.675417004912596,
+    "lon": 27.259667144693253,
+    "province": "North West",
+    "website": null
+  },
+  {
+    "name": "SANDTON SPCA",
+    "telephone": "011 444 7730",
+    "emergency_telephone": "082 460 2765",
+    "address": "11 9th St, Marlboro Gardens, Marlboro, Sandton, 2146",
+    "lat": -26.09430918057707,
+    "lon": 28.087852409231953,
+    "province": "Gauteng",
+    "website": "http://www.sandtonspca.org.za/"
+  },
+  {
+    "name": "SPRINGS SPCA",
+    "telephone": "082 668 5230",
+    "emergency_telephone": "083 377 7029",
+    "address": "Corner of Ermelo and Townsend Roads, Strubenvale, Springs, 1559",
+    "lat": -26.261905388877004,
+    "lon": 28.48085059634443,
+    "province": "Gauteng",
+    "website": null
+  },
+  {
+    "name": "SWARTLAND & WEST COAST SPCA",
+    "telephone": "022 492 2781",
+    "emergency_telephone": "082 414 7153",
+    "address": "551 Yzerfontein Road, Darling, 7345",
+    "lat": -33.37065589538914,
+    "lon": 18.374258022199918,
+    "province": "Western Cape",
+    "website": "http://www.swartlandwestcoastspca.co.za/"
+  },
+  {
+    "name": "SWELLENDAM SPCA",
+    "telephone": "028 514 2083",
+    "emergency_telephone": "084 737 1948",
+    "address": "51 Bontebok St, Railton, Swellendam, 6740",
+    "lat": -34.03850635150389,
+    "lon": 20.441587254472008,
+    "province": "Western Cape",
+    "website": "http://spcaswellendam.co.za/"
+  },
+  {
+    "name": "TSHWANE SPCA (PRETORIA)",
+    "telephone": "012 803 5219",
+    "emergency_telephone": "083 453 3863",
+    "address": "316 Petroleum St, Silverton, Pretoria, 0127",
+    "lat": -25.725315613906712,
+    "lon": 28.311956159078456,
+    "province": "Gauteng",
+    "website": "http://www.spcapta.org.za/"
+  },
+  {
+    "name": "Centurion",
+    "telephone": "012 664 5644",
+    "emergency_telephone": "082 807 5671",
+    "address": "Kruger Ave, Lyttelton Manor, Centurion, 0157",
+    "lat": -25.848656401211883,
+    "lon": 28.222706338143787,
+    "province": "Gauteng",
+    "website": null
+  },
+  {
+    "name": "UITENHAGE & DISTRICT SPCA",
+    "telephone": "041 992 3016 / 041 922 4528",
+    "emergency_telephone": "082 905 4716",
+    "address": "Schonland St, Cape Road Industrial, Kariega, 6021",
+    "lat": -33.77686135603265,
+    "lon": 25.382930479899503,
+    "province": "Eastern Cape",
+    "website": "http://www.uitenhagespca.co.za/"
+  },
+  {
+    "name": "uMNGENI SPCA (Howick)",
+    "telephone": "033 330 4557",
+    "emergency_telephone": "082 567 8297",
+    "address": "15 Campbell Rd, Howick, 3290",
+    "lat": -29.491340639220965,
+    "lon": 30.231921899025036,
+    "province": "KwaZulu-Natal",
+    "website": null
+  },
+  {
+    "name": "VEREENIGING & VANDERBIJLPARK SPCA",
+    "telephone": "016 422 1505 / 016 455 1908",
+    "emergency_telephone": "083 292 5862",
+    "address": "66 General Smuts Rd, Duncanville, Vereeniging, 1939",
+    "lat": -26.66103429584474,
+    "lon": 27.930933529562974,
+    "province": "Gauteng",
+    "website": null
+  },
+  {
+    "name": "VIRGINIA SPCA",
+    "telephone": "079 776 1153",
+    "emergency_telephone": "076 114 4788",
+    "address": "9430, Harmony, Virginia, 9430",
+    "lat": -28.083508928290644,
+    "lon": 26.847419236287152,
+    "province": "Freestate",
+    "website": null
+  },
+  {
+    "name": "WELLINGTON SPCA",
+    "telephone": "021 864 3726",
+    "emergency_telephone": "082 905 9184",
+    "address": "Interpace Street, Wellington, 7655",
+    "lat": -33.648693009449865,
+    "lon": 18.983034384293642,
+    "province": "Western Cape",
+    "website": null
+  },
+  {
+    "name": "WEST COAST SPCA (Branch of Swartland SPCA)",
+    "telephone": "022 492 2781",
+    "emergency_telephone": "082 414 7153",
+    "address": "West Coast Peninsula",
+    "lat": -32.92228715193768,
+    "lon": 18.049316075348454,
+    "province": "Western Cape",
+    "website": null
+  },
+  {
+    "name": "WESTONARIA SPCA (Amalgamated with Randfontein SPCA)",
+    "telephone": "011 412 3114",
+    "emergency_telephone": "078 911 0538",
+    "address": "Westonaria, 1779",
+    "lat": -26.31072450717412,
+    "lon": 27.64705753845981,
+    "province": "Gauteng",
+    "website": null
+  },
+  {
+    "name": "WHITE RIVER SPCA",
+    "telephone": "013 750 0240",
+    "emergency_telephone": "082 706 1240",
+    "address": "2 Tungsten Rd, White River, 1240",
+    "lat": -25.339048454213987,
+    "lon": 31.0071307252253,
+    "province": "Mpumalanga",
+    "website": null
+  },
+  {
+    "name": "WINELANDS SPCA",
+    "telephone": "023 615 2241",
+    "emergency_telephone": "071 025 7805",
+    "address": "537F+5R, Ashton, 6715",
+    "lat": -33.83715386533816,
+    "lon": 20.074594331379974,
+    "province": "Western Cape",
+    "website": null
+  },
+  {
+    "name": "WITBANK SPCA",
+    "telephone": "013 650 2321",
+    "emergency_telephone": "083 657 2421",
+    "address": "12 Ermelo Ave, River View, eMalahleni, 1034",
+    "lat": -25.842829600817147,
+    "lon": 29.251113667896856,
+    "province": "Mpumalanga",
+    "website": "http://www.witbankspca.org.za/"
+  }
+]
