@@ -1,5 +1,7 @@
 from django.db import models
 
+# Auth Models
+
 # Models
 
 class Province(models.TextChoices):
@@ -24,6 +26,7 @@ class SPCABranch(models.Model):
     province = models.CharField(max_length=3, choices=Province.choices)
     website = models.URLField()
 
-class UserRole(models.TextChoices):
-    ADOPTER = 'adopter', 'Student'
-    SPCA_WORKER = 'spca_worker', 'Teacher'
+class Dog(models.Model):
+    id = models.UUIDField(primary_key=True)
+    name = models.CharField(max_length=200)
+    spca = models.ForeignKey(SPCABranch, on_delete=models.CASCADE)
