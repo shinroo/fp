@@ -1,58 +1,10 @@
 import logging
 import json
 
-from selenium.webdriver import Chrome
-from selenium.webdriver import ChromeOptions
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from base.common import DogScrapingResult
+from base.generic_scraper import GenericScraper
+
 from bs4 import BeautifulSoup
-
-# Add this function to set headers
-def set_headers(driver):
-    headers = {
-        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-        "accept-encoding": "gzip, deflate, br, zstd",
-        "accept-language": "en-ZA,en-GB;q=0.9,en-US;q=0.8,en;q=0.7",
-        "cookie": "PHPSESSID=867cd1fcf18688b18d8e39778fd301e9",
-        "dnt": "1",
-        "priority": "u=0, i",
-        "referer": "https://www.spcatoti.co.za/",
-        "sec-ch-ua": '"Not A(Brand";v="8", "Chromium";v="132", "Google Chrome";v="132"',
-        "sec-ch-ua-mobile": "?1",
-        "sec-ch-ua-platform": '"Android"',
-        "sec-fetch-dest": "document",
-        "sec-fetch-mode": "navigate",
-        "sec-fetch-site": "same-origin",
-        "sec-fetch-user": "?1",
-        "upgrade-insecure-requests": "1",
-        "user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Mobile Safari/537.36"
-    }
-
-    # Use Chrome DevTools Protocol to set headers
-    driver.execute_cdp_cmd("Network.enable", {})
-    driver.execute_cdp_cmd("Network.setExtraHTTPHeaders", {"headers": headers})
-
-def scrape(driver) -> str:
-    try:
-        driver.get("https://www.spcatoti.co.za/adopt-a-pet.php?id=ad")
-    except Exception as e:
-        logging.error(f"Failed to get website: {e}")
-        raise e
-
-    html = ""
-
-    try:
-        # Wait for a specific element to be present (important for dynamic content)
-        element_present = EC.presence_of_element_located((By.CLASS_NAME, 'mypets'))
-        WebDriverWait(driver, 10).until(element_present) # Wait up to 10 seconds
-        html = driver.page_source
-        logging.info("Successfully got page HTML")
-    except Exception as e:
-        logging.error(f"Failed to get page HTML: {e}")
-        raise e
-
-    return html
 
 def process_page_source(page_source: str):
     soup = BeautifulSoup(page_source, 'html.parser')
@@ -107,39 +59,16 @@ if __name__ == "__main__":
 
     logging.info("Scraper starting")
 
-    options = ChromeOptions()
-    options.add_argument("--no-sandbox")
-    options.add_argument("--window-size=1280,720")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--headless")
-
-    driver = None
-
-    try:
-        logging.info("Starting chrome webdriver")
-        driver = Chrome(options=options)
-    except Exception as e:
-        logging.error(f"Failed to start driver: {e}")
-        quit()
-
-    try:
-        logging.info("Setting request headers")
-        set_headers(driver)
-    except Exception as e:
-        logging.error(f"Failed to set headers: {e}")
-        quit()
+    scraper = GenericScraper("https://www.spcatoti.co.za/adopt-a-pet.php?id=ad")
 
     page_source = ""
-
     try:
         logging.info("Scraping")
-        page_source = scrape(driver)
+        page_source = scraper.scrape("mypets")
     except Exception as e:
         logging.error(f"Failed to scrape: {e}")
     finally:
-        logging.info("Quitting the driver")
-        driver.quit()
-        logging.info("Driver quit")
+        scraper.close()
 
     try:
         logging.info("Processing page source")
