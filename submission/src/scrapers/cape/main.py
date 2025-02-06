@@ -53,6 +53,7 @@ if __name__ == "__main__":
         sub_page_source = ""
         try:
             logging.info(f"Scraping sub page: {sub_page}")
+            sub_page_source = scraper.scrape("elementor-widget-container")
         except Exception as e:
             logging.error(f"Failed to scrape sub page: {e}")
         finally:
