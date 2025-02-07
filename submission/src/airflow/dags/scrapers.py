@@ -35,13 +35,13 @@ def create_connection():
 
     session.close()
 
-def run_docker_container():
+def run_docker_container(image_name: str):
     # Use the Docker SDK directly to interact with the Docker daemon
     client = docker.DockerClient(base_url="unix://var/run/docker.sock")
 
     # Run the Docker container
     container = client.containers.run(
-        image="spca_amanzimtoti_scraper:latest",  # Use the local image
+        image=image_name,  # Use the local image
         auto_remove=True,  # Remove the container after it exits
         detach=True,  # Run the container in detached mode
     )
@@ -56,21 +56,28 @@ def run_docker_container():
         raise AirflowException(f"Container failed with exit code {container.attrs['State']['ExitCode']}")
 
 with DAG(
-    dag_id="spca_amanzimtoti_scraper_dag",
+    dag_id="spca_scrapers",
     schedule=None,
     start_date=pendulum.datetime(2023, 10, 27, tz="UTC"),  # Updated start date
     catchup=False,
     dagrun_timeout=pendulum.duration(minutes=60),
     tags=["spca", "scraper", "docker"],
 ) as dag:
-    create_connection_task = PythonOperator(
-        task_id="create_docker_connection",
+    acquire_docker_connection = PythonOperator(
+        task_id="acquire_docker_connection",
         python_callable=create_connection,
     )
 
-    run_scraper = PythonOperator(
-        task_id="run_spca_amanzimtoti_scraper",
+    amanzimtoti_scraper = PythonOperator(
+        task_id="amanzimtoti_scraper",
         python_callable=run_docker_container,
+        op_kwargs={"image_name": "spca_amanzimtoti_scraper:latest"}
     )
 
-    create_connection_task >> run_scraper
+    cape_scraper = PythonOperator(
+        task_id="cape_scraper",
+        python_callable=run_docker_container,
+        op_kwargs={"image_name": "spca_cape_scraper:latest"}
+    )
+
+    acquire_docker_connection >> [amanzimtoti_scraper, cape_scraper]
