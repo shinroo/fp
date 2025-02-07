@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:13  # Or your preferred Postgres version
+    environment:
+      - POSTGRES_USER=spcapetmatchmaker
+      - POSTGRES_PASSWORD=spcapetmatchmaker
+      - POSTGRES_DB=spcapetmatchmaker
+    ports:
+      - "5432:5432" # Expose Postgres port if needed for external tools, but not strictly required for Airflow
+    volumes: # Persist the database data (optional, but recommended)
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck: # Add a healthcheck for Postgres readiness
+      test: ["CMD-SHELL", "pg_isready -U spcapetmatchmaker -d spcapetmatchmaker"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data: # Named volume for Postgres data

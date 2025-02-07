@@ -1,0 +1,74 @@
+version: "3.9"
+
+services:
+  airflow_webserver:
+    image: apache/airflow:2.6.3-python3.9  # Or your preferred Airflow version
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./dags:/opt/airflow/dags  # Mount your DAGs folder
+    environment:
+      - AIRFLOW__CORE__DAGS_FOLDER=/opt/airflow/dags
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://spcapetmatchmaker:spcapetmatchmaker@postgres:5432/spcapetmatchmaker  # Use a simple Postgres connection
+      - AIRFLOW__CORE__EXECUTOR=airflow.executors.local_executor.LocalExecutor
+      - AIRFLOW__SCHEDULER__CATCHUP=False # Disable catchup for faster startup during development
+      - AIRFLOW__WEBSERVER__WEB_SERVER_URL=http://127.0.0.1:8080
+    depends_on:
+      - postgres
+      - airflow_db_init
+      - airflow_user_init
+    command: airflow webserver
+    healthcheck:
+      test: ["CMD-SHELL", "airflow webserver status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  airflow_scheduler:
+    image: apache/airflow:2.6.3-python3.9 # Match the webserver version
+    volumes:
+      - ./dags:/opt/airflow/dags
+    environment:
+      - AIRFLOW__CORE__DAGS_FOLDER=/opt/airflow/dags
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://spcapetmatchmaker:spcapetmatchmaker@postgres:5432/spcapetmatchmaker  # Use a simple Postgres connection
+      - AIRFLOW__CORE__EXECUTOR=airflow.executors.local_executor.LocalExecutor
+      - AIRFLOW__SCHEDULER__CATCHUP=False # Disable catchup for faster startup during development
+    depends_on:
+      - postgres
+      - airflow_db_init
+    command: airflow scheduler
+
+  airflow_db_init:
+    image: apache/airflow:2.6.3-python3.9
+    container_name: airflow_db_init
+    command: ["airflow", "db", "init"] # Initialize the database
+    restart: on-failure
+    environment:
+      - AIRFLOW__CORE__DAGS_FOLDER=/opt/airflow/dags
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://spcapetmatchmaker:spcapetmatchmaker@postgres:5432/spcapetmatchmaker  # Use a simple Postgres connection
+      - AIRFLOW__CORE__EXECUTOR=airflow.executors.local_executor.LocalExecutor
+      - AIRFLOW__SCHEDULER__CATCHUP=False # Disable catchup for faster startup during development
+    depends_on:
+      - postgres
+
+  airflow_user_init:
+    image: apache/airflow:2.6.3-python3.9
+    container_name: airflow_user_init
+    command: [
+      "airflow", "users", "create", 
+      "--role", "Admin", 
+      "--username", "airflow", 
+      "--password", "airflow",
+      "--email", "airflow@airflow.com",
+      "--firstname", "airflow",
+      "--lastname", "airflow"
+    ] # Initialize admin user
+    restart: on-failure
+    environment:
+      - AIRFLOW__CORE__DAGS_FOLDER=/opt/airflow/dags
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://spcapetmatchmaker:spcapetmatchmaker@postgres:5432/spcapetmatchmaker  # Use a simple Postgres connection
+      - AIRFLOW__CORE__EXECUTOR=airflow.executors.local_executor.LocalExecutor
+      - AIRFLOW__SCHEDULER__CATCHUP=False # Disable catchup for faster startup during development
+    depends_on:
+      - postgres
+      - airflow_db_init
