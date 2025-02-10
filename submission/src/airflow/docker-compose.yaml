@@ -8,7 +8,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"  # Add this line
     volumes:
-      - ./dags:/opt/airflow/dags  # Mount your DAGs folder
+      - ./airflow/dags:/opt/airflow/dags  # Mount your DAGs folder
       - /var/run/docker.sock:/var/run/docker.sock  # Mount the socket
     environment:
       - AIRFLOW__CORE__DAGS_FOLDER=/opt/airflow/dags
@@ -37,7 +37,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"  # Add this line
     volumes:
-      - ./dags:/opt/airflow/dags
+      - ./airflow/dags:/opt/airflow/dags
       - /var/run/docker.sock:/var/run/docker.sock  # Mount the socket
     environment:
       - AIRFLOW__CORE__DAGS_FOLDER=/opt/airflow/dags

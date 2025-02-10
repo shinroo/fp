@@ -17,5 +17,19 @@ services:
       timeout: 5s
       retries: 5
 
+  migrations:
+    image: flyway/flyway:9.22.3  # Use the latest Flyway version
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./database/migrations:/flyway/sql  # Mount the local migrations folder
+    environment:
+      - FLYWAY_URL=jdbc:postgresql://postgres:5432/spcapetmatchmaker
+      - FLYWAY_USER=spcapetmatchmaker
+      - FLYWAY_PASSWORD=spcapetmatchmaker
+      - FLYWAY_BASELINE_ON_MIGRATE=true
+    command: migrate  # Run the migrate command on startup
+
 volumes:
   postgres_data: # Named volume for Postgres data
