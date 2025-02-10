@@ -1,7 +1,7 @@
-package handlers
+package app
 
 import "net/http"
 
 func (s *Server) Login(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "login", nil)
+	renderAuthTemplate(w, "login", nil)
 }

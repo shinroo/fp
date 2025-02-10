@@ -1,10 +1,11 @@
 {{define "stylesheets"}}
+
 {{end}}
 
 {{define "content"}}
 <h1 class="text-center mb-4">SPCA Pet Matchmaker</h1>
-<h2 class="text-center mb-4">Login</h2>
-<form id="frm-login">
+<h2 class="text-center mb-4">Signup</h2>
+<form id="frm-signup">
     <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" required>
@@ -14,22 +15,22 @@
         <input type="password" class="form-control" id="password" placeholder="Enter password" required>
     </div>
     <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-primary" id="btn-login">Login</button>
-        <button type="button" class="btn btn-secondary" id="btn-signup">Signup</button>
+        <button type="submit" class="btn btn-primary" id="btn-login">Signup</button>
+        <button type="button" class="btn btn-secondary" id="btn-login">Login</button>
     </div>
 </form>
 {{end}}
 
 {{define "scripts"}}
 <script>
-    const loginForm = document.getElementById("frm-login");
-    const signupButton = document.getElementById("btn-signup");
+    const signupForm = document.getElementById("frm-signup");
+    const loginButton = document.getElementById("btn-login");
 
-    loginForm.addEventListener("submit", (event) => {
+    signupForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
         // Define the URL and data
-        var url = "/api/login";
+        var url = "/api/signup";
         var data = { key: "value" };
 
         // Send the POST request
@@ -48,15 +49,15 @@
             })
             .then((responseData) => {
                 console.log("Success:", responseData); // Handle the response data
-                window.location.href = "/app/home";
+                window.location.href = "/app/login";
             })
             .catch((error) => {
                 console.error("Error:", error); // Handle errors
             });
     });
 
-    signupButton.addEventListener("click", () => {
-        window.location.href = "/app/signup";
+    loginButton.addEventListener("click", () => {
+        window.location.href = "/app/login";
     });
 </script>
 {{end}}

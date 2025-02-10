@@ -1,4 +1,4 @@
-package handlers
+package api
 
 type Server struct {
 }
