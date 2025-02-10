@@ -3,12 +3,20 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/shinroo/fp/src/webapp/internal/api"
 	"github.com/shinroo/fp/src/webapp/internal/app"
+	"github.com/shinroo/fp/src/webapp/pkg/db"
 )
 
 func main() {
+	dbConn, err := db.Open(os.Getenv("POSTGRES_DSN"))
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer dbConn.Close()
+
 	unauthenticatedRouter := http.NewServeMux()
 
 	appServer := app.NewServer()
