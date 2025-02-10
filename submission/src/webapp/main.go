@@ -7,6 +7,7 @@ import (
 
 	"github.com/shinroo/fp/src/webapp/internal/api"
 	"github.com/shinroo/fp/src/webapp/internal/app"
+	"github.com/shinroo/fp/src/webapp/internal/repository"
 	"github.com/shinroo/fp/src/webapp/pkg/db"
 )
 
@@ -17,10 +18,12 @@ func main() {
 	}
 	defer dbConn.Close()
 
+	accountRepo := repository.NewAccount(dbConn)
+
 	unauthenticatedRouter := http.NewServeMux()
 
 	appServer := app.NewServer()
-	apiServer := api.NewServer()
+	apiServer := api.NewServer(accountRepo)
 
 	// login
 	unauthenticatedRouter.HandleFunc("/app/login", appServer.Login)
