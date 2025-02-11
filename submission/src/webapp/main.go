@@ -19,11 +19,12 @@ func main() {
 	defer dbConn.Close()
 
 	accountRepo := repository.NewAccount(dbConn)
+	sessionRepo := repository.NewSession(dbConn)
 
 	unauthenticatedRouter := http.NewServeMux()
 
 	appServer := app.NewServer()
-	apiServer := api.NewServer(accountRepo)
+	apiServer := api.NewServer(accountRepo, sessionRepo)
 
 	// login
 	unauthenticatedRouter.HandleFunc("/app/login", appServer.Login)

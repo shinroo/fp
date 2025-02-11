@@ -3,15 +3,34 @@ package api
 import (
 	"encoding/json"
 	"net/http"
+
+	"github.com/shinroo/fp/src/webapp/pkg/apimodels"
+	"github.com/shinroo/fp/src/webapp/pkg/responses"
 )
 
 func (s *Server) Signup(w http.ResponseWriter, r *http.Request) {
-	// Set the Content-Type header to application/json
-	w.Header().Set("Content-Type", "application/json")
+	var req apimodels.SignupRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		responses.WriteJSON(apimodels.ErrorResponse{
+			Message: "failed to unmarshal signup request",
+		}, http.StatusBadRequest, w)
+		return
+	}
 
-	// Create an empty JSON object
-	emptyJSON := struct{}{}
+	if req.Email == "" || req.Password == "" {
+		responses.WriteJSON(apimodels.ErrorResponse{
+			Message: "email and password are required",
+		}, http.StatusBadRequest, w)
+		return
+	}
 
-	// Encode the empty JSON object and write it to the response
-	json.NewEncoder(w).Encode(emptyJSON)
+	err := s.AccountRepo.CreateAccount(r.Context(), req.Email, req.Password)
+	if err != nil {
+		responses.WriteJSON(apimodels.ErrorResponse{
+			Message: "failed to create account",
+		}, http.StatusInternalServerError, w)
+		return
+	}
+
+	responses.WriteJSON(apimodels.SignupResponse{}, http.StatusOK, w)
 }
