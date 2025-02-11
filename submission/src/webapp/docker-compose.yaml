@@ -6,7 +6,7 @@ services:
     ports:
       - "8081:8081"
     environment:
-      - POSTGRES_DSN=postgresql+psycopg2://spcapetmatchmaker:spcapetmatchmaker@postgres:5432/spcapetmatchmaker
+      - POSTGRES_DSN=postgres://spcapetmatchmaker:spcapetmatchmaker@postgres:5432/spcapetmatchmaker?sslmode=disable
     depends_on:
       - postgres
       - migrations

@@ -20,7 +20,7 @@ func NewSession(db *sqlx.DB) *Session {
 func (r *Session) CreateSession(ctx context.Context, accountID int) (string, error) {
 	token := uuid.NewString()
 
-	res, err := r.db.ExecContext(ctx, "INSERT INTO session (token, account_id) VALUES ($1, $2)", token, accountID)
+	res, err := r.db.ExecContext(ctx, "INSERT INTO app_session (token, account_id) VALUES ($1, $2)", token, accountID)
 	if err != nil {
 		return "", fmt.Errorf("failed to insert session: %w", err)
 	}
@@ -39,7 +39,7 @@ func (r *Session) CreateSession(ctx context.Context, accountID int) (string, err
 
 func (r *Session) GetSessionByToken(ctx context.Context, token string) (*models.Session, error) {
 	var session models.Session
-	err := r.db.GetContext(ctx, &session, "SELECT * FROM session WHERE token = $1", token)
+	err := r.db.GetContext(ctx, &session, "SELECT * FROM app_session WHERE token = $1", token)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get session by token: %w", err)
 	}

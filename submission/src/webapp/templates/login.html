@@ -25,12 +25,18 @@
     const loginForm = document.getElementById("frm-login");
     const signupButton = document.getElementById("btn-signup");
 
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+
     loginForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
         // Define the URL and data
         var url = "/api/login";
-        var data = { key: "value" };
+        var data = {
+            "email": emailInput.value,
+            "password": passwordInput.value,
+        };
 
         // Send the POST request
         fetch(url, {

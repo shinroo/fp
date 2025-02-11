@@ -10,8 +10,11 @@ import (
 )
 
 func (s *Server) Login(w http.ResponseWriter, r *http.Request) {
+	s.Logger.Info("login request received")
+
 	var req apimodels.LoginRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		s.Logger.Error("failed to unmarshal login request", "error:", err)
 		responses.WriteJSON(apimodels.ErrorResponse{
 			Message: "failed to unmarshal login request",
 		}, http.StatusBadRequest, w)
@@ -19,6 +22,7 @@ func (s *Server) Login(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if req.Email == "" || req.Password == "" {
+		s.Logger.Error("email or password were empty", "email:", req.Email, "password:", req.Password)
 		responses.WriteJSON(apimodels.ErrorResponse{
 			Message: "email and password are required",
 		}, http.StatusBadRequest, w)
@@ -27,6 +31,7 @@ func (s *Server) Login(w http.ResponseWriter, r *http.Request) {
 
 	account, err := s.AccountRepo.GetAccountByEmail(r.Context(), req.Email)
 	if err != nil {
+		s.Logger.Error("failed to get account by email", "error:", err)
 		responses.WriteJSON(apimodels.ErrorResponse{
 			Message: "failed to get account by email",
 		}, http.StatusInternalServerError, w)
@@ -35,6 +40,7 @@ func (s *Server) Login(w http.ResponseWriter, r *http.Request) {
 
 	err = crypto.ComparePassword(account.Password, req.Password)
 	if err != nil {
+		s.Logger.Error("passwords did not match")
 		responses.WriteJSON(apimodels.ErrorResponse{
 			Message: "invalid password",
 		}, http.StatusUnauthorized, w)
@@ -43,11 +49,14 @@ func (s *Server) Login(w http.ResponseWriter, r *http.Request) {
 
 	token, err := s.SessionRepo.CreateSession(r.Context(), account.ID)
 	if err != nil {
+		s.Logger.Error("failed to create a new session", "error:", err)
 		responses.WriteJSON(apimodels.ErrorResponse{
 			Message: "failed to create session",
 		}, http.StatusInternalServerError, w)
 		return
 	}
+
+	s.Logger.Info("login successful")
 
 	responses.WriteJSON(apimodels.LoginResponse{
 		Token: token,

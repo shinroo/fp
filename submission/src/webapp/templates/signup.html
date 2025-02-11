@@ -15,7 +15,7 @@
         <input type="password" class="form-control" id="password" placeholder="Enter password" required>
     </div>
     <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-primary" id="btn-login">Signup</button>
+        <button type="submit" class="btn btn-primary" id="btn-signup">Signup</button>
         <button type="button" class="btn btn-secondary" id="btn-login">Login</button>
     </div>
 </form>
@@ -26,12 +26,18 @@
     const signupForm = document.getElementById("frm-signup");
     const loginButton = document.getElementById("btn-login");
 
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+
     signupForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
         // Define the URL and data
         var url = "/api/signup";
-        var data = { key: "value" };
+        var data = {
+            "email": emailInput.value,
+            "password": passwordInput.value,
+        };
 
         // Send the POST request
         fetch(url, {
@@ -43,13 +49,10 @@
         })
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error("Network response was not ok");
+                    console.Error("Network response was not ok");
+                } else {
+                    window.location.href = "/app/login";
                 }
-                return response.json(); // Parse the JSON response
-            })
-            .then((responseData) => {
-                console.log("Success:", responseData); // Handle the response data
-                window.location.href = "/app/login";
             })
             .catch((error) => {
                 console.error("Error:", error); // Handle errors
