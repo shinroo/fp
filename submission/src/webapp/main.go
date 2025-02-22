@@ -37,6 +37,12 @@ func main() {
 	// home
 	unauthenticatedRouter.HandleFunc("/app/home", appServer.Home)
 
+	// profile
+	unauthenticatedRouter.HandleFunc("/app/profile", appServer.Profile)
+
+	// search
+	unauthenticatedRouter.HandleFunc("/app/search", appServer.Search)
+
 	log.Println("Server started on :8081")
 	log.Fatal(http.ListenAndServe(":8081", unauthenticatedRouter))
 }
