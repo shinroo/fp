@@ -1,4 +1,4 @@
-CREATE TABLE app_session (
+CREATE TABLE IF NOT EXISTS app_session (
     token VARCHAR(255) PRIMARY KEY,
     account_id INT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
