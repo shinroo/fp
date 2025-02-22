@@ -169,8 +169,8 @@
             "has_children": document.getElementById("children").checked,
             "has_lots_of_time": document.getElementById("timeForPet").checked,
             "has_active_lifestyle": document.getElementById("activeLifestyle").checked,
-            "latitude": parseFloat(document.getElementById("lat").innerHTML),
-            "longitude": parseFloat(document.getElementById("lng").innerHTML)
+            "latitude": parseFloat(document.getElementById("lat").textContent),
+            "longitude": parseFloat(document.getElementById("lng").textContent)
         };
 
         console.log(data)
