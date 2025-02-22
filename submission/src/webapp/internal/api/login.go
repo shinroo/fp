@@ -22,7 +22,7 @@ func (s *Server) Login(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if req.Email == "" || req.Password == "" {
-		s.Logger.Error("email or password were empty", "email:", req.Email, "password:", req.Password)
+		s.Logger.Error("email or password were empty", "email:", req.Email)
 		responses.WriteJSON(apimodels.ErrorResponse{
 			Message: "email and password are required",
 		}, http.StatusBadRequest, w)

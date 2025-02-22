@@ -40,24 +40,25 @@
 
         // Send the POST request
         fetch(url, {
-            method: "POST", // Specify the request method
+            method: "POST",
             headers: {
-                "Content-Type": "application/json", // Set the content type
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify(data), // Convert the data to JSON
+            body: JSON.stringify(data),
         })
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Network response was not ok");
                 }
-                return response.json(); // Parse the JSON response
+                return response.json();
             })
             .then((responseData) => {
-                console.log("Success:", responseData); // Handle the response data
+                console.log("Success:", responseData);
+                localStorage.setItem("authToken", responseData.token);
                 window.location.href = "/app/home";
             })
             .catch((error) => {
-                console.error("Error:", error); // Handle errors
+                console.error("Error:", error);
             });
     });
 

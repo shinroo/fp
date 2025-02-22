@@ -41,11 +41,11 @@
 
         // Send the POST request
         fetch(url, {
-            method: "POST", // Specify the request method
+            method: "POST",
             headers: {
-                "Content-Type": "application/json", // Set the content type
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify(data), // Convert the data to JSON
+            body: JSON.stringify(data),
         })
             .then((response) => {
                 if (!response.ok) {
@@ -55,7 +55,7 @@
                 }
             })
             .catch((error) => {
-                console.error("Error:", error); // Handle errors
+                console.error("Error:", error);
             });
     });
 
