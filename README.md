@@ -7,9 +7,11 @@ This project implements an end to end pet matchmaker for all the SPCAs in South 
 
 The overall architecture is as follows:
 - scrapers using selenium and beautiful soup
+- airflow for scheduling and workflow management
 - postgres database
 - golang REST API
-- react.js website frontend
+- golang SSR WebApp
 
 ## Dev Sources
 1. Base image for scrapers: https://hub.docker.com/r/infologistix/docker-selenium-python
+2. Similarity metric: https://en.wikipedia.org/wiki/Jaccard_index
