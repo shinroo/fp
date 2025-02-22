@@ -20,11 +20,13 @@ func main() {
 
 	accountRepo := repository.NewAccount(dbConn)
 	sessionRepo := repository.NewSession(dbConn)
+	profileRepo := repository.NewProfile(dbConn)
+	spcaRepo := repository.NewSPCA(dbConn)
 
 	unauthenticatedRouter := http.NewServeMux()
 
-	appServer := app.NewServer()
-	apiServer := api.NewServer(accountRepo, sessionRepo)
+	appServer := app.NewServer(profileRepo)
+	apiServer := api.NewServer(accountRepo, sessionRepo, profileRepo, spcaRepo)
 
 	// login
 	unauthenticatedRouter.HandleFunc("/app/login", appServer.Login)
@@ -39,6 +41,7 @@ func main() {
 
 	// profile
 	unauthenticatedRouter.HandleFunc("/app/profile", appServer.Profile)
+	unauthenticatedRouter.HandleFunc("/api/profile", apiServer.Profile)
 
 	// search
 	unauthenticatedRouter.HandleFunc("/app/search", appServer.Search)

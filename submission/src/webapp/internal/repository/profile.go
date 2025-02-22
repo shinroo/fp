@@ -34,7 +34,7 @@ func (r *Profile) CreateProfile(ctx context.Context, accountID int, nearestSPCAI
 	return nil
 }
 
-func (r *Profile) UpdateProfile(ctx context.Context, profile models.Profile) error {
+func (r *Profile) UpdateProfile(ctx context.Context, profile *models.Profile) error {
 	res, err := r.db.ExecContext(ctx, `UPDATE profile SET
 			has_children = $2, 
 			has_active_lifestyle = $3, 

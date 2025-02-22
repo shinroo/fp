@@ -139,13 +139,13 @@ func TestUpdateProfile(t *testing.T) {
 			mockExpect: func() {
 				// Expect the ExecContext to be called with the correct query and arguments
 				mock.ExpectExec(`UPDATE profile SET
-					has_children = \\$2, 
-					has_active_lifestyle = \\$3, 
-					has_lots_of_time = \\$4, 
-					latitude = \\$5, 
-					longitude = \\$6, 
-					nearest_spca = \\$7 
-				WHERE account_id = \\$1`).
+					has_children = \$2, 
+					has_active_lifestyle = \$3, 
+					has_lots_of_time = \$4, 
+					latitude = \$5, 
+					longitude = \$6, 
+					nearest_spca = \$7 
+				WHERE account_id = \$1`).
 					WithArgs(123, true, true, true, 37.7749, -122.4194, "spca-123").
 					WillReturnResult(sqlmock.NewResult(1, 1))
 			},
@@ -165,13 +165,13 @@ func TestUpdateProfile(t *testing.T) {
 			mockExpect: func() {
 				// Simulate a database error
 				mock.ExpectExec(`UPDATE profile SET
-					has_children = \\$2, 
-					has_active_lifestyle = \\$3, 
-					has_lots_of_time = \\$4, 
-					latitude = \\$5, 
-					longitude = \\$6, 
-					nearest_spca = \\$7 
-				WHERE account_id = \\$1`).
+					has_children = \$2, 
+					has_active_lifestyle = \$3, 
+					has_lots_of_time = \$4, 
+					latitude = \$5, 
+					longitude = \$6, 
+					nearest_spca = \$7 
+				WHERE account_id = \$1`).
 					WithArgs(123, true, true, true, 37.7749, -122.4194, "spca-123").
 					WillReturnError(errors.New("database error"))
 			},
@@ -191,13 +191,13 @@ func TestUpdateProfile(t *testing.T) {
 			mockExpect: func() {
 				// Simulate no rows being affected
 				mock.ExpectExec(`UPDATE profile SET
-					has_children = \\$2, 
-					has_active_lifestyle = \\$3, 
-					has_lots_of_time = \\$4, 
-					latitude = \\$5, 
-					longitude = \\$6, 
-					nearest_spca = \\$7 
-				WHERE account_id = \\$1`).
+					has_children = \$2, 
+					has_active_lifestyle = \$3, 
+					has_lots_of_time = \$4, 
+					latitude = \$5, 
+					longitude = \$6, 
+					nearest_spca = \$7 
+				WHERE account_id = \$1`).
 					WithArgs(123, true, true, true, 37.7749, -122.4194, "spca-123").
 					WillReturnResult(sqlmock.NewResult(0, 0))
 			},
@@ -217,13 +217,13 @@ func TestUpdateProfile(t *testing.T) {
 			mockExpect: func() {
 				// Simulate an error when getting rows affected
 				mock.ExpectExec(`UPDATE profile SET
-					has_children = \\$2, 
-					has_active_lifestyle = \\$3, 
-					has_lots_of_time = \\$4, 
-					latitude = \\$5, 
-					longitude = \\$6, 
-					nearest_spca = \\$7 
-				WHERE account_id = \\$1`).
+					has_children = \$2, 
+					has_active_lifestyle = \$3, 
+					has_lots_of_time = \$4, 
+					latitude = \$5, 
+					longitude = \$6, 
+					nearest_spca = \$7 
+				WHERE account_id = \$1`).
 					WithArgs(123, true, true, true, 37.7749, -122.4194, "spca-123").
 					WillReturnResult(sqlmock.NewErrorResult(errors.New("rows affected error")))
 			},
@@ -237,7 +237,7 @@ func TestUpdateProfile(t *testing.T) {
 			tt.mockExpect()
 
 			// Call the method under test
-			err := repo.UpdateProfile(context.Background(), tt.profile)
+			err := repo.UpdateProfile(context.Background(), &tt.profile)
 
 			// Assert the expected error
 			if tt.expectedError != nil {

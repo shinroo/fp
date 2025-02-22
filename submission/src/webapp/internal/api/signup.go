@@ -47,6 +47,33 @@ func (s *Server) Signup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	account, err := s.AccountRepo.GetAccountByEmail(r.Context(), req.Email)
+	if err != nil {
+		s.Logger.Error("failed to get account by email", "error:", err)
+		responses.WriteJSON(apimodels.ErrorResponse{
+			Message: "failed to retrieve newly created account",
+		}, http.StatusInternalServerError, w)
+		return
+	}
+
+	spca, err := s.SPCARepo.GetNearest(r.Context(), 0, 0)
+	if err != nil {
+		s.Logger.Error("failed to find nearest SPCA", "error:", err)
+		responses.WriteJSON(apimodels.ErrorResponse{
+			Message: "failed to find nearest SPCA",
+		}, http.StatusInternalServerError, w)
+		return
+	}
+
+	err = s.ProfileRepo.CreateProfile(r.Context(), account.ID, spca.ID)
+	if err != nil {
+		s.Logger.Error("failed to create profile", "error:", err)
+		responses.WriteJSON(apimodels.ErrorResponse{
+			Message: "failed to create profile",
+		}, http.StatusInternalServerError, w)
+		return
+	}
+
 	s.Logger.Info("signup successful")
 
 	responses.WriteJSON(apimodels.SignupResponse{}, http.StatusOK, w)

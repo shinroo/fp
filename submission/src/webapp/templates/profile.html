@@ -1,9 +1,201 @@
 {{define "stylesheets"}}
+<style>
+    .profile-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
 {{end}}
 
 {{define "content"}}
 <h1 class="text-center mb-4">Profile</h1>
+
+<form class="profile-form" id="profile-form">
+    <div>
+        <!-- Do you have children? -->
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="children" id="children">
+                <label class="form-check-label" for="children">Do you have children?</label>
+            </div>
+        </div>
+
+        <!-- Do you lead an active lifestyle? -->
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="activeLifestyle" id="activeLifestyle">
+                <label class="form-check-label" for="activeLifestyle">Do you lead an active lifestyle?</label>
+            </div>
+        </div>
+
+        <!-- Do you have a lot of time to dedicate to your pet? -->
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="timeForPet" id="timeForPet">
+                <label class="form-check-label" for="timeForPet">Do you have a lot of time to dedicate to your
+                    pet?</label>
+            </div>
+        </div>
+
+        <br>
+
+        <!-- Location -->
+        <div class="form-group">
+            <label>Where do you live?</label>
+            <div>
+                <div id="map" style="height:350px; width:480px;"></div>
+                <text-area id="lat" hidden></text-area>
+                <text-area id="lng" hidden></text-area>
+            </div>
+        </div>
+
+        <br>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 {{end}}
 
 {{define "scripts"}}
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+<script>
+    const profileForm = document.getElementById("profile-form");
+
+    const options = {
+        enableHighAccuracy: true, // Use high accuracy if available
+        timeout: 100, // Timeout after 100 milliseconds
+        maximumAge: 0 // Do not use a cached position
+    };
+
+    let latitude = -26.2056;
+    let longitude = 28.0337;
+
+    function renderMap() {
+        let map = L.map('map').setView([latitude, longitude], 13);
+        let my_divicon = L.divIcon({
+            className: 'arrow_box'
+        });
+        let marker = L.marker([latitude, longitude], {
+            draggable: true
+        });
+
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            'attribution': 'Map data, copyright <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        }
+        ).addTo(map);
+
+        function addToTextBox(lt, ln) {
+            document.getElementById('lat').innerHTML = lt;
+            document.getElementById('lng').innerHTML = ln;
+        }
+
+        // adds listener for drag end event
+        marker.on('dragend', function (event) {
+            let marker = event.target;
+            let location = marker.getLatLng();
+            let lat = location.lat;
+            let lon = location.lng;
+            addToTextBox(lat, lon);
+        });
+
+        marker.addTo(map);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Define the URL and data
+        var url = "/api/profile";
+
+        fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": authToken
+            },
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((responseData) => {
+                console.log("Success:", responseData);
+
+                if (responseData.profile.latitude == 0 && responseData.profile.longitude == 0) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            latitude = position.coords.latitude;
+                            longitude = position.coords.longitude;
+                            console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+                            renderMap();
+                        },
+                        (error) => {
+                            console.error("Error getting location:", error);
+                            renderMap();
+                        },
+                        options
+                    );
+                } else {
+                    latitude = responseData.profile.latitude;
+                    longitude = responseData.profile.longitude;
+                    renderMap();
+                }
+
+                document.getElementById("children").checked = responseData.profile.has_children;
+                document.getElementById("activeLifestyle").checked = responseData.profile.has_active_lifestyle;
+                document.getElementById("timeForPet").checked = responseData.profile.has_lots_of_time;
+
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    });
+
+    profileForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        // Define the URL and data
+        var url = "/api/profile";
+        var data = {
+            "has_children": document.getElementById("children").checked,
+            "has_lots_of_time": document.getElementById("timeForPet").checked,
+            "has_active_lifestyle": document.getElementById("activeLifestyle").checked,
+            "latitude": parseFloat(document.getElementById("lat").innerHTML),
+            "longitude": parseFloat(document.getElementById("lng").innerHTML)
+        };
+
+        console.log(data)
+
+        // Send the POST request
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": authToken
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((responseData) => {
+                console.log("Success:", responseData);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    });
+</script>
 {{end}}
