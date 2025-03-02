@@ -78,13 +78,13 @@
     <!-- Bottom Navbar -->
     <nav class="navbar navbar-bottom fixed-bottom">
         <div class="container-fluid d-flex justify-content-around">
-            <a href="/app/search" class="nav-link">
+            <a href="/app/search?sid={{.SessionID}}" class="nav-link">
                 <i class="bi bi-search fs-4"></i>
             </a>
-            <a href="/app/home" class="nav-link">
+            <a href="/app/home?sid={{.SessionID}}" class="nav-link">
                 <i class="bi bi-list fs-4"></i>
             </a>
-            <a href="/app/profile" class="nav-link">
+            <a href="/app/profile?sid={{.SessionID}}" class="nav-link">
                 <i class="bi bi-person fs-4"></i>
             </a>
         </div>
@@ -94,12 +94,12 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script>
-        const authToken = localStorage.getItem("authToken");
+        const authToken = "{{.SessionID}}"; s
 
         document.addEventListener('DOMContentLoaded', function () {
             // If authToken is not present, redirect to /app/login
             if (!authToken) {
-                window.location.href = '/app/login';
+                window.location.href = '/auth/login';
             }
         });
     </script>

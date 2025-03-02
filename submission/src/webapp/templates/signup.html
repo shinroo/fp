@@ -51,7 +51,7 @@
                 if (!response.ok) {
                     console.Error("Network response was not ok");
                 } else {
-                    window.location.href = "/app/login";
+                    window.location.href = "/auth/login";
                 }
             })
             .catch((error) => {
@@ -60,7 +60,7 @@
     });
 
     loginButton.addEventListener("click", () => {
-        window.location.href = "/app/login";
+        window.location.href = "/auth/login";
     });
 </script>
 {{end}}

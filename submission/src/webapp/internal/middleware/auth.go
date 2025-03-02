@@ -1,52 +1,42 @@
 package middleware
 
 import (
+	"context"
 	"errors"
 	"fmt"
+	"log/slog"
 	"net/http"
-	"strconv"
 
-	"github.com/shinroo/fp/src/webapp/internal/headers"
+	"github.com/shinroo/fp/src/webapp/internal/keys"
 	"github.com/shinroo/fp/src/webapp/internal/repository"
-	"github.com/shinroo/fp/src/webapp/pkg/apimodels"
-	"github.com/shinroo/fp/src/webapp/pkg/responses"
 )
 
 func authenticateRequest(r *http.Request, sessionRepo *repository.Session) error {
-	authHeader := r.Header.Get(headers.AuthKey)
+	authHeader := r.URL.Query().Get(keys.SessionID)
 	if authHeader == "" {
-		return errors.New("missing auth header")
+		return errors.New("missing session ID query parameter")
 	}
 
-	userIDHeader := r.Header.Get(headers.UserID)
-	if userIDHeader == "" {
-		return errors.New("missing user ID header")
-	}
-
-	userID, err := strconv.Atoi(userIDHeader)
-	if err != nil {
-		return fmt.Errorf("failed to convert user ID to int: %w", err)
-	}
-
-	session, err := sessionRepo.GetSessionByToken(r.Context(), authHeader)
+	_, err := sessionRepo.GetSessionByToken(r.Context(), authHeader)
 	if err != nil {
 		return fmt.Errorf("failed to get session by token: %w", err)
-	}
-
-	if session.AccountID != userID {
-		return errors.New("user ID does not match session")
 	}
 
 	return nil
 }
 
-func WrapWithAuth(next http.Handler, sessionRepo *repository.Session) http.Handler {
+func WrapWithRedirectAuth(next http.Handler, sessionRepo *repository.Session, logger *slog.Logger) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		logger.Info(
+			"authenticating request",
+			slog.String("path", r.URL.Path),
+			slog.String("sessionID", r.URL.Query().Get(keys.SessionID)),
+		)
 		if err := authenticateRequest(r, sessionRepo); err != nil {
-			responses.WriteJSON(apimodels.ErrorResponse{
-				Message: "Authentication failed",
-			}, http.StatusUnauthorized, w)
+			logger.Error("failed to authenticate request", slog.Any("error", err))
+			http.Redirect(w, r, "/auth/login", http.StatusUnauthorized)
 		}
+		r = r.WithContext(context.WithValue(r.Context(), keys.SessionID, r.URL.Query().Get(keys.SessionID)))
 		next.ServeHTTP(w, r)
 	})
 }
