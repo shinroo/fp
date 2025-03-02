@@ -8,6 +8,7 @@ from airflow.models import Connection
 from airflow.operators.python import PythonOperator
 from airflow.exceptions import AirflowException
 import docker  # Use the Docker SDK directly
+import os
 
 def create_connection():
     session = settings.Session()
@@ -44,6 +45,13 @@ def run_docker_container(image_name: str):
         image=image_name,  # Use the local image
         auto_remove=True,  # Remove the container after it exits
         detach=True,  # Run the container in detached mode
+        environment={
+            "POSTGRES_HOST": "postgres",
+            "POSTGRES_PORT": 5432,
+            "POSTGRES_USER": "spcapetmatchmaker",
+            "POSTGRES_PASSWORD": "spcapetmatchmaker",
+            "POSTGRES_DB": "spcapetmatchmaker"
+        }
     )
 
     # Wait for the container to finish and log its output

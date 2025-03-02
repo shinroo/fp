@@ -1,7 +1,8 @@
 import logging
 import json
 
-from base.common import DogScrapingResult
+from base.common import DogScrapingResult, LifeStage
+from base.dog_repository import DogRepository
 from base.generic_scraper import GenericScraper
 
 from bs4 import BeautifulSoup
@@ -53,6 +54,21 @@ def process_page_source(page_source: str):
 
     data = json.dumps(pet_details, indent=4)
     print(data)
+
+    try:
+        dog_repository = DogRepository()
+    except Exception as e:
+        logging.error(f"Failed to create DogRepository: {e}")
+        return
+
+    for pet_detail in pet_details:
+        life_stage = LifeStage.ADULT
+        if pet_detail["approximate_age"] != "Adult":
+            life_stage = LifeStage.PUPPY
+        try:
+            dog_repository.create(pet_detail["number"], pet_detail["name"], pet_detail["gender"], str(life_stage), pet_detail["image"], "a94b24b0-b832-425e-9ab0-e06e7f9c0502")
+        except Exception as e:
+            logging.error(f"Failed to insert data: {e}")
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
