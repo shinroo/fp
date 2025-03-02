@@ -34,7 +34,8 @@ func WrapWithRedirectAuth(next http.Handler, sessionRepo *repository.Session, lo
 		)
 		if err := authenticateRequest(r, sessionRepo); err != nil {
 			logger.Error("failed to authenticate request", slog.Any("error", err))
-			http.Redirect(w, r, "/auth/login", http.StatusUnauthorized)
+			http.Redirect(w, r, "/auth/login", http.StatusSeeOther)
+			return
 		}
 		r = r.WithContext(context.WithValue(r.Context(), keys.SessionID, r.URL.Query().Get(keys.SessionID)))
 		next.ServeHTTP(w, r)
