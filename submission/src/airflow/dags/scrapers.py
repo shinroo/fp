@@ -89,4 +89,10 @@ with DAG(
         op_kwargs={"image_name": "spca_cape_scraper:latest"}
     )
 
-    acquire_docker_connection >> [amanzimtoti_scraper, cape_scraper]
+    durban_and_coast_scraper = PythonOperator(
+        task_id="durban_and_coast_scraper",
+        python_callable=run_docker_container,
+        op_kwargs={"image_name": "spca_durban_and_coast_scraper:latest"}
+    )
+
+    acquire_docker_connection >> [amanzimtoti_scraper, cape_scraper, durban_and_coast_scraper]

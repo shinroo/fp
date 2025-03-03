@@ -4,6 +4,7 @@ build_base:
 build_scrapers:
 	pushd scrapers/amanzimtoti && make build && popd
 	pushd scrapers/cape && make build && popd
+	pushd scrapers/durban_and_coast && make build && popd
 
 build_webapp:
 	pushd webapp && make build && popd
