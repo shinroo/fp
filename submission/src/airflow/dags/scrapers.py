@@ -83,11 +83,11 @@ with DAG(
         op_kwargs={"image_name": "spca_amanzimtoti_scraper:latest"}
     )
 
-    cape_scraper = PythonOperator(
-        task_id="cape_scraper",
-        python_callable=run_docker_container,
-        op_kwargs={"image_name": "spca_cape_scraper:latest"}
-    )
+    # cape_scraper = PythonOperator(
+    #     task_id="cape_scraper",
+    #     python_callable=run_docker_container,
+    #     op_kwargs={"image_name": "spca_cape_scraper:latest"}
+    # )
 
     durban_and_coast_scraper = PythonOperator(
         task_id="durban_and_coast_scraper",
@@ -95,4 +95,10 @@ with DAG(
         op_kwargs={"image_name": "spca_durban_and_coast_scraper:latest"}
     )
 
-    acquire_docker_connection >> [amanzimtoti_scraper, cape_scraper, durban_and_coast_scraper]
+    lower_south_coast_scraper = PythonOperator(
+        task_id="lower_south_coast_scraper",
+        python_callable=run_docker_container,
+        op_kwargs={"image_name": "spca_lower_south_coast_scraper:latest"}
+    )
+
+    acquire_docker_connection >> [amanzimtoti_scraper, durban_and_coast_scraper, lower_south_coast_scraper]
