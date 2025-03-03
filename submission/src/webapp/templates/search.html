@@ -1,8 +1,55 @@
 {{define "stylesheets"}}
+<style>
+    .search-form-container {
+        width: 80vw;
+    }
+
+    .search-form {
+        width: 100%;
+    }
+</style>
 {{end}}
 
 {{define "content"}}
 <h1 class="text-center mb-4">Search</h1>
+
+<div class="container mt-3 search-form-container">
+    <form class="search-form">
+        <div class="row g-3 align-items-center search-form">
+            <!-- Search Input -->
+            <div class="col-md-6">
+                <label for="searchInput" class="visually-hidden">Search Keywords</label>
+                <input type="text" class="form-control" id="searchInput" placeholder="Enter search keywords">
+            </div>
+
+            <!-- Gender Select -->
+            <div class="col-md-2">
+                <label for="genderSelect" class="visually-hidden">Gender</label>
+                <select class="form-select" id="genderSelect">
+                    <option selected>Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <!-- Life Stage Select -->
+            <div class="col-md-2">
+                <label for="lifeStageSelect" class="visually-hidden">Life Stage</label>
+                <select class="form-select" id="lifeStageSelect">
+                    <option selected>Life Stage</option>
+                    <option value="puppy">Puppy</option>
+                    <option value="adult">Adult</option>
+                    <option value="senior">Senior</option>
+                </select>
+            </div>
+
+            <!-- Submit -->
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
 {{end}}
 
 {{define "scripts"}}
