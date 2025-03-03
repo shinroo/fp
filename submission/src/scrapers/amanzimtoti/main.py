@@ -62,9 +62,9 @@ def process_page_source(page_source: str):
         return
 
     for pet_detail in pet_details:
-        life_stage = LifeStage.ADULT
+        life_stage = LifeStage.ADULT.value
         if pet_detail["approximate_age"] != "Adult":
-            life_stage = LifeStage.PUPPY
+            life_stage = LifeStage.PUPPY.value
         try:
             dog_repository.create(pet_detail["number"], pet_detail["name"], pet_detail["gender"], str(life_stage), pet_detail["image"], "a94b24b0-b832-425e-9ab0-e06e7f9c0502")
         except Exception as e:

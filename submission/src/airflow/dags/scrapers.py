@@ -51,7 +51,8 @@ def run_docker_container(image_name: str):
             "POSTGRES_USER": "spcapetmatchmaker",
             "POSTGRES_PASSWORD": "spcapetmatchmaker",
             "POSTGRES_DB": "spcapetmatchmaker"
-        }
+        },
+        network="spca_pet_matchmaker_default"
     )
 
     # Wait for the container to finish and log its output

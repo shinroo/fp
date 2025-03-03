@@ -27,7 +27,7 @@ class DogRepository:
     def create(self, identifier, name, gender, life_stage, image_url, spca_id):
         insert_query = """
         INSERT INTO dog (identifier, name, gender, life_stage, image_url, spca_id)
-        VALUES (%s, %s, %s, %s, )
+        VALUES (%s, %s, %s, %s, %s, %s)
         ON CONFLICT (identifier) DO NOTHING;
         """
         dog_data = (
