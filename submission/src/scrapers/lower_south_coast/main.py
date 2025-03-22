@@ -72,6 +72,8 @@ def process_page_source(page_source: str):
         if is_valid(pet_data) and len(pet_data['kennel']) == 4:
             data.append(pet_data)
 
+    print(json.dumps(data, indent=4))
+
     try:
         dog_repository = DogRepository()
     except Exception as e:

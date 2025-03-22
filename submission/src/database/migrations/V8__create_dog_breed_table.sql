@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS dog_breed (
     name TEXT PRIMARY KEY,
+    aliases TEXT,
     affectionate_with_family INT,
     good_with_young_children INT,
     good_with_other_dogs INT,
@@ -20,6 +21,7 @@ CREATE TABLE IF NOT EXISTS dog_breed (
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -39,6 +41,7 @@ INSERT INTO
 VALUES
     (
         'Retrievers (Labrador)',
+        'Lab Labrador',
         5,
         5,
         5,
@@ -59,6 +62,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -78,6 +82,7 @@ INSERT INTO
 VALUES
     (
         'French Bulldogs',
+        'Frenchie',
         5,
         5,
         4,
@@ -98,6 +103,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -117,6 +123,7 @@ INSERT INTO
 VALUES
     (
         'German Shepherd Dogs',
+        'GSD Alsatian',
         5,
         5,
         3,
@@ -137,6 +144,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -156,6 +164,7 @@ INSERT INTO
 VALUES
     (
         'Retrievers (Golden)',
+        'Golden',
         5,
         5,
         5,
@@ -176,6 +185,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -195,6 +205,7 @@ INSERT INTO
 VALUES
     (
         'Bulldogs',
+        'Bullie Bully',
         4,
         3,
         3,
@@ -215,6 +226,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -234,6 +246,7 @@ INSERT INTO
 VALUES
     (
         'Poodles',
+        'Poodle',
         5,
         5,
         3,
@@ -254,6 +267,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -273,6 +287,7 @@ INSERT INTO
 VALUES
     (
         'Beagles',
+        '',
         3,
         5,
         5,
@@ -293,6 +308,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -312,6 +328,7 @@ INSERT INTO
 VALUES
     (
         'Rottweilers',
+        'Rotti Rottie',
         5,
         3,
         3,
@@ -332,6 +349,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -351,6 +369,7 @@ INSERT INTO
 VALUES
     (
         'Pointers (German Shorthaired)',
+        'GSP German Shorthaird Pointer',
         5,
         5,
         4,
@@ -371,6 +390,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -390,6 +410,7 @@ INSERT INTO
 VALUES
     (
         'Dachshunds',
+        'Daxi Sausage Dog Daxhund',
         5,
         3,
         4,
@@ -410,6 +431,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -429,6 +451,7 @@ INSERT INTO
 VALUES
     (
         'Pembroke Welsh Corgis',
+        '',
         5,
         3,
         4,
@@ -449,6 +472,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -468,6 +492,7 @@ INSERT INTO
 VALUES
     (
         'Australian Shepherds',
+        'Aussie',
         3,
         5,
         3,
@@ -488,6 +513,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -507,6 +533,7 @@ INSERT INTO
 VALUES
     (
         'Yorkshire Terriers',
+        'Yorkie',
         5,
         5,
         3,
@@ -527,6 +554,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -546,6 +574,7 @@ INSERT INTO
 VALUES
     (
         'Boxers',
+        '',
         4,
         5,
         3,
@@ -566,6 +595,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -585,6 +615,7 @@ INSERT INTO
 VALUES
     (
         'Great Danes',
+        '',
         5,
         3,
         3,
@@ -605,6 +636,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -624,6 +656,7 @@ INSERT INTO
 VALUES
     (
         'Siberian Huskies',
+        'Husky Huskie',
         5,
         5,
         5,
@@ -644,6 +677,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -663,6 +697,7 @@ INSERT INTO
 VALUES
     (
         'Cavalier King Charles Spaniels',
+        '',
         5,
         5,
         5,
@@ -683,6 +718,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -702,6 +738,7 @@ INSERT INTO
 VALUES
     (
         'Doberman Pinschers',
+        'Doberman Pinscher',
         5,
         5,
         3,
@@ -722,6 +759,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -741,6 +779,7 @@ INSERT INTO
 VALUES
     (
         'Miniature Schnauzers',
+        'Schnauzer',
         5,
         5,
         3,
@@ -761,6 +800,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -780,6 +820,7 @@ INSERT INTO
 VALUES
     (
         'Shih Tzu',
+        '',
         5,
         5,
         5,
@@ -800,6 +841,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -819,6 +861,7 @@ INSERT INTO
 VALUES
     (
         'Boston Terriers',
+        '',
         5,
         5,
         4,
@@ -839,6 +882,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -858,6 +902,7 @@ INSERT INTO
 VALUES
     (
         'Bernese Mountain Dogs',
+        'Bernese',
         5,
         5,
         5,
@@ -878,6 +923,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -897,6 +943,7 @@ INSERT INTO
 VALUES
     (
         'Pomeranians',
+        'Pommie Toy Pom',
         5,
         3,
         3,
@@ -917,6 +964,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -936,6 +984,7 @@ INSERT INTO
 VALUES
     (
         'Havanese',
+        '',
         5,
         5,
         5,
@@ -956,6 +1005,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -975,6 +1025,7 @@ INSERT INTO
 VALUES
     (
         'Cane Corso',
+        '',
         4,
         3,
         3,
@@ -995,6 +1046,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1014,6 +1066,7 @@ INSERT INTO
 VALUES
     (
         'Spaniels (English Springer)',
+        '',
         5,
         3,
         4,
@@ -1034,6 +1087,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1053,6 +1107,7 @@ INSERT INTO
 VALUES
     (
         'Shetland Sheepdogs',
+        '',
         5,
         5,
         5,
@@ -1073,6 +1128,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1092,6 +1148,7 @@ INSERT INTO
 VALUES
     (
         'Brittanys',
+        '',
         3,
         4,
         4,
@@ -1112,6 +1169,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1131,6 +1189,7 @@ INSERT INTO
 VALUES
     (
         'Pugs',
+        'Pug',
         5,
         5,
         4,
@@ -1151,6 +1210,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1170,6 +1230,7 @@ INSERT INTO
 VALUES
     (
         'Spaniels (Cocker)',
+        'Cocker Spaniel',
         4,
         5,
         5,
@@ -1190,6 +1251,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1209,6 +1271,7 @@ INSERT INTO
 VALUES
     (
         'Miniature American Shepherds',
+        '',
         5,
         5,
         5,
@@ -1229,6 +1292,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1248,6 +1312,7 @@ INSERT INTO
 VALUES
     (
         'Border Collies',
+        '',
         5,
         3,
         3,
@@ -1268,6 +1333,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1287,6 +1353,7 @@ INSERT INTO
 VALUES
     (
         'Mastiffs',
+        '',
         5,
         5,
         3,
@@ -1307,6 +1374,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1326,6 +1394,7 @@ INSERT INTO
 VALUES
     (
         'Chihuahuas',
+        '',
         4,
         1,
         3,
@@ -1346,6 +1415,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1365,6 +1435,7 @@ INSERT INTO
 VALUES
     (
         'Vizslas',
+        '',
         5,
         5,
         4,
@@ -1385,6 +1456,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1404,6 +1476,7 @@ INSERT INTO
 VALUES
     (
         'Basset Hounds',
+        '',
         3,
         5,
         5,
@@ -1424,6 +1497,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1443,6 +1517,7 @@ INSERT INTO
 VALUES
     (
         'Belgian Malinois',
+        '',
         3,
         3,
         3,
@@ -1463,6 +1538,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1482,6 +1558,7 @@ INSERT INTO
 VALUES
     (
         'Maltese',
+        'Maltese Poodle',
         5,
         3,
         3,
@@ -1502,6 +1579,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1521,6 +1599,7 @@ INSERT INTO
 VALUES
     (
         'Weimaraners',
+        '',
         5,
         5,
         3,
@@ -1541,6 +1620,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1560,6 +1640,7 @@ INSERT INTO
 VALUES
     (
         'Collies',
+        '',
         4,
         5,
         3,
@@ -1580,6 +1661,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1599,6 +1681,7 @@ INSERT INTO
 VALUES
     (
         'Newfoundlands',
+        '',
         5,
         5,
         5,
@@ -1619,6 +1702,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1638,6 +1722,7 @@ INSERT INTO
 VALUES
     (
         'Rhodesian Ridgebacks',
+        '',
         5,
         5,
         3,
@@ -1658,6 +1743,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1677,6 +1763,7 @@ INSERT INTO
 VALUES
     (
         'Shiba Inu',
+        'Shiba',
         5,
         3,
         3,
@@ -1697,6 +1784,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1716,6 +1804,7 @@ INSERT INTO
 VALUES
     (
         'West Highland White Terriers',
+        '',
         5,
         5,
         3,
@@ -1736,6 +1825,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1755,6 +1845,7 @@ INSERT INTO
 VALUES
     (
         'Bichons Frises',
+        '',
         5,
         5,
         5,
@@ -1775,6 +1866,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1794,6 +1886,7 @@ INSERT INTO
 VALUES
     (
         'Bloodhounds',
+        '',
         4,
         3,
         3,
@@ -1814,6 +1907,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1833,6 +1927,7 @@ INSERT INTO
 VALUES
     (
         'Spaniels (English Cocker)',
+        '',
         5,
         5,
         5,
@@ -1853,6 +1948,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1872,6 +1968,7 @@ INSERT INTO
 VALUES
     (
         'Akitas',
+        'Akita Inu',
         3,
         3,
         1,
@@ -1892,6 +1989,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1911,6 +2009,7 @@ INSERT INTO
 VALUES
     (
         'Portuguese Water Dogs',
+        '',
         5,
         5,
         4,
@@ -1931,6 +2030,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1950,6 +2050,7 @@ INSERT INTO
 VALUES
     (
         'Retrievers (Chesapeake Bay)',
+        '',
         4,
         3,
         3,
@@ -1970,6 +2071,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -1989,6 +2091,7 @@ INSERT INTO
 VALUES
     (
         'Dalmatians',
+        '',
         5,
         3,
         3,
@@ -2009,6 +2112,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2028,6 +2132,7 @@ INSERT INTO
 VALUES
     (
         'St. Bernards',
+        '',
         5,
         5,
         3,
@@ -2048,6 +2153,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2067,6 +2173,7 @@ INSERT INTO
 VALUES
     (
         'Papillons',
+        '',
         5,
         5,
         3,
@@ -2087,6 +2194,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2106,6 +2214,7 @@ INSERT INTO
 VALUES
     (
         'Australian Cattle Dogs',
+        '',
         3,
         3,
         3,
@@ -2126,6 +2235,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2145,6 +2255,7 @@ INSERT INTO
 VALUES
     (
         'Bullmastiffs',
+        '',
         4,
         3,
         3,
@@ -2165,6 +2276,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2184,6 +2296,7 @@ INSERT INTO
 VALUES
     (
         'Samoyeds',
+        '',
         5,
         5,
         3,
@@ -2204,6 +2317,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2223,6 +2337,7 @@ INSERT INTO
 VALUES
     (
         'Scottish Terriers',
+        'Scottie, Scotty',
         5,
         3,
         2,
@@ -2243,6 +2358,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2262,6 +2378,7 @@ INSERT INTO
 VALUES
     (
         'Soft Coated Wheaten Terriers',
+        '',
         5,
         5,
         3,
@@ -2282,6 +2399,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2301,6 +2419,7 @@ INSERT INTO
 VALUES
     (
         'Whippets',
+        '',
         5,
         5,
         5,
@@ -2321,6 +2440,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2340,6 +2460,7 @@ INSERT INTO
 VALUES
     (
         'Pointers (German Wirehaired)',
+        'GWP',
         5,
         3,
         3,
@@ -2360,6 +2481,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2379,6 +2501,7 @@ INSERT INTO
 VALUES
     (
         'Chinese Shar-Pei',
+        '',
         4,
         3,
         3,
@@ -2399,6 +2522,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2418,6 +2542,7 @@ INSERT INTO
 VALUES
     (
         'Airedale Terriers',
+        '',
         3,
         3,
         3,
@@ -2438,6 +2563,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2457,6 +2583,7 @@ INSERT INTO
 VALUES
     (
         'Wirehaired Pointing Griffons',
+        '',
         5,
         5,
         3,
@@ -2477,6 +2604,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2496,6 +2624,7 @@ INSERT INTO
 VALUES
     (
         'Bull Terriers',
+        '',
         4,
         3,
         1,
@@ -2516,6 +2645,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2535,6 +2665,7 @@ INSERT INTO
 VALUES
     (
         'Alaskan Malamutes',
+        '',
         3,
         3,
         3,
@@ -2555,6 +2686,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2574,6 +2706,7 @@ INSERT INTO
 VALUES
     (
         'Cardigan Welsh Corgis',
+        '',
         4,
         4,
         3,
@@ -2594,6 +2727,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2613,6 +2747,7 @@ INSERT INTO
 VALUES
     (
         'Giant Schnauzers',
+        '',
         5,
         3,
         3,
@@ -2633,6 +2768,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2652,6 +2788,7 @@ INSERT INTO
 VALUES
     (
         'Old English Sheepdogs',
+        '',
         5,
         5,
         3,
@@ -2672,6 +2809,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2691,6 +2829,7 @@ INSERT INTO
 VALUES
     (
         'Italian Greyhounds',
+        '',
         5,
         3,
         5,
@@ -2711,6 +2850,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2730,6 +2870,7 @@ INSERT INTO
 VALUES
     (
         'Great Pyrenees',
+        '',
         5,
         3,
         3,
@@ -2750,6 +2891,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2769,6 +2911,7 @@ INSERT INTO
 VALUES
     (
         'Dogues de Bordeaux',
+        '',
         5,
         3,
         3,
@@ -2789,6 +2932,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2808,6 +2952,7 @@ INSERT INTO
 VALUES
     (
         'Russell Terriers',
+        'Jack Russel',
         5,
         3,
         5,
@@ -2828,6 +2973,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2847,6 +2993,7 @@ INSERT INTO
 VALUES
     (
         'Cairn Terriers',
+        '',
         4,
         3,
         3,
@@ -2867,6 +3014,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2886,6 +3034,7 @@ INSERT INTO
 VALUES
     (
         'Irish Wolfhounds',
+        '',
         5,
         3,
         4,
@@ -2906,6 +3055,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2925,6 +3075,7 @@ INSERT INTO
 VALUES
     (
         'Setters (Irish)',
+        '',
         5,
         5,
         5,
@@ -2945,6 +3096,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -2964,6 +3116,7 @@ INSERT INTO
 VALUES
     (
         'Greater Swiss Mountain Dogs',
+        '',
         5,
         5,
         3,
@@ -2984,6 +3137,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3003,6 +3157,7 @@ INSERT INTO
 VALUES
     (
         'Miniature Pinschers',
+        '',
         5,
         3,
         4,
@@ -3023,6 +3178,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3042,6 +3198,7 @@ INSERT INTO
 VALUES
     (
         'Lhasa Apsos',
+        '',
         5,
         3,
         3,
@@ -3062,6 +3219,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3081,6 +3239,7 @@ INSERT INTO
 VALUES
     (
         'Chinese Crested',
+        '',
         4,
         3,
         3,
@@ -3101,6 +3260,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3120,6 +3280,7 @@ INSERT INTO
 VALUES
     (
         'Coton de Tulear',
+        '',
         5,
         5,
         5,
@@ -3140,6 +3301,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3159,6 +3321,7 @@ INSERT INTO
 VALUES
     (
         'Staffordshire Bull Terriers',
+        'Staffi Staffie Staffy',
         5,
         5,
         3,
@@ -3179,6 +3342,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3198,6 +3362,7 @@ INSERT INTO
 VALUES
     (
         'American Staffordshire Terriers',
+        '',
         5,
         3,
         3,
@@ -3218,6 +3383,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3237,6 +3403,7 @@ INSERT INTO
 VALUES
     (
         'Rat Terriers',
+        '',
         5,
         5,
         3,
@@ -3257,6 +3424,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3276,6 +3444,7 @@ INSERT INTO
 VALUES
     (
         'Chow Chows',
+        'Chow',
         4,
         3,
         2,
@@ -3296,6 +3465,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3315,6 +3485,7 @@ INSERT INTO
 VALUES
     (
         'Anatolian Shepherd Dogs',
+        '',
         1,
         3,
         3,
@@ -3335,6 +3506,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3354,6 +3526,7 @@ INSERT INTO
 VALUES
     (
         'Basenjis',
+        '',
         3,
         3,
         3,
@@ -3374,6 +3547,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3393,6 +3567,7 @@ INSERT INTO
 VALUES
     (
         'Spaniels (Boykin)',
+        '',
         3,
         5,
         5,
@@ -3413,6 +3588,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3432,6 +3608,7 @@ INSERT INTO
 VALUES
     (
         'Lagotti Romagnoli',
+        '',
         5,
         3,
         5,
@@ -3452,6 +3629,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3471,6 +3649,7 @@ INSERT INTO
 VALUES
     (
         'Brussels Griffons',
+        '',
         4,
         3,
         3,
@@ -3491,6 +3670,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3510,6 +3690,7 @@ INSERT INTO
 VALUES
     (
         'Retrievers (Nova Scotia Duck Tolling)',
+        '',
         5,
         5,
         4,
@@ -3530,6 +3711,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3549,6 +3731,7 @@ INSERT INTO
 VALUES
     (
         'Norwegian Elkhounds',
+        '',
         5,
         3,
         3,
@@ -3569,6 +3752,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3588,6 +3772,7 @@ INSERT INTO
 VALUES
     (
         'Standard Schnauzers',
+        '',
         5,
         5,
         3,
@@ -3608,6 +3793,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3627,6 +3813,7 @@ INSERT INTO
 VALUES
     (
         'Dogo Argentinos',
+        '',
         5,
         3,
         3,
@@ -3647,6 +3834,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3666,6 +3854,7 @@ INSERT INTO
 VALUES
     (
         'Bouviers des Flandres',
+        '',
         3,
         3,
         3,
@@ -3686,6 +3875,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3705,6 +3895,7 @@ INSERT INTO
 VALUES
     (
         'Pekingese',
+        '',
         5,
         3,
         3,
@@ -3725,6 +3916,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3744,6 +3936,7 @@ INSERT INTO
 VALUES
     (
         'Keeshonden',
+        '',
         5,
         5,
         5,
@@ -3764,6 +3957,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3783,6 +3977,7 @@ INSERT INTO
 VALUES
     (
         'Border Terriers',
+        '',
         4,
         5,
         3,
@@ -3803,6 +3998,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3822,6 +4018,7 @@ INSERT INTO
 VALUES
     (
         'Leonbergers',
+        '',
         5,
         5,
         3,
@@ -3842,6 +4039,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3861,6 +4059,7 @@ INSERT INTO
 VALUES
     (
         'Tibetan Terriers',
+        '',
         5,
         3,
         3,
@@ -3881,6 +4080,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3900,6 +4100,7 @@ INSERT INTO
 VALUES
     (
         'Neapolitan Mastiffs',
+        '',
         3,
         3,
         3,
@@ -3920,6 +4121,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3939,6 +4141,7 @@ INSERT INTO
 VALUES
     (
         'Setters (English)',
+        '',
         5,
         4,
         4,
@@ -3959,6 +4162,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -3978,6 +4182,7 @@ INSERT INTO
 VALUES
     (
         'Retrievers (Flat-Coated)',
+        '',
         5,
         5,
         5,
@@ -3998,6 +4203,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4017,6 +4223,7 @@ INSERT INTO
 VALUES
     (
         'Borzois',
+        '',
         3,
         3,
         3,
@@ -4037,6 +4244,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4056,6 +4264,7 @@ INSERT INTO
 VALUES
     (
         'Fox Terriers (Wire)',
+        '',
         5,
         5,
         3,
@@ -4076,6 +4285,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4095,6 +4305,7 @@ INSERT INTO
 VALUES
     (
         'Miniature Bull Terriers',
+        '',
         5,
         3,
         3,
@@ -4115,6 +4326,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4134,6 +4346,7 @@ INSERT INTO
 VALUES
     (
         'Belgian Tervuren',
+        '',
         3,
         3,
         3,
@@ -4154,6 +4367,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4173,6 +4387,7 @@ INSERT INTO
 VALUES
     (
         'Setters (Gordon)',
+        '',
         5,
         3,
         3,
@@ -4193,6 +4408,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4212,6 +4428,7 @@ INSERT INTO
 VALUES
     (
         'Silky Terriers',
+        '',
         5,
         3,
         3,
@@ -4232,6 +4449,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4251,6 +4469,7 @@ INSERT INTO
 VALUES
     (
         'Norwich Terriers',
+        '',
         5,
         5,
         3,
@@ -4271,6 +4490,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4290,6 +4510,7 @@ INSERT INTO
 VALUES
     (
         'Spinoni Italiani',
+        '',
         5,
         3,
         4,
@@ -4310,6 +4531,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4329,6 +4551,7 @@ INSERT INTO
 VALUES
     (
         'Japanese Chin',
+        '',
         5,
         3,
         5,
@@ -4349,6 +4572,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4368,6 +4592,7 @@ INSERT INTO
 VALUES
     (
         'Welsh Terriers',
+        '',
         5,
         5,
         3,
@@ -4388,6 +4613,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4407,6 +4633,7 @@ INSERT INTO
 VALUES
     (
         'Toy Fox Terriers',
+        '',
         5,
         3,
         3,
@@ -4427,6 +4654,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4446,6 +4674,7 @@ INSERT INTO
 VALUES
     (
         'Schipperkes',
+        '',
         5,
         3,
         3,
@@ -4466,6 +4695,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4485,6 +4715,7 @@ INSERT INTO
 VALUES
     (
         'Parson Russell Terriers',
+        '',
         5,
         3,
         5,
@@ -4505,6 +4736,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4524,6 +4756,7 @@ INSERT INTO
 VALUES
     (
         'Pointers',
+        '',
         5,
         3,
         5,
@@ -4544,6 +4777,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4563,6 +4797,7 @@ INSERT INTO
 VALUES
     (
         'Belgian Sheepdogs',
+        '',
         3,
         3,
         3,
@@ -4583,6 +4818,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4602,6 +4838,7 @@ INSERT INTO
 VALUES
     (
         'Tibetan Spaniels',
+        '',
         5,
         5,
         3,
@@ -4622,6 +4859,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4641,6 +4879,7 @@ INSERT INTO
 VALUES
     (
         'American Eskimo Dogs',
+        '',
         5,
         5,
         3,
@@ -4661,6 +4900,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4680,6 +4920,7 @@ INSERT INTO
 VALUES
     (
         'Irish Terriers',
+        '',
         5,
         5,
         1,
@@ -4700,6 +4941,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4719,6 +4961,7 @@ INSERT INTO
 VALUES
     (
         'Beaucerons',
+        '',
         3,
         3,
         3,
@@ -4739,6 +4982,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4758,6 +5002,7 @@ INSERT INTO
 VALUES
     (
         'Afghan Hounds',
+        '',
         3,
         3,
         3,
@@ -4778,6 +5023,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4797,6 +5043,7 @@ INSERT INTO
 VALUES
     (
         'Boerboels',
+        'Boerie',
         5,
         4,
         2,
@@ -4817,6 +5064,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4836,6 +5084,7 @@ INSERT INTO
 VALUES
     (
         'Fox Terriers (Smooth)',
+        '',
         5,
         3,
         3,
@@ -4856,6 +5105,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4875,6 +5125,7 @@ INSERT INTO
 VALUES
     (
         'Bearded Collies',
+        '',
         4,
         5,
         5,
@@ -4895,6 +5146,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4914,6 +5166,7 @@ INSERT INTO
 VALUES
     (
         'Black Russian Terriers',
+        '',
         3,
         3,
         3,
@@ -4934,6 +5187,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4953,6 +5207,7 @@ INSERT INTO
 VALUES
     (
         'Black and Tan Coonhounds',
+        '',
         4,
         5,
         5,
@@ -4973,6 +5228,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -4992,6 +5248,7 @@ INSERT INTO
 VALUES
     (
         'Spaniels (Welsh Springer)',
+        '',
         5,
         5,
         4,
@@ -5012,6 +5269,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5031,6 +5289,7 @@ INSERT INTO
 VALUES
     (
         'American Hairless Terriers',
+        '',
         5,
         5,
         3,
@@ -5051,6 +5310,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5070,6 +5330,7 @@ INSERT INTO
 VALUES
     (
         'Norfolk Terriers',
+        '',
         5,
         5,
         3,
@@ -5090,6 +5351,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5109,6 +5371,7 @@ INSERT INTO
 VALUES
     (
         'Xoloitzcuintli',
+        '',
         5,
         3,
         3,
@@ -5129,6 +5392,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5148,6 +5412,7 @@ INSERT INTO
 VALUES
     (
         'Manchester Terriers',
+        '',
         5,
         4,
         3,
@@ -5168,6 +5433,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5187,6 +5453,7 @@ INSERT INTO
 VALUES
     (
         'Kerry Blue Terriers',
+        '',
         5,
         4,
         2,
@@ -5207,6 +5474,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5226,6 +5494,7 @@ INSERT INTO
 VALUES
     (
         'Australian Terriers',
+        '',
         3,
         5,
         3,
@@ -5246,6 +5515,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5265,6 +5535,7 @@ INSERT INTO
 VALUES
     (
         'Spaniels (Clumber)',
+        '',
         4,
         3,
         3,
@@ -5285,6 +5556,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5304,6 +5576,7 @@ INSERT INTO
 VALUES
     (
         'Lakeland Terriers',
+        '',
         5,
         3,
         3,
@@ -5324,6 +5597,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5343,6 +5617,7 @@ INSERT INTO
 VALUES
     (
         'Bluetick Coonhounds',
+        '',
         3,
         3,
         5,
@@ -5363,6 +5638,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5382,6 +5658,7 @@ INSERT INTO
 VALUES
     (
         'English Toy Spaniels',
+        '',
         5,
         5,
         5,
@@ -5402,6 +5679,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5421,6 +5699,7 @@ INSERT INTO
 VALUES
     (
         'German Pinschers',
+        '',
         5,
         3,
         3,
@@ -5441,6 +5720,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5460,6 +5740,7 @@ INSERT INTO
 VALUES
     (
         'Tibetan Mastiffs',
+        '',
         4,
         3,
         3,
@@ -5480,6 +5761,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5499,6 +5781,7 @@ INSERT INTO
 VALUES
     (
         'Bedlington Terriers',
+        '',
         3,
         3,
         3,
@@ -5519,6 +5802,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5538,6 +5822,7 @@ INSERT INTO
 VALUES
     (
         'Greyhounds',
+        '',
         4,
         3,
         4,
@@ -5558,6 +5843,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5577,6 +5863,7 @@ INSERT INTO
 VALUES
     (
         'Pulik',
+        '',
         5,
         3,
         3,
@@ -5597,6 +5884,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5616,6 +5904,7 @@ INSERT INTO
 VALUES
     (
         'Salukis',
+        '',
         5,
         3,
         3,
@@ -5636,6 +5925,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5655,6 +5945,7 @@ INSERT INTO
 VALUES
     (
         'Barbets',
+        '',
         4,
         5,
         5,
@@ -5675,6 +5966,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5694,6 +5986,7 @@ INSERT INTO
 VALUES
     (
         'Redbone Coonhounds',
+        '',
         5,
         5,
         5,
@@ -5714,6 +6007,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5733,6 +6027,7 @@ INSERT INTO
 VALUES
     (
         'Swedish Vallhunds',
+        '',
         5,
         5,
         3,
@@ -5753,6 +6048,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5772,6 +6068,7 @@ INSERT INTO
 VALUES
     (
         'Sealyham Terriers',
+        '',
         5,
         3,
         3,
@@ -5792,6 +6089,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5811,6 +6109,7 @@ INSERT INTO
 VALUES
     (
         'Spanish Water Dogs',
+        '',
         5,
         4,
         3,
@@ -5831,6 +6130,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5850,6 +6150,7 @@ INSERT INTO
 VALUES
     (
         'Briards',
+        '',
         3,
         3,
         3,
@@ -5870,6 +6171,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5889,6 +6191,7 @@ INSERT INTO
 VALUES
     (
         'Berger Picards',
+        '',
         3,
         3,
         3,
@@ -5909,6 +6212,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5928,6 +6232,7 @@ INSERT INTO
 VALUES
     (
         'Entlebucher Mountain Dogs',
+        '',
         5,
         3,
         5,
@@ -5948,6 +6253,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -5967,6 +6273,7 @@ INSERT INTO
 VALUES
     (
         'Treeing Walker Coonhounds',
+        '',
         5,
         5,
         5,
@@ -5987,6 +6294,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6006,6 +6314,7 @@ INSERT INTO
 VALUES
     (
         'Icelandic Sheepdogs',
+        '',
         5,
         5,
         4,
@@ -6026,6 +6335,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6045,6 +6355,7 @@ INSERT INTO
 VALUES
     (
         'Wirehaired Vizslas',
+        '',
         5,
         5,
         3,
@@ -6065,6 +6376,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6084,6 +6396,7 @@ INSERT INTO
 VALUES
     (
         'Pumik',
+        '',
         5,
         3,
         3,
@@ -6104,6 +6417,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6123,6 +6437,7 @@ INSERT INTO
 VALUES
     (
         'Portuguese Podengo Pequenos',
+        '',
         5,
         5,
         5,
@@ -6143,6 +6458,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6162,6 +6478,7 @@ INSERT INTO
 VALUES
     (
         'Spaniels (American Water)',
+        '',
         3,
         3,
         3,
@@ -6182,6 +6499,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6201,6 +6519,7 @@ INSERT INTO
 VALUES
     (
         'Retrievers (Curly-Coated)',
+        '',
         5,
         5,
         3,
@@ -6221,6 +6540,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6240,6 +6560,7 @@ INSERT INTO
 VALUES
     (
         'Spaniels (Field)',
+        '',
         5,
         5,
         4,
@@ -6260,6 +6581,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6279,6 +6601,7 @@ INSERT INTO
 VALUES
     (
         'Lowchen',
+        '',
         5,
         5,
         3,
@@ -6299,6 +6622,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6318,6 +6642,7 @@ INSERT INTO
 VALUES
     (
         'Nederlandse Kooikerhondjes',
+        '',
         5,
         3,
         3,
@@ -6338,6 +6663,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6357,6 +6683,7 @@ INSERT INTO
 VALUES
     (
         'Affenpinschers',
+        '',
         3,
         3,
         3,
@@ -6377,6 +6704,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6396,6 +6724,7 @@ INSERT INTO
 VALUES
     (
         'Petits Bassets Griffons Vendeens',
+        '',
         4,
         5,
         5,
@@ -6416,6 +6745,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6435,6 +6765,7 @@ INSERT INTO
 VALUES
     (
         'Finnish Lapphunds',
+        '',
         5,
         4,
         3,
@@ -6455,6 +6786,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6474,6 +6806,7 @@ INSERT INTO
 VALUES
     (
         'Scottish Deerhounds',
+        '',
         5,
         3,
         5,
@@ -6494,6 +6827,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6513,6 +6847,7 @@ INSERT INTO
 VALUES
     (
         'Plott Hounds',
+        '',
         5,
         3,
         5,
@@ -6533,6 +6868,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6552,6 +6888,7 @@ INSERT INTO
 VALUES
     (
         'Norwegian Buhunds',
+        '',
         5,
         3,
         3,
@@ -6572,6 +6909,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6591,6 +6929,7 @@ INSERT INTO
 VALUES
     (
         'Glen of Imaal Terriers',
+        '',
         5,
         3,
         3,
@@ -6611,6 +6950,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6630,6 +6970,7 @@ INSERT INTO
 VALUES
     (
         'Setters (Irish Red and White)',
+        '',
         5,
         5,
         5,
@@ -6650,6 +6991,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6669,6 +7011,7 @@ INSERT INTO
 VALUES
     (
         'Ibizan Hounds',
+        '',
         5,
         3,
         5,
@@ -6689,6 +7032,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6708,6 +7052,7 @@ INSERT INTO
 VALUES
     (
         'Spaniels (Sussex)',
+        '',
         5,
         3,
         3,
@@ -6728,6 +7073,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6747,6 +7093,7 @@ INSERT INTO
 VALUES
     (
         'Bergamasco Sheepdogs',
+        '',
         3,
         3,
         3,
@@ -6767,6 +7114,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6786,6 +7134,7 @@ INSERT INTO
 VALUES
     (
         'Spaniels (Irish Water)',
+        '',
         5,
         3,
         3,
@@ -6806,6 +7155,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6825,6 +7175,7 @@ INSERT INTO
 VALUES
     (
         'Polish Lowland Sheepdogs',
+        '',
         5,
         3,
         3,
@@ -6845,6 +7196,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6864,6 +7216,7 @@ INSERT INTO
 VALUES
     (
         'Otterhounds',
+        '',
         5,
         3,
         3,
@@ -6884,6 +7237,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6903,6 +7257,7 @@ INSERT INTO
 VALUES
     (
         'Kuvaszok',
+        '',
         5,
         3,
         3,
@@ -6923,6 +7278,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6942,6 +7298,7 @@ INSERT INTO
 VALUES
     (
         'Komondorok',
+        '',
         5,
         3,
         2,
@@ -6962,6 +7319,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -6981,6 +7339,7 @@ INSERT INTO
 VALUES
     (
         'Cirnechi dell’Etna',
+        '',
         4,
         3,
         4,
@@ -7001,6 +7360,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7020,6 +7380,7 @@ INSERT INTO
 VALUES
     (
         'Pharaoh Hounds',
+        '',
         5,
         3,
         5,
@@ -7040,6 +7401,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7059,6 +7421,7 @@ INSERT INTO
 VALUES
     (
         'Dandie Dinmont Terriers',
+        '',
         4,
         3,
         3,
@@ -7079,6 +7442,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7098,6 +7462,7 @@ INSERT INTO
 VALUES
     (
         'Pyrenean Shepherds',
+        '',
         5,
         3,
         3,
@@ -7118,6 +7483,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7137,6 +7503,7 @@ INSERT INTO
 VALUES
     (
         'Skye Terriers',
+        '',
         5,
         3,
         3,
@@ -7157,6 +7524,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7176,6 +7544,7 @@ INSERT INTO
 VALUES
     (
         'Canaan Dogs',
+        '',
         3,
         3,
         3,
@@ -7196,6 +7565,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7215,6 +7585,7 @@ INSERT INTO
 VALUES
     (
         'American English Coonhounds',
+        '',
         3,
         3,
         5,
@@ -7235,6 +7606,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7254,6 +7626,7 @@ INSERT INTO
 VALUES
     (
         'Chinooks',
+        '',
         4,
         5,
         5,
@@ -7274,6 +7647,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7293,6 +7667,7 @@ INSERT INTO
 VALUES
     (
         'Finnish Spitz',
+        '',
         5,
         5,
         4,
@@ -7313,6 +7688,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7332,6 +7708,7 @@ INSERT INTO
 VALUES
     (
         'Grand Basset Griffon Vendeens',
+        '',
         5,
         3,
         4,
@@ -7352,6 +7729,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7371,6 +7749,7 @@ INSERT INTO
 VALUES
     (
         'Sloughis',
+        '',
         4,
         3,
         3,
@@ -7391,6 +7770,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7410,6 +7790,7 @@ INSERT INTO
 VALUES
     (
         'Harriers',
+        '',
         5,
         5,
         5,
@@ -7430,6 +7811,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7449,6 +7831,7 @@ INSERT INTO
 VALUES
     (
         'Cesky Terriers',
+        '',
         4,
         5,
         3,
@@ -7469,6 +7852,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7488,6 +7872,7 @@ INSERT INTO
 VALUES
     (
         'American Foxhounds',
+        '',
         3,
         5,
         5,
@@ -7508,6 +7893,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7527,6 +7913,7 @@ INSERT INTO
 VALUES
     (
         'Azawakhs',
+        '',
         3,
         3,
         3,
@@ -7547,6 +7934,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7566,6 +7954,7 @@ INSERT INTO
 VALUES
     (
         'English Foxhounds',
+        '',
         5,
         5,
         5,
@@ -7586,6 +7975,7 @@ VALUES
 INSERT INTO
     dog_breed (
         name,
+        aliases,
         affectionate_with_family,
         good_with_young_children,
         good_with_other_dogs,
@@ -7605,6 +7995,7 @@ INSERT INTO
 VALUES
     (
         'Norwegian Lundehunds',
+        '',
         3,
         3,
         3,
@@ -7621,3 +8012,41 @@ VALUES
         3,
         3
     ) ON CONFLICT (name) DO NOTHING;
+
+INSERT INTO dog_breed (
+    name,
+    aliases,
+    affectionate_with_family,
+    good_with_young_children,
+    good_with_other_dogs,
+    shedding_level,
+    coat_grooming_frequency,
+    drooling_level,
+    coat_length,
+    openness_to_strangers,
+    playfulness_level,
+    watchdog_protective_nature,
+    adaptability_level,
+    trainability_level,
+    energy_level,
+    barking_level,
+    mental_stimulation_needs
+) VALUES (
+    'Africanis',
+    'African Dog Bantu Dog Hottentot Hunting Dog',
+    4,
+    4,
+    4,
+    2,
+    2,
+    1,
+    2,
+    4,
+    4,
+    3,
+    5,
+    4,
+    4,
+    3,
+    3
+);

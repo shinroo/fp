@@ -4,6 +4,8 @@ import json
 from base.common import DogScrapingResult, LifeStage
 from base.dog_repository import DogRepository
 from base.generic_scraper import GenericScraper
+from base.dog_breed_repository import DogBreedRepository
+from base.breed_identifier import BreedIdentifier
 
 from bs4 import BeautifulSoup
 
@@ -23,6 +25,9 @@ def process_page_source(page_source: str):
         images.append(f"https://www.spcatoti.co.za/{img_anchor_tag['href']}")
         ref_numbers.append(img_anchor_tag['title'])
 
+    dog_breed_repository = DogBreedRepository()
+    breed_identifier = BreedIdentifier(dog_breed_repository.get_all())
+
     # Find corresponding pet details:
     pet_details = []
     for image, ref_number in zip(images, ref_numbers):
@@ -37,6 +42,8 @@ def process_page_source(page_source: str):
             # Check if the parent <table> element was found
             if parent_table:
                 data_tds = parent_table.find_all('td')
+                identified_breed_name = breed_identifier.identify(data_tds[7].text)
+                identified_breed = breed_identifier.get_breed_by_name(identified_breed_name)
 
                 details = {
                     "number": ref_number,
@@ -44,7 +51,9 @@ def process_page_source(page_source: str):
                     "breed": data_tds[7].text,
                     "approximate_age": data_tds[9].text,
                     "gender": data_tds[11].text,
-                    "image": image
+                    "image": image,
+                    "identified_breed": identified_breed.name,
+                    "identified_breed_vector": identified_breed.to_pgvector()
                 }
                 pet_details.append(details)
             else:
