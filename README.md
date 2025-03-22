@@ -15,3 +15,6 @@ The overall architecture is as follows:
 ## Dev Sources
 1. Base image for scrapers: https://hub.docker.com/r/infologistix/docker-selenium-python
 2. Similarity metric: https://en.wikipedia.org/wiki/Jaccard_index
+
+## Data Sources
+1. https://github.com/kkakey/dog_traits_AKC/blob/main/data/breed_traits.csv
