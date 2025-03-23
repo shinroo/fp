@@ -55,7 +55,7 @@
             .then((responseData) => {
                 console.log("Success:", responseData);
                 localStorage.setItem("authToken", responseData.token);
-                window.location.href = `/app/home?sid=${responseData.token}`;
+                window.location.href = `/app/explore?sid=${responseData.token}`;
             })
             .catch((error) => {
                 console.error("Error:", error);

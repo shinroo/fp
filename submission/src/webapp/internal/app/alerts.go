@@ -6,8 +6,8 @@ import (
 	"github.com/shinroo/fp/src/webapp/internal/keys"
 )
 
-func (s *Server) Home(w http.ResponseWriter, r *http.Request) {
-	renderAppTemplate(w, "home", map[string]any{
+func (s *Server) Alerts(w http.ResponseWriter, r *http.Request) {
+	renderAppTemplate(w, "alerts", map[string]any{
 		"SessionID": r.Context().Value(keys.SessionID),
 	})
 }

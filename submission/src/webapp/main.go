@@ -49,8 +49,8 @@ func main() {
 	authRouter.HandleFunc("/auth/signup", authServer.Signup)
 	apiRouter.HandleFunc("/api/signup", apiServer.Signup)
 
-	// home
-	appRouter.HandleFunc("/app/home", appServer.Home)
+	// explore
+	appRouter.HandleFunc("/app/explore", appServer.Explore)
 
 	// profile
 	appRouter.HandleFunc("/app/profile", appServer.Profile)
@@ -59,6 +59,9 @@ func main() {
 	// search
 	appRouter.HandleFunc("/app/search", appServer.Search)
 	apiRouter.HandleFunc("/api/search", apiServer.Search)
+
+	// alerts
+	appRouter.HandleFunc("/app/alerts", appServer.Alerts)
 
 	authenticatedAppRouter := middleware.WrapWithRedirectAuth(appRouter, sessionRepo, slog.Default())
 
