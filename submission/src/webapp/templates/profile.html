@@ -17,29 +17,94 @@
 
 <form class="profile-form" id="profile-form">
     <div>
-        <!-- Do you have children? -->
+        <!-- Affectionate with family -->
         <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="children" id="children">
-                <label class="form-check-label" for="children">Do you have children?</label>
-            </div>
+            <label for="affectionateWithFamily" class="form-label">Affectionate with family</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="affectionateWithFamily">
         </div>
 
-        <!-- Do you lead an active lifestyle? -->
+        <!-- Good with young children -->
         <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="activeLifestyle" id="activeLifestyle">
-                <label class="form-check-label" for="activeLifestyle">Do you lead an active lifestyle?</label>
-            </div>
+            <label for="goodWithYoungChildren" class="form-label">Good with young children</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="goodWithYoungChildren">
         </div>
 
-        <!-- Do you have a lot of time to dedicate to your pet? -->
+        <!-- Good with other dogs -->
         <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="timeForPet" id="timeForPet">
-                <label class="form-check-label" for="timeForPet">Do you have a lot of time to dedicate to your
-                    pet?</label>
-            </div>
+            <label for="goodWithOtherDogs" class="form-label">Good with other dogs</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="goodWithOtherDogs">
+        </div>
+
+        <!-- Shedding level -->
+        <div class="form-group">
+            <label for="sheddingLevel" class="form-label">Shedding level</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="sheddingLevel">
+        </div>
+
+        <!-- Coat grooming frequency -->
+        <div class="form-group">
+            <label for="coatGroomingFrequency" class="form-label">Coat grooming frequency</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="coatGroomingFrequency">
+        </div>
+
+        <!-- Drooling level -->
+        <div class="form-group">
+            <label for="droolingLevel" class="form-label">Drooling level</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="droolingLevel">
+        </div>
+
+        <!-- Coat length -->
+        <div class="form-group">
+            <label for="coatLength" class="form-label">Coat length</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="coatLength">
+        </div>
+
+        <!-- Openness to strangers -->
+        <div class="form-group">
+            <label for="opennessToStrangers" class="form-label">Openness to strangers</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="opennessToStrangers">
+        </div>
+
+        <!-- Playfulness level -->
+        <div class="form-group">
+            <label for="playfulnessLevel" class="form-label">Playfulness level</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="playfulnessLevel">
+        </div>
+
+        <!-- Watchdog/protective nature -->
+        <div class="form-group">
+            <label for="watchdogProtectiveNature" class="form-label">Watchdog/protective nature</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="watchdogProtectiveNature">
+        </div>
+
+        <!-- Adaptability level -->
+        <div class="form-group">
+            <label for="adaptabilityLevel" class="form-label">Adaptability level</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="adaptabilityLevel">
+        </div>
+
+        <!-- Trainability level -->
+        <div class="form-group">
+            <label for="trainabilityLevel" class="form-label">Trainability level</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="trainabilityLevel">
+        </div>
+
+        <!-- Energy level -->
+        <div class="form-group">
+            <label for="energyLevel" class="form-label">Energy level</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="energyLevel">
+        </div>
+
+        <!-- Barking level -->
+        <div class="form-group">
+            <label for="barkingLevel" class="form-label">Barking level</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="barkingLevel">
+        </div>
+
+        <!-- Mental stimulation level -->
+        <div class="form-group">
+            <label for="mentalStimulationNeeds" class="form-label">Mental stimulation needs</label>
+            <input type="range" class="form-range" min="1" max="5" step="1" id="mentalStimulationNeeds">
         </div>
 
         <br>
@@ -150,10 +215,21 @@
                     renderMap();
                 }
 
-                document.getElementById("children").checked = responseData.profile.has_children;
-                document.getElementById("activeLifestyle").checked = responseData.profile.has_active_lifestyle;
-                document.getElementById("timeForPet").checked = responseData.profile.has_lots_of_time;
-
+                document.getElementById("affectionateWithFamily").value = responseData.profile.affectionate_with_family;
+                document.getElementById("goodWithYoungChildren").value = responseData.profile.good_with_young_children;
+                document.getElementById("goodWithOtherDogs").value = responseData.profile.good_with_other_dogs;
+                document.getElementById("sheddingLevel").value = responseData.profile.shedding_level;
+                document.getElementById("coatGroomingFrequency").value = responseData.profile.coat_grooming_frequency;
+                document.getElementById("droolingLevel").value = responseData.profile.drooling_level;
+                document.getElementById("coatLength").value = responseData.profile.coat_length;
+                document.getElementById("opennessToStrangers").value = responseData.profile.openness_to_strangers;
+                document.getElementById("playfulnessLevel").value = responseData.profile.playfulness_level;
+                document.getElementById("watchdogProtectiveNature").value = responseData.profile.watchdog_protective_nature;
+                document.getElementById("adaptabilityLevel").value = responseData.profile.adaptability_level;
+                document.getElementById("trainabilityLevel").value = responseData.profile.trainability_level;
+                document.getElementById("energyLevel").value = responseData.profile.energy_level;
+                document.getElementById("barkingLevel").value = responseData.profile.barking_level;
+                document.getElementById("mentalStimulationNeeds").value = responseData.profile.mental_stimulation_needs;
             })
             .catch((error) => {
                 console.error("Error:", error);
@@ -166,9 +242,21 @@
         // Define the URL and data
         var url = "/api/profile";
         var data = {
-            "has_children": document.getElementById("children").checked,
-            "has_lots_of_time": document.getElementById("timeForPet").checked,
-            "has_active_lifestyle": document.getElementById("activeLifestyle").checked,
+            "affectionate_with_family": parseInt(document.getElementById("affectionateWithFamily").value),
+            "good_with_young_children": parseInt(document.getElementById("goodWithYoungChildren").value),
+            "good_with_other_dogs": parseInt(document.getElementById("goodWithOtherDogs").value),
+            "shedding_level": parseInt(document.getElementById("sheddingLevel").value),
+            "coat_grooming_frequency": parseInt(document.getElementById("coatGroomingFrequency").value),
+            "drooling_level": parseInt(document.getElementById("droolingLevel").value),
+            "coat_length": parseInt(document.getElementById("coatLength").value),
+            "openness_to_strangers": parseInt(document.getElementById("opennessToStrangers").value),
+            "playfulness_level": parseInt(document.getElementById("playfulnessLevel").value),
+            "watchdog_protective_nature": parseInt(document.getElementById("watchdogProtectiveNature").value),
+            "adaptability_level": parseInt(document.getElementById("adaptabilityLevel").value),
+            "trainability_level": parseInt(document.getElementById("trainabilityLevel").value),
+            "energy_level": parseInt(document.getElementById("energyLevel").value),
+            "barking_level": parseInt(document.getElementById("barkingLevel").value),
+            "mental_stimulation_needs": parseInt(document.getElementById("mentalStimulationNeeds").value),
             "latitude": parseFloat(document.getElementById("lat").textContent),
             "longitude": parseFloat(document.getElementById("lng").textContent)
         };

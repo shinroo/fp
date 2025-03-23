@@ -17,7 +17,7 @@ func NewProfile(db *sqlx.DB) *Profile {
 }
 
 func (r *Profile) CreateProfile(ctx context.Context, accountID int, nearestSPCAID string) error {
-	res, err := r.db.ExecContext(ctx, "INSERT INTO profile (account_id, has_children, has_active_lifestyle, has_lots_of_time, latitude, longitude, nearest_spca) VALUES ($1, false, false, false, 0, 0, $2)", accountID, nearestSPCAID)
+	res, err := r.db.ExecContext(ctx, "INSERT INTO profile (account_id, latitude, longitude, nearest_spca) VALUES ($1, 0, 0, $2)", accountID, nearestSPCAID)
 	if err != nil {
 		return fmt.Errorf("failed to insert profile: %w", err)
 	}
@@ -36,20 +36,45 @@ func (r *Profile) CreateProfile(ctx context.Context, accountID int, nearestSPCAI
 
 func (r *Profile) UpdateProfile(ctx context.Context, profile *models.Profile) error {
 	res, err := r.db.ExecContext(ctx, `UPDATE profile SET
-			has_children = $2, 
-			has_active_lifestyle = $3, 
-			has_lots_of_time = $4, 
-			latitude = $5, 
-			longitude = $6, 
-			nearest_spca = $7 
+			latitude = $2, 
+			longitude = $3, 
+			nearest_spca = $4,
+			affectionate_with_family = $5,
+			good_with_young_children = $6,
+			good_with_other_dogs = $7,
+			shedding_level = $8,
+			coat_grooming_frequency = $9,
+			drooling_level = $10,
+			coat_length = $11,
+			openness_to_strangers = $12,
+			playfulness_level = $13,
+			watchdog_protective_nature = $14,
+			adaptability_level = $15,
+			trainability_level = $16,
+			energy_level = $17,
+			barking_level = $18,
+			mental_stimulation_needs = $19 
 		WHERE account_id = $1;`,
 		profile.AccountID,
-		profile.HasChildren,
-		profile.HasActiveLifestyle,
-		profile.HasLotsOfTime,
 		profile.Latitude,
 		profile.Longitude,
-		profile.NearestSPCAID)
+		profile.NearestSPCAID,
+		profile.AffectionateWithFamily,
+		profile.GoodWithYoungChildren,
+		profile.GoodWithOtherDogs,
+		profile.SheddingLevel,
+		profile.CoatGroomingFrequency,
+		profile.DroolingLevel,
+		profile.CoatLength,
+		profile.OpennessToStrangers,
+		profile.PlayfulnessLevel,
+		profile.WatchdogProtectiveNature,
+		profile.AdaptabilityLevel,
+		profile.TrainabilityLevel,
+		profile.EnergyLevel,
+		profile.BarkingLevel,
+		profile.MentalStimulationNeeds,
+	)
 	if err != nil {
 		return fmt.Errorf("failed to update profile: %w", err)
 	}

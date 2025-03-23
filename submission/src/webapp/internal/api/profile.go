@@ -71,9 +71,21 @@ func (s *Server) updateProfile(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	profile.HasChildren = req.HasChildren
-	profile.HasActiveLifestyle = req.HasActiveLifestyle
-	profile.HasLotsOfTime = req.HasLotsOfTime
+	profile.AffectionateWithFamily = req.AffectionateWithFamily
+	profile.GoodWithYoungChildren = req.GoodWithYoungChildren
+	profile.GoodWithOtherDogs = req.GoodWithOtherDogs
+	profile.SheddingLevel = req.SheddingLevel
+	profile.CoatGroomingFrequency = req.CoatGroomingFrequency
+	profile.DroolingLevel = req.DroolingLevel
+	profile.CoatLength = req.CoatLength
+	profile.OpennessToStrangers = req.OpennessToStrangers
+	profile.PlayfulnessLevel = req.PlayfulnessLevel
+	profile.WatchdogProtectiveNature = req.WatchdogProtectiveNature
+	profile.AdaptabilityLevel = req.AdaptabilityLevel
+	profile.TrainabilityLevel = req.TrainabilityLevel
+	profile.EnergyLevel = req.EnergyLevel
+	profile.BarkingLevel = req.BarkingLevel
+	profile.MentalStimulationNeeds = req.MentalStimulationNeeds
 	profile.Latitude = req.Latitude
 	profile.Longitude = req.Longitude
 
