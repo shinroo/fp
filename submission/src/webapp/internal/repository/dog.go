@@ -47,7 +47,14 @@ func (f DogGenderFilter) GetValue() interface{} {
 }
 
 func (r *Dog) Search(ctx context.Context, searchKeyword string, filters []DogSearchFilter) ([]*models.Dog, error) {
-	query := `SELECT * FROM dog
+	query := `SELECT
+	dog.identifier AS identifier,
+	dog.name AS name,
+	dog.gender AS gender,
+	dog.life_stage AS life_stage,
+	dog.image_url AS image_url,
+	spca.id AS spca_id
+	FROM dog
 	LEFT JOIN spca ON dog.spca_id = spca.id
 	WHERE dog.name ILIKE '%' || ? || '%'
 	OR spca.name ILIKE '%' || ? || '%'`
@@ -71,6 +78,9 @@ func (r *Dog) Search(ctx context.Context, searchKeyword string, filters []DogSea
 	}
 
 	query = r.db.Rebind(query)
+
+	fmt.Println("query:", query)
+
 	err = r.db.SelectContext(ctx, &dogs, query, args...)
 	if err != nil {
 		return nil, fmt.Errorf("failed to search for dogs: failed to select context: %w", err)

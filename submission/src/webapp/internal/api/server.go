@@ -12,6 +12,7 @@ type Server struct {
 	SessionRepo *repository.Session
 	ProfileRepo *repository.Profile
 	SPCARepo    *repository.SPCA
+	DogRepo     *repository.Dog
 }
 
 func NewServer(
@@ -19,6 +20,7 @@ func NewServer(
 	SessionRepo *repository.Session,
 	ProfileRepo *repository.Profile,
 	SPCARepo *repository.SPCA,
+	DogRepo *repository.Dog,
 ) *Server {
 	return &Server{
 		Logger:      slog.Default(),
@@ -26,5 +28,6 @@ func NewServer(
 		SessionRepo: SessionRepo,
 		ProfileRepo: ProfileRepo,
 		SPCARepo:    SPCARepo,
+		DogRepo:     DogRepo,
 	}
 }

@@ -25,13 +25,20 @@ func main() {
 	sessionRepo := repository.NewSession(dbConn)
 	profileRepo := repository.NewProfile(dbConn)
 	spcaRepo := repository.NewSPCA(dbConn)
+	dogRepo := repository.NewDog(dbConn)
 
 	appRouter := http.NewServeMux()
 	apiRouter := http.NewServeMux()
 	authRouter := http.NewServeMux()
 
 	appServer := app.NewServer(profileRepo)
-	apiServer := api.NewServer(accountRepo, sessionRepo, profileRepo, spcaRepo)
+	apiServer := api.NewServer(
+		accountRepo,
+		sessionRepo,
+		profileRepo,
+		spcaRepo,
+		dogRepo,
+	)
 	authServer := auth.NewServer()
 
 	// login
@@ -51,6 +58,7 @@ func main() {
 
 	// search
 	appRouter.HandleFunc("/app/search", appServer.Search)
+	apiRouter.HandleFunc("/api/search", apiServer.Search)
 
 	authenticatedAppRouter := middleware.WrapWithRedirectAuth(appRouter, sessionRepo, slog.Default())
 

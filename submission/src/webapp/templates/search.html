@@ -14,7 +14,7 @@
 <h1 class="text-center mb-4">Search</h1>
 
 <div class="container mt-3 search-form-container">
-    <form class="search-form">
+    <form class="search-form" id="search-form">
         <div class="row g-3 align-items-center search-form">
             <!-- Search Input -->
             <div class="col-md-6">
@@ -49,8 +49,99 @@
             </div>
         </div>
     </form>
+
+    <div id="search-results">
+
+    </div>
 </div>
 {{end}}
 
 {{define "scripts"}}
+<script>
+    const searchForm = document.getElementById("search-form");
+
+    searchForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        // Define the URL and data
+        var url = "/api/search";
+        var data = {
+            "keywords": document.getElementById("searchInput").value,
+        };
+
+        // Handle optional life stage filter
+        if (
+            document.getElementById("lifeStageSelect").value == "Puppy" ||
+            document.getElementById("lifeStageSelect").value == "Adult" ||
+            document.getElementById("lifeStageSelect").value == "Senior"
+        ) {
+            data["life_stage"] = document.getElementById("lifeStageSelect").value;
+        }
+
+        // Handle optional gender filter
+        if (
+            document.getElementById("genderSelect").value == "Male" ||
+            document.getElementById("genderSelect").value == "Female"
+        ) {
+            data["gender"] = document.getElementById("genderSelect").value;
+        }
+
+        console.log(data)
+
+        // Send the POST request
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": authToken
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((responseData) => {
+                console.log("Success:", responseData);
+
+                // Display the search results
+                const searchResults = document.getElementById("search-results");
+                searchResults.innerHTML = "";
+
+                responseData.results.forEach((result) => {
+                    const petCard = document.createElement("div");
+                    petCard.classList.add("card", "mb-3");
+
+                    const petCardImage = document.createElement("img");
+                    petCardImage.classList.add("card-img-top");
+                    petCardImage.src = result.image_url;
+                    petCardImage.alt = result.name;
+                    petCardImage.style.height = "300px";
+                    petCard.appendChild(petCardImage);
+
+                    const petCardBody = document.createElement("div");
+                    petCardBody.classList.add("card-body");
+
+                    const petCardTitle = document.createElement("h5");
+                    petCardTitle.classList.add("card-title");
+                    petCardTitle.textContent = result.name;
+                    petCardBody.appendChild(petCardTitle);
+
+                    const petCardText = document.createElement("p");
+                    petCardText.classList.add("card-text");
+                    petCardText.textContent = result.life_stage;
+                    petCardBody.appendChild(petCardText);
+
+                    petCard.appendChild(petCardBody);
+
+                    searchResults.appendChild(petCard);
+                });
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    });
+</script>
 {{end}}
