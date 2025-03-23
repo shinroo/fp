@@ -78,17 +78,21 @@
     <!-- Bottom Navbar -->
     <nav class="navbar navbar-bottom fixed-bottom">
         <div class="container-fluid d-flex justify-content-around">
-            <a href="/app/search?sid={{.SessionID}}" class="nav-link">
-                <i class="bi bi-search fs-4"></i>
+            <a href="/app/search?sid={{.SessionID}}" class="nav-link text-center">
+                <i class="bi bi-search fs-4 d-block"></i>
+                <span class="small">Search</span>
             </a>
-            <a href="/app/explore?sid={{.SessionID}}" class="nav-link">
-                <i class="bi bi-list fs-4"></i>
+            <a href="/app/explore?sid={{.SessionID}}" class="nav-link text-center">
+                <i class="bi bi-list fs-4 d-block"></i>
+                <span class="small">Explore</span>
             </a>
-            <a href="/app/profile?sid={{.SessionID}}" class="nav-link">
-                <i class="bi bi-person fs-4"></i>
+            <a href="/app/profile?sid={{.SessionID}}" class="nav-link text-center">
+                <i class="bi bi-person fs-4 d-block"></i>
+                <span class="small">Profile</span>
             </a>
-            <a href="/app/alerts?sid={{.SessionID}}" class="nav-link">
-                <i class="bi bi-bell fs-4"></i>
+            <a href="/app/alerts?sid={{.SessionID}}" class="nav-link text-center">
+                <i class="bi bi-bell fs-4 d-block"></i>
+                <span class="small">Alerts</span>
             </a>
         </div>
     </nav>

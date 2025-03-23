@@ -56,8 +56,8 @@ func (r *Dog) Search(ctx context.Context, searchKeyword string, filters []DogSea
 	spca.id AS spca_id
 	FROM dog
 	LEFT JOIN spca ON dog.spca_id = spca.id
-	WHERE dog.name ILIKE '%' || ? || '%'
-	OR spca.name ILIKE '%' || ? || '%'`
+	WHERE (dog.name ILIKE '%' || ? || '%'
+	OR spca.name ILIKE '%' || ? || '%')`
 
 	args := []interface{}{searchKeyword, searchKeyword}
 
