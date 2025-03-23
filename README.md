@@ -17,4 +17,5 @@ The overall architecture is as follows:
 2. Similarity metric: https://en.wikipedia.org/wiki/Jaccard_index
 
 ## Data Sources
-1. https://github.com/kkakey/dog_traits_AKC/blob/main/data/breed_traits.csv
+1. American kennel club dataset: https://github.com/kkakey/dog_traits_AKC/blob/main/data/breed_traits.csv
+2. Africanis data: https://wagwalking.com/breed/africanis
