@@ -21,95 +21,221 @@
             <div class="card-body">
                 <h5 class="card-title">Dog preferences</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Please describe your ideal dog</h6>
+
+                <hr>
+
                 <!-- Affectionate with family -->
                 <div class="form-group">
-                    <label for="affectionateWithFamily" class="form-label">Affectionate with family</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="affectionateWithFamily">
+                    <label for="affectionateWithFamily" class="form-label">
+                        <strong>Affectionate with family</strong>
+                    </label>
+
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Not affectionate</span>
+                        <input type="range" class="form-range" min="1" max="5" step="1" id="affectionateWithFamily">
+                        <span class="ms-2">Very affectionate</span>
+                    </div>
                 </div>
+
+                <br>
 
                 <!-- Good with young children -->
                 <div class="form-group">
-                    <label for="goodWithYoungChildren" class="form-label">Good with young children</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="goodWithYoungChildren">
+                    <label for="goodWithYoungChildren" class="form-label">
+                        <strong>Good with other children</strong>
+                    </label>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Not good with children</span>
+                        <input type="range" class="form-range" min="1" max="5" step="1" id="goodWithYoungChildren">
+                        <span class="ms-2">Great with children</span>
+                    </div>
                 </div>
+
+                <br>
 
                 <!-- Good with other dogs -->
                 <div class="form-group">
-                    <label for="goodWithOtherDogs" class="form-label">Good with other dogs</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="goodWithOtherDogs">
+                    <label for="goodWithOtherDogs" class="form-label">
+                        <strong>Good with other dogs</strong>
+                    </label>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Doesn't like other dogs</span>
+                        <input type="range" class="form-range" min="1" max="5" step="1" id="goodWithOtherDogs">
+                        <span class="ms-2">Loves other dogs</span>
+                    </div>
                 </div>
+
+                <br>
 
                 <!-- Shedding level -->
                 <div class="form-group">
-                    <label for="sheddingLevel" class="form-label">Shedding level</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="sheddingLevel">
+                    <label for="sheddingLevel" class="form-label">
+                        <strong>Shedding level</strong>
+                    </label>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Hardly sheds</span>
+                        <input type="range" class="form-range" min="1" max="5" step="1" id="sheddingLevel">
+                        <span class="ms-2">Sheds a lot</span>
+                    </div>
                 </div>
+
+                <br>
 
                 <!-- Coat grooming frequency -->
                 <div class="form-group">
-                    <label for="coatGroomingFrequency" class="form-label">Coat grooming frequency</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="coatGroomingFrequency">
+                    <label for="coatGroomingFrequency" class="form-label">
+                        <strong>Coat grooming frequency</strong>
+                    </label>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Infrequent grooming sufficient</span>
+                        <input type="range" class="form-range" min="1" max="5" step="1" id="coatGroomingFrequency">
+                        <span class="ms-2">Frequent grooming required</span>
+                    </div>
                 </div>
+
+                <br>
 
                 <!-- Drooling level -->
                 <div class="form-group">
-                    <label for="droolingLevel" class="form-label">Drooling level</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="droolingLevel">
+                    <label for="droolingLevel" class="form-label">
+                        <strong>Drooling level</strong>
+                    </label>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Doesn't drool much</span>
+                        <input type="range" class="form-range" min="1" max="5" step="1" id="droolingLevel">
+                        <span class="ms-2">Slobbering</span>
+                    </div>
                 </div>
+
+                <br>
 
                 <!-- Coat length -->
                 <div class="form-group">
-                    <label for="coatLength" class="form-label">Coat length</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="coatLength">
+                    <label for="coatLength" class="form-label">
+                        <strong>Coat length</strong>
+                    </label>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Short haired</span>
+                        <input type="range" class="form-range" min="1" max="5" step="1" id="coatLength">
+                        <span class="ms-2">Long haired</span>
+                    </div>
                 </div>
+
+                <br>
 
                 <!-- Openness to strangers -->
                 <div class="form-group">
-                    <label for="opennessToStrangers" class="form-label">Openness to strangers</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="opennessToStrangers">
+                    <label for="opennessToStrangers" class="form-label">
+                        <strong>Openness to strangers</strong>
+                    </label>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Not open to strangers</span>
+                        <input type="range" class="form-range" min="1" max="5" step="1" id="opennessToStrangers">
+                        <span class="ms-2">Open to strangers</span>
+                    </div>
                 </div>
+
+                <br>
 
                 <!-- Playfulness level -->
                 <div class="form-group">
-                    <label for="playfulnessLevel" class="form-label">Playfulness level</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="playfulnessLevel">
+                    <label for="playfulnessLevel" class="form-label">
+                        <strong>Playfulness level</strong>
+                    </label>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Not playful</span>
+                        <input type="range" class="form-range" min="1" max="5" step="1" id="playfulnessLevel">
+                        <span class="ms-2">Very playful</span>
+                    </div>
                 </div>
+
+                <br>
 
                 <!-- Watchdog/protective nature -->
                 <div class="form-group">
-                    <label for="watchdogProtectiveNature" class="form-label">Watchdog/protective nature</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="watchdogProtectiveNature">
+                    <label for="watchdogProtectiveNature" class="form-label">
+                        <strong>Watchdog/Protective nature</strong>
+                    </label>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Not protective</span>
+                        <input type="range" class="form-range" min="1" max="5" step="1" id="watchdogProtectiveNature">
+                        <span class="ms-2">Good guard dog</span>
+                    </div>
                 </div>
+
+                <br>
 
                 <!-- Adaptability level -->
                 <div class="form-group">
-                    <label for="adaptabilityLevel" class="form-label">Adaptability level</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="adaptabilityLevel">
+                    <label for="adaptabilityLevel" class="form-label">
+                        <strong>Adaptability level</strong>
+                    </label>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Not adaptable</span>
+                        <input type="range" class="form-range" min="1" max="5" step="1" id="adaptabilityLevel">
+                        <span class="ms-2">Easily adaptable</span>
+                    </div>
                 </div>
+
+                <br>
 
                 <!-- Trainability level -->
                 <div class="form-group">
-                    <label for="trainabilityLevel" class="form-label">Trainability level</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="trainabilityLevel">
+                    <label for="trainabilityLevel" class="form-label">
+                        <strong>Trainability level</strong>
+                    </label>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Not easily trainable</span>
+                        <input type="range" class="form-range" min="1" max="5" step="1" id="trainabilityLevel">
+                        <span class="ms-2">Easily trained</span>
+                    </div>
                 </div>
+
+                <br>
 
                 <!-- Energy level -->
                 <div class="form-group">
-                    <label for="energyLevel" class="form-label">Energy level</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="energyLevel">
+                    <label for="energyLevel" class="form-label">
+                        <strong>Energy level</strong>
+                    </label>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Low energy</span>
+                        <input type="range" class="form-range" min="1" max="5" step="1" id="energyLevel">
+                        <span class="ms-2">High energy</span>
+                    </div>
                 </div>
+
+                <br>
 
                 <!-- Barking level -->
                 <div class="form-group">
-                    <label for="barkingLevel" class="form-label">Barking level</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="barkingLevel">
+                    <label for="barkingLevel" class="form-label">
+                        <strong>Barking level</strong>
+                    </label>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Doesn't bark much</span>
+                        <input type="range" class="form-range" min="1" max="5" step="1" id="barkingLevel">
+                        <span class="ms-2">Always barking</span>
+                    </div>
                 </div>
+
+                <br>
 
                 <!-- Mental stimulation level -->
                 <div class="form-group">
-                    <label for="mentalStimulationNeeds" class="form-label">Mental stimulation needs</label>
-                    <input type="range" class="form-range" min="1" max="5" step="1" id="mentalStimulationNeeds">
+                    <label for="mentalStimulationNeeds" class="form-label">
+                        <strong>Mental stimulation needs</strong>
+                    </label>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Doesn't need much mental stimulation</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="mentalStimulationNeeds">
+                        <span class="ms-2">Needs a lot of mental stimulation</span>
+                    </div>
                 </div>
+
+                <br>
+
             </div>
         </div>
 
