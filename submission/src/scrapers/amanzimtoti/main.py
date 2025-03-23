@@ -75,7 +75,7 @@ def process_page_source(page_source: str):
         if pet_detail["approximate_age"] != "Adult":
             life_stage = LifeStage.PUPPY.value
         try:
-            dog_repository.create(pet_detail["number"], pet_detail["name"], pet_detail["gender"], str(life_stage), pet_detail["image"], "a94b24b0-b832-425e-9ab0-e06e7f9c0502")
+            dog_repository.create(pet_detail["number"], pet_detail["name"], pet_detail["gender"], str(life_stage), pet_detail["image"], "a94b24b0-b832-425e-9ab0-e06e7f9c0502", pet_detail["identified_breed_vector"])
         except Exception as e:
             logging.error(f"Failed to insert data: {e}")
 

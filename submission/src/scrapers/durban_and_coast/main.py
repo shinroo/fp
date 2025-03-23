@@ -5,6 +5,8 @@ import re
 from base.common import DogScrapingResult, LifeStage, Gender
 from base.dog_repository import DogRepository
 from base.generic_scraper import GenericScraper
+from base.dog_breed_repository import DogBreedRepository
+from base.breed_identifier import BreedIdentifier
 
 from bs4 import BeautifulSoup
 
@@ -58,7 +60,13 @@ def process_page_source(page_source: str):
 
     dog_links = dogs_section.find_all('a', {'data-gal': 'prettyPhoto[adopt]'})
 
+    dog_breed_repository = DogBreedRepository()
+    breed_identifier = BreedIdentifier(dog_breed_repository.get_all())
+
     for dog_link in dog_links:
+        identified_breed_name = breed_identifier.identify(dog_link['title'])
+        identified_breed = breed_identifier.get_breed_by_name(identified_breed_name)
+
         data.append({
             'name': dog_link.find('h3').text,
             'image': f"https://spcadbn.org.za/{dog_link.find('img')['src']}",
@@ -67,6 +75,7 @@ def process_page_source(page_source: str):
             'age': age_from_description(dog_link['title']),
             'kennel': kennel_from_description(dog_link['title']),
             'reference': reference_from_description(dog_link['title']),
+            'vector': identified_breed.to_pgvector()
         })
 
     try:
@@ -87,7 +96,7 @@ def process_page_source(page_source: str):
             gender = Gender.MALE.value
 
         try:
-            dog_repository.create(pet_detail["reference"], pet_detail["name"], str(gender), str(life_stage), pet_detail["image"], "c0054c53-c8aa-4124-a7e4-ba379028de4d")
+            dog_repository.create(pet_detail["reference"], pet_detail["name"], str(gender), str(life_stage), pet_detail["image"], "c0054c53-c8aa-4124-a7e4-ba379028de4d", pet_detail["vector"])
         except Exception as e:
             logging.error(f"Failed to insert data: {e}")
 

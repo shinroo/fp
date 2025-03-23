@@ -5,12 +5,19 @@ import re
 from base.common import DogScrapingResult, LifeStage, Gender
 from base.dog_repository import DogRepository
 from base.generic_scraper import GenericScraper
+from base.dog_breed_repository import DogBreedRepository
+from base.breed_identifier import BreedIdentifier
 
 from bs4 import BeautifulSoup
 
 def none_safe_text(element):
     if element is None:
         return None
+    return element.text
+
+def none_to_empty_safe_text(element):
+    if element is None:
+        return ""
     return element.text
 
 def none_safe_src(element):
@@ -50,6 +57,9 @@ def process_page_source(page_source: str):
 
     pet_divs = soup.find_all('div', {'class': 'oxy-superbox-secondary'})
 
+    dog_breed_repository = DogBreedRepository()
+    breed_identifier = BreedIdentifier(dog_breed_repository.get_all())
+
     for pet_div in pet_divs:
         pet_internal_id = pet_div['id'].split('-')[-1]
 
@@ -60,13 +70,17 @@ def process_page_source(page_source: str):
         kennel_span = pet_div.find('span', {'id': f'span-380-359-{pet_internal_id}'})
         img = soup.find('img', {'id': f'image-355-359-{pet_internal_id}'})
 
+        identified_breed_name = breed_identifier.identify(none_to_empty_safe_text(breed_span))
+        identified_breed = breed_identifier.get_breed_by_name(identified_breed_name)
+
         pet_data = {
             'name': none_safe_text(name_span),
             'breed': none_safe_text(breed_span),
             'gender': none_safe_text(gender_span),
             'age': none_safe_text(age_span),
             'kennel': none_safe_text(kennel_span),
-            'image_url': none_safe_src(img)
+            'image_url': none_safe_src(img),
+            'vector': identified_breed.to_pgvector()
         }
         
         if is_valid(pet_data) and len(pet_data['kennel']) == 4:
@@ -86,7 +100,7 @@ def process_page_source(page_source: str):
         name = handle_blank_name(pet_data['name'])
 
         try:
-            dog_repository.create(pet_data["kennel"], name, str(gender), str(life_stage), pet_data["image_url"], "3b923b5e-994a-4b41-a1fd-ed060e983f82")
+            dog_repository.create(pet_data["kennel"], name, str(gender), str(life_stage), pet_data["image_url"], "3b923b5e-994a-4b41-a1fd-ed060e983f82", pet_data["vector"])
         except Exception as e:
             logging.error(f"Failed to insert data: {e}")
 
