@@ -6,6 +6,10 @@
         justify-content: center;
         align-items: center;
     }
+
+    .range-label {
+        width: 300px;
+    }
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -29,11 +33,11 @@
                     <label for="affectionateWithFamily" class="form-label">
                         <strong>Affectionate with family</strong>
                     </label>
-
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Not affectionate</span>
-                        <input type="range" class="form-range" min="1" max="5" step="1" id="affectionateWithFamily">
-                        <span class="ms-2">Very affectionate</span>
+                        <span class="me-2 range-label">Not affectionate</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="affectionateWithFamily">
+                        <span class="ms-2 range-label">Very affectionate</span>
                     </div>
                 </div>
 
@@ -45,9 +49,10 @@
                         <strong>Good with other children</strong>
                     </label>
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Not good with children</span>
-                        <input type="range" class="form-range" min="1" max="5" step="1" id="goodWithYoungChildren">
-                        <span class="ms-2">Great with children</span>
+                        <span class="me-2 range-label">Not good with children</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="goodWithYoungChildren">
+                        <span class="ms-2 range-label">Great with children</span>
                     </div>
                 </div>
 
@@ -59,9 +64,10 @@
                         <strong>Good with other dogs</strong>
                     </label>
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Doesn't like other dogs</span>
-                        <input type="range" class="form-range" min="1" max="5" step="1" id="goodWithOtherDogs">
-                        <span class="ms-2">Loves other dogs</span>
+                        <span class="me-2 range-label">Doesn't like other dogs</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="goodWithOtherDogs">
+                        <span class="ms-2 range-label">Loves other dogs</span>
                     </div>
                 </div>
 
@@ -73,9 +79,10 @@
                         <strong>Shedding level</strong>
                     </label>
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Hardly sheds</span>
-                        <input type="range" class="form-range" min="1" max="5" step="1" id="sheddingLevel">
-                        <span class="ms-2">Sheds a lot</span>
+                        <span class="me-2 range-label">Hardly sheds</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="sheddingLevel">
+                        <span class="ms-2 range-label">Sheds a lot</span>
                     </div>
                 </div>
 
@@ -87,9 +94,10 @@
                         <strong>Coat grooming frequency</strong>
                     </label>
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Infrequent grooming sufficient</span>
-                        <input type="range" class="form-range" min="1" max="5" step="1" id="coatGroomingFrequency">
-                        <span class="ms-2">Frequent grooming required</span>
+                        <span class="me-2 range-label">Infrequent grooming sufficient</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="coatGroomingFrequency">
+                        <span class="ms-2 range-label">Frequent grooming required</span>
                     </div>
                 </div>
 
@@ -101,9 +109,10 @@
                         <strong>Drooling level</strong>
                     </label>
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Doesn't drool much</span>
-                        <input type="range" class="form-range" min="1" max="5" step="1" id="droolingLevel">
-                        <span class="ms-2">Slobbering</span>
+                        <span class="me-2 range-label">Doesn't drool much</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="droolingLevel">
+                        <span class="ms-2 range-label">Slobbering</span>
                     </div>
                 </div>
 
@@ -115,9 +124,10 @@
                         <strong>Coat length</strong>
                     </label>
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Short haired</span>
-                        <input type="range" class="form-range" min="1" max="5" step="1" id="coatLength">
-                        <span class="ms-2">Long haired</span>
+                        <span class="me-2 range-label">Short haired</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="coatLength">
+                        <span class="ms-2 range-label">Long haired</span>
                     </div>
                 </div>
 
@@ -129,9 +139,10 @@
                         <strong>Openness to strangers</strong>
                     </label>
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Not open to strangers</span>
-                        <input type="range" class="form-range" min="1" max="5" step="1" id="opennessToStrangers">
-                        <span class="ms-2">Open to strangers</span>
+                        <span class="me-2 range-label">Not open to strangers</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="opennessToStrangers">
+                        <span class="ms-2 range-label">Open to strangers</span>
                     </div>
                 </div>
 
@@ -143,9 +154,10 @@
                         <strong>Playfulness level</strong>
                     </label>
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Not playful</span>
-                        <input type="range" class="form-range" min="1" max="5" step="1" id="playfulnessLevel">
-                        <span class="ms-2">Very playful</span>
+                        <span class="me-2 range-label">Not playful</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="playfulnessLevel">
+                        <span class="ms-2 range-label">Very playful</span>
                     </div>
                 </div>
 
@@ -157,9 +169,10 @@
                         <strong>Watchdog/Protective nature</strong>
                     </label>
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Not protective</span>
-                        <input type="range" class="form-range" min="1" max="5" step="1" id="watchdogProtectiveNature">
-                        <span class="ms-2">Good guard dog</span>
+                        <span class="me-2 range-label">Not protective</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="watchdogProtectiveNature">
+                        <span class="ms-2 range-label">Good guard dog</span>
                     </div>
                 </div>
 
@@ -171,9 +184,10 @@
                         <strong>Adaptability level</strong>
                     </label>
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Not adaptable</span>
-                        <input type="range" class="form-range" min="1" max="5" step="1" id="adaptabilityLevel">
-                        <span class="ms-2">Easily adaptable</span>
+                        <span class="me-2 range-label">Not adaptable</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="adaptabilityLevel">
+                        <span class="ms-2 range-label">Easily adaptable</span>
                     </div>
                 </div>
 
@@ -185,9 +199,10 @@
                         <strong>Trainability level</strong>
                     </label>
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Not easily trainable</span>
-                        <input type="range" class="form-range" min="1" max="5" step="1" id="trainabilityLevel">
-                        <span class="ms-2">Easily trained</span>
+                        <span class="me-2 range-label">Not easily trainable</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="trainabilityLevel">
+                        <span class="ms-2 range-label">Easily trained</span>
                     </div>
                 </div>
 
@@ -199,9 +214,10 @@
                         <strong>Energy level</strong>
                     </label>
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Low energy</span>
-                        <input type="range" class="form-range" min="1" max="5" step="1" id="energyLevel">
-                        <span class="ms-2">High energy</span>
+                        <span class="me-2 range-label">Low energy</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="energyLevel">
+                        <span class="ms-2 range-label">High energy</span>
                     </div>
                 </div>
 
@@ -213,9 +229,10 @@
                         <strong>Barking level</strong>
                     </label>
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Doesn't bark much</span>
-                        <input type="range" class="form-range" min="1" max="5" step="1" id="barkingLevel">
-                        <span class="ms-2">Always barking</span>
+                        <span class="me-2 range-label">Doesn't bark much</span>
+                        <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
+                            id="barkingLevel">
+                        <span class="ms-2 range-label">Always barking</span>
                     </div>
                 </div>
 
@@ -227,10 +244,10 @@
                         <strong>Mental stimulation needs</strong>
                     </label>
                     <div class="d-flex align-items-center">
-                        <span class="me-2">Doesn't need much mental stimulation</span>
+                        <span class="me-2 range-label">Doesn't need much mental stimulation</span>
                         <input type="range" class="form-range flex-grow-1 mx-2" min="1" max="5" step="1"
                             id="mentalStimulationNeeds">
-                        <span class="ms-2">Needs a lot of mental stimulation</span>
+                        <span class="ms-2 range-label">Needs a lot of mental stimulation</span>
                     </div>
                 </div>
 
@@ -238,24 +255,28 @@
 
             </div>
         </div>
-
-        <br>
-
-        <!-- Location -->
-        <div class="form-group">
-            <label>Where do you live?</label>
-            <div>
-                <div id="map" style="height:350px; width:480px;"></div>
-                <text-area id="lat" hidden></text-area>
-                <text-area id="lng" hidden></text-area>
-            </div>
-        </div>
-
-        <br>
     </div>
+
+    <br>
+
+    <!-- Location -->
+    <div class="form-group">
+        <label>
+            <strong>Where do you live?</strong>
+        </label>
+        <div>
+            <div id="map" style="height:350px; width:480px;"></div>
+            <text-area id="lat" hidden></text-area>
+            <text-area id="lng" hidden></text-area>
+        </div>
+    </div>
+
+    <br>
 
     <!-- Submit Button -->
     <button type="submit" class="btn btn-primary">Update profile</button>
+
+    <br>
 </form>
 {{end}}
 
