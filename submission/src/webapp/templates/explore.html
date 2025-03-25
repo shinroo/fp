@@ -43,6 +43,47 @@
     .carousel-item {
         margin-bottom: 20px;
     }
+
+    /* Ensure carousel container is positioned relatively */
+    #exploreCarousel {
+        position: relative;
+    }
+
+    /* Style for both buttons */
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 40px !important;
+        height: 40px !important;
+        background-color: #233661 !important;
+        border-radius: 50% !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        opacity: 1 !important;
+        position: absolute !important;
+        /* Required for proper placement */
+        z-index: 10 !important;
+        /* Ensure buttons appear above other elements */
+    }
+
+    /* Position the previous button */
+    .carousel-control-prev {
+        left: 15px !important;
+    }
+
+    /* Position the next button */
+    .carousel-control-next {
+        right: 15px !important;
+    }
+
+    /* Style the icons (make them white and larger if needed) */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        filter: brightness(0) invert(1) !important;
+        /* Turns black icon to white */
+        width: 24px !important;
+        /* Adjust size if needed */
+        height: 24px !important;
+    }
 </style>
 {{end}}
 
@@ -51,13 +92,13 @@
 {{define "content"}}
 <p class="text-center mb-4">Dogs will appear here in order of their suitability to you, based on your profile</p>
 
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-interval="false">
+<div id="exploreCarousel" class="carousel slide" data-bs-interval="false">
     <div class="carousel-inner" id="explore-results"></div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#exploreCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#exploreCarousel" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
@@ -98,9 +139,9 @@
                 responseData.results.forEach((result) => {
                     const petCarouselItem = document.createElement("div");
                     if (count == 0) {
-                        petCarouselItem.classList.add("carousel-item", "active");
+                        petCarouselItem.classList.add("carousel-item", "active", "card", "mb-3");
                     } else {
-                        petCarouselItem.classList.add("carousel-item");
+                        petCarouselItem.classList.add("carousel-item", "card", "mb-3");
                     }
 
                     // Image container
