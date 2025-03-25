@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS alert (
+    id SERIAL PRIMARY KEY,
+    account_id INT NOT NULL,
+    actioned BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (account_id) REFERENCES account(id)
+);
