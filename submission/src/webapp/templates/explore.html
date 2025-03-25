@@ -180,7 +180,7 @@
                     petCarouselCaptionTitle.textContent = result.name;
 
                     const petCarouselCaptionText = document.createElement("p");
-                    petCarouselCaptionText.textContent = result.life_stage;
+                    petCarouselCaptionText.textContent = `Our number ${count + 1} suggestion • ${result.life_stage} • ${result.gender}`;
 
                     captionContainer.appendChild(petCarouselCaptionTitle);
                     captionContainer.appendChild(petCarouselCaptionText);

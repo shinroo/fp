@@ -135,7 +135,7 @@
 
                     const petCardText = document.createElement("p");
                     petCardText.classList.add("card-text");
-                    petCardText.textContent = result.life_stage;
+                    petCardText.textContent = `${result.life_stage} • ${result.gender}`;
                     petCardBody.appendChild(petCardText);
 
                     petCard.appendChild(petCardBody);
