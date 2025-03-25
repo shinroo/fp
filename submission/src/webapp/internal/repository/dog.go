@@ -88,3 +88,24 @@ func (r *Dog) Search(ctx context.Context, searchKeyword string, filters []DogSea
 
 	return dogs, nil
 }
+
+func (r *Dog) Explore(ctx context.Context, similarToVector string) ([]*models.Dog, error) {
+	query := `SELECT
+	dog.identifier AS identifier,
+	dog.name AS name,
+	dog.gender AS gender,
+	dog.life_stage AS life_stage,
+	dog.image_url AS image_url,
+	dog.spca_id AS spca_id
+	FROM dog
+	ORDER BY dog.embedding <=> $1;`
+
+	var dogs []*models.Dog
+
+	err := r.db.SelectContext(ctx, &dogs, query, similarToVector)
+	if err != nil {
+		return nil, fmt.Errorf("failed to explore dogs: failed to select context: %w", err)
+	}
+
+	return dogs, nil
+}

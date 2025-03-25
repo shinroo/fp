@@ -51,6 +51,7 @@ func main() {
 
 	// explore
 	appRouter.HandleFunc("/app/explore", appServer.Explore)
+	apiRouter.HandleFunc("/api/explore", apiServer.Explore)
 
 	// profile
 	appRouter.HandleFunc("/app/profile", appServer.Profile)

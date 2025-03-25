@@ -1,9 +1,144 @@
 {{define "stylesheets"}}
+<style>
+    .carousel-inner {
+        max-height: none;
+        /* Remove fixed height */
+    }
+
+    .carousel-item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .carousel-image-container {
+        flex: 1;
+    }
+
+    .carousel-image-container img {
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+        object-fit: contain;
+    }
+
+    .carousel-caption-container {
+        padding: 15px;
+        text-align: center;
+        background: white;
+        /* Optional background */
+        color: black;
+    }
+
+    /* Override Bootstrap's default caption styles */
+    .carousel-caption {
+        position: static;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        padding: 0;
+        color: inherit;
+    }
+
+    /* Optional: Add some spacing between items */
+    .carousel-item {
+        margin-bottom: 20px;
+    }
+</style>
 {{end}}
 
+{{define "title"}}Explore{{end}}
+
 {{define "content"}}
-<h1 class="text-center mb-4">Explore</h1>
+<p class="text-center mb-4">Dogs will appear here in order of their suitability to you, based on your profile</p>
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-interval="false">
+    <div class="carousel-inner" id="explore-results"></div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
 {{end}}
 
 {{define "scripts"}}
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        // Define the URL
+        var url = "/api/explore";
+
+        // Send the POST request
+        fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": authToken
+            },
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((responseData) => {
+                console.log("Success:", responseData);
+
+                // Display the search results
+                const exploreResults = document.getElementById("explore-results");
+                exploreResults.innerHTML = "";
+
+                let count = 0;
+
+                // Inside your fetch success handler:
+                responseData.results.forEach((result) => {
+                    const petCarouselItem = document.createElement("div");
+                    if (count == 0) {
+                        petCarouselItem.classList.add("carousel-item", "active");
+                    } else {
+                        petCarouselItem.classList.add("carousel-item");
+                    }
+
+                    // Image container
+                    const imageContainer = document.createElement("div");
+                    imageContainer.classList.add("carousel-image-container");
+
+                    const petCarouselImage = document.createElement("img");
+                    petCarouselImage.src = result.image_url;
+                    petCarouselImage.alt = result.name;
+                    petCarouselImage.classList.add("d-block", "w-100");
+
+                    imageContainer.appendChild(petCarouselImage);
+
+                    // Caption container (now separate from image)
+                    const captionContainer = document.createElement("div");
+                    captionContainer.classList.add("carousel-caption-container");
+
+                    const petCarouselCaptionTitle = document.createElement("h5");
+                    petCarouselCaptionTitle.textContent = result.name;
+
+                    const petCarouselCaptionText = document.createElement("p");
+                    petCarouselCaptionText.textContent = result.life_stage;
+
+                    captionContainer.appendChild(petCarouselCaptionTitle);
+                    captionContainer.appendChild(petCarouselCaptionText);
+
+                    // Add both containers to carousel item
+                    petCarouselItem.appendChild(imageContainer);
+                    petCarouselItem.appendChild(captionContainer);
+
+                    exploreResults.appendChild(petCarouselItem);
+
+                    count++;
+                });
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    })
+</script>
 {{end}}
