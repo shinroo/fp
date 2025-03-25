@@ -1,13 +1,23 @@
 {{define "stylesheets"}}
 <style>
+    .carousel-container {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
     .carousel-inner {
         max-height: none;
-        /* Remove fixed height */
+        width: 100%;
+        /* Ensure consistent width */
     }
 
     .carousel-item {
         display: flex;
         flex-direction: column;
+        width: 100%;
+        /* Ensure items take full width */
+        /* Add transition for smooth animation if needed */
+        transition: transform 0.6s ease-in-out;
     }
 
     .carousel-image-container {
@@ -42,11 +52,16 @@
     /* Optional: Add some spacing between items */
     .carousel-item {
         margin-bottom: 20px;
+        will-change: transform;
     }
 
     /* Ensure carousel container is positioned relatively */
     #exploreCarousel {
         position: relative;
+        width: 100%;
+        /* Ensure it takes full width */
+        overflow: hidden;
+        /* Prevent content from overflowing during transition */
     }
 
     /* Style for both buttons */
@@ -92,16 +107,18 @@
 {{define "content"}}
 <p class="text-center mb-4">Dogs will appear here in order of their suitability to you, based on your profile</p>
 
-<div id="exploreCarousel" class="carousel slide" data-bs-interval="false">
-    <div class="carousel-inner" id="explore-results"></div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#exploreCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#exploreCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
+<div class="carousel-container">
+    <div id="exploreCarousel" class="carousel slide" data-bs-interval="false">
+        <div class="carousel-inner" id="explore-results"></div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#exploreCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#exploreCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 </div>
 
 {{end}}
