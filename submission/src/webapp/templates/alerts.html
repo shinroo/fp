@@ -45,13 +45,26 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="similarity-alert-form">
+                <div class="w-100">
+                    <form id="similarity-alert-form">
+                        <!-- Similarity Threshold Input -->
+                        <div class="form-group">
+                            <label for="similarityThreshold" class="form-label">
+                                <strong>Mental stimulation needs</strong>
+                            </label>
+                            <div class="d-flex align-items-center">
+                                <span class="me-2 range-label">0%</span>
+                                <input type="range" class="form-range flex-grow-1 mx-2" min="0" max="1" step="0.01"
+                                    id="similarityThreshold">
+                                <span class="ms-2 range-label">100%</span>
+                            </div>
+                        </div>
 
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Create</button>
+                        <br>
+
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -148,7 +161,12 @@
                 </tr>
             </thead>
             <tbody>
-
+                {{range .SimilarityAlerts}}
+                <tr>
+                    <td>{{.CreatedAt.Format "2006-01-02 15:04:05"}}</td>
+                    <td>{{.SimilarityThreshold}}</td>
+                </tr>
+                {{end}}
             </tbody>
         </table>
     </div>
@@ -157,7 +175,43 @@
 
 {{define "scripts"}}
 <script>
+    const similarityAlertForm = document.getElementById("similarity-alert-form");
     const specificAlertForm = document.getElementById("specific-alert-form");
+
+    similarityAlertForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        // Define the URL and data
+        var url = "/api/alerts/similarity";
+        var data = {
+            "similarity_threshold": parseFloat(document.getElementById("similarityThreshold").value)
+        };
+
+        console.log(data);
+
+        // Send the POST request
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": authToken
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((responseData) => {
+                console.log("Success:", responseData);
+                location.reload();
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    })
 
     specificAlertForm.addEventListener("submit", (event) => {
         event.preventDefault();

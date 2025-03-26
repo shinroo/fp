@@ -19,8 +19,9 @@ func (s *Server) Alerts(w http.ResponseWriter, r *http.Request) {
 	errGrp := errgroup.Group{}
 
 	var (
-		specificAlerts []*models.SpecificAlert
-		dogBreeds      []*models.DogBreed
+		specificAlerts   []*models.SpecificAlert
+		similarityAlerts []*models.SimilarityAlert
+		dogBreeds        []*models.DogBreed
 	)
 
 	errGrp.Go(func() error {
@@ -28,6 +29,16 @@ func (s *Server) Alerts(w http.ResponseWriter, r *http.Request) {
 		specificAlerts, err = s.SpecificAlertRepo.GetByAccountID(r.Context(), session.AccountID)
 		if err != nil {
 			s.Logger.Error("failed to get specific alerts", "error:", err)
+			return err
+		}
+		return nil
+	})
+
+	errGrp.Go(func() error {
+		var err error
+		similarityAlerts, err = s.SimilarityAlertRepo.GetByAccountID(r.Context(), session.AccountID)
+		if err != nil {
+			s.Logger.Error("failed to get similarity alerts", "error:", err)
 			return err
 		}
 		return nil
@@ -49,8 +60,9 @@ func (s *Server) Alerts(w http.ResponseWriter, r *http.Request) {
 	}
 
 	renderAppTemplate(w, "alerts", map[string]any{
-		"SessionID":      r.Context().Value(keys.SessionID),
-		"DogBreeds":      dogBreeds,
-		"SpecificAlerts": specificAlerts,
+		"SessionID":        r.Context().Value(keys.SessionID),
+		"DogBreeds":        dogBreeds,
+		"SpecificAlerts":   specificAlerts,
+		"SimilarityAlerts": similarityAlerts,
 	})
 }

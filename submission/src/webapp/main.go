@@ -28,6 +28,7 @@ func main() {
 	dogRepo := repository.NewDog(dbConn)
 	dogBreedRepo := repository.NewDogBreed(dbConn)
 	specificAlertRepo := repository.NewSpecificAlert(dbConn)
+	similarityAlertRepo := repository.NewSimilarityAlert(dbConn)
 
 	appRouter := http.NewServeMux()
 	apiRouter := http.NewServeMux()
@@ -38,6 +39,7 @@ func main() {
 		profileRepo,
 		dogBreedRepo,
 		specificAlertRepo,
+		similarityAlertRepo,
 	)
 	apiServer := api.NewServer(
 		accountRepo,
@@ -46,6 +48,7 @@ func main() {
 		spcaRepo,
 		dogRepo,
 		specificAlertRepo,
+		similarityAlertRepo,
 	)
 	authServer := auth.NewServer()
 
@@ -72,6 +75,7 @@ func main() {
 	// alerts
 	appRouter.HandleFunc("/app/alerts", appServer.Alerts)
 	apiRouter.HandleFunc("/api/alerts/specific", apiServer.SpecificAlert)
+	apiRouter.HandleFunc("/api/alerts/similarity", apiServer.SimilarityAlert)
 
 	authenticatedAppRouter := middleware.WrapWithRedirectAuth(appRouter, sessionRepo, slog.Default())
 
