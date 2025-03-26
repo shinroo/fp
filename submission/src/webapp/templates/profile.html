@@ -433,6 +433,11 @@
             })
             .then((responseData) => {
                 console.log("Success:", responseData);
+                const myAlert = createSuccessAlert("Profile successfully updated!", {
+                    top: '20px',
+                    width: '300px'
+                });
+                document.body.appendChild(myAlert);
             })
             .catch((error) => {
                 console.error("Error:", error);

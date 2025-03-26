@@ -70,6 +70,22 @@
 </head>
 
 <body>
+    <!-- Icons -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+    </svg>
+
     <!-- Top Navbar -->
     <nav class="navbar navbar-top navbar-dark fixed-top">
         <div class="container-fluid d-flex justify-content-between align-items-center">
@@ -80,6 +96,7 @@
 
     <!-- Main Content -->
     <div class="container mt-5 pt-4 pb-5">
+        <div id="alertContainer"></div>
         {{template "content" .}}
     </div>
 
@@ -117,6 +134,106 @@
                 window.location.href = '/auth/login';
             }
         });
+    </script>
+    <script>
+        function createSuccessAlert(message, options = {}) {
+            // Create the main alert div
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-success d-flex align-items-center';
+            alertDiv.setAttribute('role', 'alert');
+
+            // Add overlay positioning styles
+            Object.assign(alertDiv.style, {
+                position: 'fixed',
+                top: options.top || '20px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                zIndex: '1060', // Bootstrap's highest z-index is 1055, so we go above that
+                width: options.width || 'auto',
+                maxWidth: '90%',
+                boxShadow: '0 0.5rem 1rem rgba(0, 0, 0, 0.15)'
+            });
+
+            // Create the SVG icon
+            const svg = document.createElement('svg');
+            svg.className = 'bi flex-shrink-0 me-2';
+            svg.setAttribute('width', '24');
+            svg.setAttribute('height', '24');
+            svg.setAttribute('role', 'img');
+            svg.setAttribute('aria-label', 'Success:');
+
+            const use = document.createElement('use');
+            use.setAttribute('xlink:href', '#check-circle-fill');
+            svg.appendChild(use);
+
+            // Create the message div
+            const messageDiv = document.createElement('div');
+            messageDiv.textContent = message || 'An example success alert with an icon';
+
+            // Create the close button
+            const closeButton = document.createElement('button');
+            closeButton.type = 'button';
+            closeButton.className = 'btn-close';
+            closeButton.setAttribute('data-bs-dismiss', 'alert');
+            closeButton.setAttribute('aria-label', 'Close');
+
+            // Assemble all elements
+            alertDiv.appendChild(svg);
+            alertDiv.appendChild(messageDiv);
+            alertDiv.appendChild(closeButton);
+
+            return alertDiv;
+        }
+
+        function createErrorAlert(message, options = {}) {
+            // Create the main alert div
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-danger d-flex align-items-center';
+            alertDiv.setAttribute('role', 'alert');
+
+            // Position styling
+            const position = options.position || 'top-20';
+            Object.assign(alertDiv.style, {
+                position: 'fixed',
+                top: position === 'top-0' ? '0' : '20px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                zIndex: '1060',
+                width: options.width || 'auto',
+                maxWidth: '90%',
+                boxShadow: '0 0.5rem 1rem rgba(0, 0, 0, 0.15)'
+            });
+
+            // Create the SVG icon
+            const svg = document.createElement('svg');
+            svg.className = 'bi flex-shrink-0 me-2';
+            svg.setAttribute('width', '24');
+            svg.setAttribute('height', '24');
+            svg.setAttribute('role', 'img');
+            svg.setAttribute('aria-label', 'Error:');
+
+            const use = document.createElement('use');
+            use.setAttribute('xlink:href', '#exclamation-triangle-fill');
+            svg.appendChild(use);
+
+            // Create the message div
+            const messageDiv = document.createElement('div');
+            messageDiv.textContent = message || 'An error has occurred';
+
+            // Create the close button
+            const closeButton = document.createElement('button');
+            closeButton.type = 'button';
+            closeButton.className = 'btn-close';
+            closeButton.setAttribute('data-bs-dismiss', 'alert');
+            closeButton.setAttribute('aria-label', 'Close');
+
+            // Assemble all elements
+            alertDiv.appendChild(svg);
+            alertDiv.appendChild(messageDiv);
+            alertDiv.appendChild(closeButton);
+
+            return alertDiv;
+        }
     </script>
     {{template "scripts" .}}
 </body>
