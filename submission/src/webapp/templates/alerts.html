@@ -9,20 +9,49 @@
 {{define "title"}}Alerts{{end}}
 
 {{define "content"}}
-<p class="text-center mb-4">You can define email alerts if you can't find a dog that matches your desired criteria. When
-    a dog matching your criteria is found, we will email you.</p>
+<p class="text-center mb-4">You can specify alerts here, and if we find a dog that matches the criteria you specify, we
+    will email you!</p>
+<p>Types of alerts:</p>
+<ul>
+    <li>Similarity Alerts: These depend on you defining a threshold for a matching dog, based on the criteria you chose
+        on your profile</li>
+    <li>Specific Alerts: These depend on you choosing a dog age, gender and breed</li>
+</ul>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Create New Alert
+<!-- Buttons to trigger modals -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#similarityAlertModal">
+    Create New Similarity Alert
+</button>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#specificAlertModal">
+    Create New Specific Alert
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="similarityAlertModal" tabindex="-1" aria-labelledby="similarityAlertModal"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New Alert</h5>
+                <h5 class="modal-title" id="similarityAlertModal">New Alert</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Create</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="specificAlertModal" tabindex="-1" aria-labelledby="specificAlertModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="specificAlertModal">New Alert</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
