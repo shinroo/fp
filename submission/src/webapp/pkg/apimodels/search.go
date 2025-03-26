@@ -6,6 +6,7 @@ type SearchRequest struct {
 	Keywords  string            `json:"keywords"`
 	Gender    *models.Gender    `json:"gender"`
 	LifeStage *models.LifeStage `json:"life_stage"`
+	Breed     *string           `json:"breed"`
 }
 
 type SearchResponse struct {

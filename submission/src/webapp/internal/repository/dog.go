@@ -46,6 +46,18 @@ func (f DogGenderFilter) GetValue() interface{} {
 	return f.Gender
 }
 
+type DogBreedFilter struct {
+	Breed string
+}
+
+func (f DogBreedFilter) ToWhereCondition() string {
+	return "breed = ?"
+}
+
+func (f DogBreedFilter) GetValue() interface{} {
+	return f.Breed
+}
+
 func (r *Dog) Search(ctx context.Context, searchKeyword string, filters []DogSearchFilter) ([]*models.Dog, error) {
 	query := `SELECT
 	dog.identifier AS identifier,

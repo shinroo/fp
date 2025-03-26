@@ -36,6 +36,12 @@ func (s *Server) Search(w http.ResponseWriter, r *http.Request) {
 		})
 	}
 
+	if req.Breed != nil {
+		filters = append(filters, repository.DogBreedFilter{
+			Breed: *req.Breed,
+		})
+	}
+
 	dogs, err := s.DogRepo.Search(r.Context(), req.Keywords, filters)
 	if err != nil {
 		s.Logger.Error("failed to search dogs", "error:", err)

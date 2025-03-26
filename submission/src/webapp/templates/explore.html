@@ -154,6 +154,8 @@
 
                 // Inside your fetch success handler:
                 responseData.results.forEach((result) => {
+                    const spca = responseData.spca_lookup[result.spca_id];
+
                     const petCarouselItem = document.createElement("div");
                     if (count == 0) {
                         petCarouselItem.classList.add("carousel-item", "active", "card", "mb-3");
@@ -180,10 +182,15 @@
                     petCarouselCaptionTitle.textContent = result.name;
 
                     const petCarouselCaptionText = document.createElement("p");
-                    petCarouselCaptionText.textContent = `Our number ${count + 1} suggestion • ${result.life_stage} • ${result.gender} • ${result.breed}`;
+                    petCarouselCaptionText.textContent = `Our number ${count + 1} suggestion • ${result.life_stage} • ${result.gender} • ${result.breed} • ${spca.name}`;
+
+                    const petCarouselAdoptionLink = document.createElement("a");
+                    petCarouselAdoptionLink.href = spca.website.String;
+                    petCarouselAdoptionLink.textContent = "Adopt Me!";
 
                     captionContainer.appendChild(petCarouselCaptionTitle);
                     captionContainer.appendChild(petCarouselCaptionText);
+                    captionContainer.appendChild(petCarouselAdoptionLink);
 
                     // Add both containers to carousel item
                     petCarouselItem.appendChild(imageContainer);

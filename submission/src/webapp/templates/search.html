@@ -21,7 +21,7 @@
     <form class="search-form" id="search-form">
         <div class="row g-3 align-items-center search-form">
             <!-- Search Input -->
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label for="searchInput" class="visually-hidden">Search Keywords</label>
                 <input type="text" class="form-control" id="searchInput" placeholder="Enter search keywords">
             </div>
@@ -47,9 +47,25 @@
                 </select>
             </div>
 
-            <!-- Submit -->
+            <!-- Dog Breed Select -->
             <div class="col-md-2">
+                <label for="dogBreedSelect" class="visually-hidden">Dog Breed</label>
+                <select class="form-select" id="dogBreedSelect">
+                    <option selected>Dog Breed</option>
+                    {{range .DogBreeds}}
+                    <option value="{{.Name}}">{{.Name}}</option>
+                    {{end}}
+                </select>
+            </div>
+
+            <!-- Submit -->
+            <div class="col-md-1">
                 <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+
+            <!-- Submit -->
+            <div class="col-md-1">
+                <button type="button" id="reset" class="btn btn-primary">Reset</button>
             </div>
         </div>
     </form>
@@ -63,6 +79,7 @@
 {{define "scripts"}}
 <script>
     const searchForm = document.getElementById("search-form");
+    const resetButton = document.getElementById("reset");
 
     searchForm.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -90,6 +107,11 @@
             data["gender"] = document.getElementById("genderSelect").value;
         }
 
+        // Handle optional breed filter
+        if (document.getElementById("dogBreedSelect").value != "Dog Breed") {
+            data["breed"] = document.getElementById("dogBreedSelect").value;
+        }
+
         console.log(data)
 
         // Send the POST request
@@ -115,6 +137,8 @@
                 searchResults.innerHTML = "";
 
                 responseData.results.forEach((result) => {
+                    const spca = responseData.spca_lookup[result.spca_id];
+
                     const petCard = document.createElement("div");
                     petCard.classList.add("card", "mb-3");
 
@@ -135,8 +159,14 @@
 
                     const petCardText = document.createElement("p");
                     petCardText.classList.add("card-text");
-                    petCardText.textContent = `${result.life_stage} • ${result.gender}  • ${result.breed}`;
+                    petCardText.textContent = `${result.life_stage} • ${result.gender}  • ${result.breed} • ${spca.name}`;
+
+                    const petCardAdoptionLink = document.createElement("a");
+                    petCardAdoptionLink.href = spca.website.String;
+                    petCardAdoptionLink.textContent = "Adopt Me!";
+
                     petCardBody.appendChild(petCardText);
+                    petCardBody.appendChild(petCardAdoptionLink);
 
                     petCard.appendChild(petCardBody);
 
@@ -146,6 +176,10 @@
             .catch((error) => {
                 console.error("Error:", error);
             });
+    });
+
+    resetButton.addEventListener("click", () => {
+        location.reload();
     });
 </script>
 {{end}}
