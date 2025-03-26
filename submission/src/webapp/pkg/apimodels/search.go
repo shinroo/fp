@@ -9,5 +9,6 @@ type SearchRequest struct {
 }
 
 type SearchResponse struct {
-	Results []*models.Dog `json:"results"`
+	Results    []*models.Dog           `json:"results"`
+	SPCALookup map[string]*models.SPCA `json:"spca_lookup"`
 }

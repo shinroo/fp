@@ -7,4 +7,5 @@ type Dog struct {
 	LifeStage  LifeStage `db:"life_stage" json:"life_stage"`
 	ImageUrl   string    `db:"image_url" json:"image_url"`
 	SpcaId     string    `db:"spca_id" json:"spca_id"`
+	Breed      string    `db:"breed" json:"breed"`
 }

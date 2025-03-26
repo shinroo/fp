@@ -6,6 +6,7 @@ import (
 
 	"github.com/shinroo/fp/src/webapp/internal/repository"
 	"github.com/shinroo/fp/src/webapp/pkg/apimodels"
+	"github.com/shinroo/fp/src/webapp/pkg/models"
 	"github.com/shinroo/fp/src/webapp/pkg/responses"
 )
 
@@ -44,7 +45,27 @@ func (s *Server) Search(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	var spcaIDs []string
+	for _, dog := range dogs {
+		spcaIDs = append(spcaIDs, dog.SpcaId)
+	}
+
+	spcas, err := s.SPCARepo.GetByIDs(r.Context(), spcaIDs)
+	if err != nil {
+		s.Logger.Error("failed to get SPCAs by IDs", "error:", err)
+		responses.WriteJSON(apimodels.ErrorResponse{
+			Message: "failed to get SPCAs by IDs",
+		}, http.StatusInternalServerError, w)
+		return
+	}
+
+	var lookup = make(map[string]*models.SPCA)
+	for _, spca := range spcas {
+		lookup[spca.ID] = spca
+	}
+
 	responses.WriteJSON(apimodels.SearchResponse{
-		Results: dogs,
+		Results:    dogs,
+		SPCALookup: lookup,
 	}, http.StatusOK, w)
 }
