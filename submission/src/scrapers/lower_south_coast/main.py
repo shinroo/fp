@@ -80,7 +80,8 @@ def process_page_source(page_source: str):
             'age': none_safe_text(age_span),
             'kennel': none_safe_text(kennel_span),
             'image_url': none_safe_src(img),
-            'vector': identified_breed.to_pgvector()
+            'vector': identified_breed.to_pgvector(),
+            'matched_breed': identified_breed.name
         }
         
         if is_valid(pet_data) and len(pet_data['kennel']) == 4:
@@ -100,7 +101,7 @@ def process_page_source(page_source: str):
         name = handle_blank_name(pet_data['name'])
 
         try:
-            dog_repository.create(pet_data["kennel"], name, str(gender), str(life_stage), pet_data["image_url"], "3b923b5e-994a-4b41-a1fd-ed060e983f82", pet_data["vector"])
+            dog_repository.create(pet_data["kennel"], name, str(gender), str(life_stage), pet_data["image_url"], "3b923b5e-994a-4b41-a1fd-ed060e983f82", pet_data["vector"], pet_data["matched_breed"])
         except Exception as e:
             logging.error(f"Failed to insert data: {e}")
 

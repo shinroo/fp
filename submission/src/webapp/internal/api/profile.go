@@ -89,6 +89,17 @@ func (s *Server) updateProfile(w http.ResponseWriter, r *http.Request) {
 	profile.Latitude = req.Latitude
 	profile.Longitude = req.Longitude
 
+	spca, err := s.SPCARepo.GetNearest(r.Context(), req.Latitude, req.Longitude)
+	if err != nil {
+		s.Logger.Error("failed to find nearest SPCA", "error:", err)
+		responses.WriteJSON(apimodels.ErrorResponse{
+			Message: "failed to find nearest SPCA",
+		}, http.StatusInternalServerError, w)
+		return
+	}
+
+	profile.NearestSPCAID = spca.ID
+
 	err = s.ProfileRepo.UpdateProfile(r.Context(), profile)
 	if err != nil {
 		s.Logger.Error("failed to update profile", "error:", err)

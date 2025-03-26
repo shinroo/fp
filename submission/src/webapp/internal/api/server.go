@@ -7,12 +7,13 @@ import (
 )
 
 type Server struct {
-	Logger      *slog.Logger
-	AccountRepo *repository.Account
-	SessionRepo *repository.Session
-	ProfileRepo *repository.Profile
-	SPCARepo    *repository.SPCA
-	DogRepo     *repository.Dog
+	Logger            *slog.Logger
+	AccountRepo       *repository.Account
+	SessionRepo       *repository.Session
+	ProfileRepo       *repository.Profile
+	SPCARepo          *repository.SPCA
+	DogRepo           *repository.Dog
+	SpecificAlertRepo *repository.SpecificAlert
 }
 
 func NewServer(
@@ -21,13 +22,15 @@ func NewServer(
 	ProfileRepo *repository.Profile,
 	SPCARepo *repository.SPCA,
 	DogRepo *repository.Dog,
+	SpecificAlertRepo *repository.SpecificAlert,
 ) *Server {
 	return &Server{
-		Logger:      slog.Default(),
-		AccountRepo: AccountRepo,
-		SessionRepo: SessionRepo,
-		ProfileRepo: ProfileRepo,
-		SPCARepo:    SPCARepo,
-		DogRepo:     DogRepo,
+		Logger:            slog.Default(),
+		AccountRepo:       AccountRepo,
+		SessionRepo:       SessionRepo,
+		ProfileRepo:       ProfileRepo,
+		SPCARepo:          SPCARepo,
+		DogRepo:           DogRepo,
+		SpecificAlertRepo: SpecificAlertRepo,
 	}
 }

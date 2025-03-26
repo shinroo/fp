@@ -3,6 +3,12 @@
     .table-card {
         width: 80vw;
     }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
 </style>
 {{end}}
 
@@ -19,13 +25,15 @@
 </ul>
 
 <!-- Buttons to trigger modals -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#similarityAlertModal">
-    Create New Similarity Alert
-</button>
+<div class="button-container">
+    <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#similarityAlertModal">
+        Create New Similarity Alert
+    </button>
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#specificAlertModal">
-    Create New Specific Alert
-</button>
+    <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#specificAlertModal">
+        Create New Specific Alert
+    </button>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="similarityAlertModal" tabindex="-1" aria-labelledby="similarityAlertModal"
@@ -33,11 +41,13 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="similarityAlertModal">New Alert</h5>
+                <h5 class="modal-title" id="similarityAlertModal">New Similarity Alert</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <form id="similarity-alert-form">
+
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -51,15 +61,53 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="specificAlertModal">New Alert</h5>
+                <h5 class="modal-title" id="specificAlertModal">New Specific Alert</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Create</button>
+                <div class="w-100">
+                    <form id="specific-alert-form">
+                        <!-- Gender Select -->
+                        <div class="col-md-12">
+                            <label for="genderSelect" class="visually-hidden">Gender</label>
+                            <select class="form-select" id="genderSelect">
+                                <option selected>Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+
+                        <br>
+
+                        <!-- Life Stage Select -->
+                        <div class="col-md-12">
+                            <label for="lifeStageSelect" class="visually-hidden">Life Stage</label>
+                            <select class="form-select" id="lifeStageSelect">
+                                <option selected>Life Stage</option>
+                                <option value="Puppy">Puppy</option>
+                                <option value="Adult">Adult</option>
+                                <option value="Senior">Senior</option>
+                            </select>
+                        </div>
+
+                        <br>
+
+                        <!-- Dog Breed Select -->
+                        <div class="col-md-12">
+                            <label for="dogBreedSelect" class="visually-hidden">Dog Breed</label>
+                            <select class="form-select" id="dogBreedSelect">
+                                <option selected>Dog Breed</option>
+                                {{range .DogBreeds}}
+                                <option value="{{.Name}}">{{.Name}}</option>
+                                {{end}}
+                            </select>
+                        </div>
+
+                        <br>
+
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -69,33 +117,38 @@
 
 <div class="card table-card">
     <div class="card-body">
+        <h2 class="text-center mb-4">Specific Alerts</h2>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Created At</th>
+                    <th scope="col">Breed</th>
+                    <th scope="col">Life Stage</th>
+                    <th scope="col">Gender</th>
                 </tr>
             </thead>
             <tbody>
+                {{range .SpecificAlerts}}
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>{{.CreatedAt.Format "2006-01-02 15:04:05"}}</td>
+                    <td>{{.Breed}}</td>
+                    <td>{{.LifeStage}}</td>
+                    <td>{{.Gender}}</td>
                 </tr>
+                {{end}}
+            </tbody>
+        </table>
+        <br>
+        <h2 class="text-center mb-4">Similarity Alerts</h2>
+        <table class="table">
+            <thead>
                 <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
+                    <th scope="col">Created At</th>
+                    <th scope="col">Similarity Threshold</th>
                 </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+            </thead>
+            <tbody>
+
             </tbody>
         </table>
     </div>
@@ -103,4 +156,44 @@
 {{end}}
 
 {{define "scripts"}}
+<script>
+    const specificAlertForm = document.getElementById("specific-alert-form");
+
+    specificAlertForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        // Define the URL and data
+        var url = "/api/alerts/specific";
+        var data = {
+            "breed": document.getElementById("dogBreedSelect").value,
+            "life_stage": document.getElementById("lifeStageSelect").value,
+            "gender": document.getElementById("genderSelect").value
+        };
+
+        console.log(data);
+
+        // Send the POST request
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": authToken
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((responseData) => {
+                console.log("Success:", responseData);
+                location.reload();
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    })
+</script>
 {{end}}

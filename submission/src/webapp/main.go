@@ -26,18 +26,26 @@ func main() {
 	profileRepo := repository.NewProfile(dbConn)
 	spcaRepo := repository.NewSPCA(dbConn)
 	dogRepo := repository.NewDog(dbConn)
+	dogBreedRepo := repository.NewDogBreed(dbConn)
+	specificAlertRepo := repository.NewSpecificAlert(dbConn)
 
 	appRouter := http.NewServeMux()
 	apiRouter := http.NewServeMux()
 	authRouter := http.NewServeMux()
 
-	appServer := app.NewServer(profileRepo)
+	appServer := app.NewServer(
+		sessionRepo,
+		profileRepo,
+		dogBreedRepo,
+		specificAlertRepo,
+	)
 	apiServer := api.NewServer(
 		accountRepo,
 		sessionRepo,
 		profileRepo,
 		spcaRepo,
 		dogRepo,
+		specificAlertRepo,
 	)
 	authServer := auth.NewServer()
 
@@ -63,6 +71,7 @@ func main() {
 
 	// alerts
 	appRouter.HandleFunc("/app/alerts", appServer.Alerts)
+	apiRouter.HandleFunc("/api/alerts/specific", apiServer.SpecificAlert)
 
 	authenticatedAppRouter := middleware.WrapWithRedirectAuth(appRouter, sessionRepo, slog.Default())
 

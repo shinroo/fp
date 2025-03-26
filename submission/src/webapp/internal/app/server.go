@@ -1,15 +1,30 @@
 package app
 
-import "github.com/shinroo/fp/src/webapp/internal/repository"
+import (
+	"log/slog"
+
+	"github.com/shinroo/fp/src/webapp/internal/repository"
+)
 
 type Server struct {
-	ProfileRepo *repository.Profile
+	SessionRepo       *repository.Session
+	ProfileRepo       *repository.Profile
+	DogBreedRepo      *repository.DogBreed
+	SpecificAlertRepo *repository.SpecificAlert
+	Logger            *slog.Logger
 }
 
 func NewServer(
+	SessionRepo *repository.Session,
 	ProfileRepo *repository.Profile,
+	DogBreedRepo *repository.DogBreed,
+	SpecificAlertRepo *repository.SpecificAlert,
 ) *Server {
 	return &Server{
-		ProfileRepo: ProfileRepo,
+		SessionRepo:       SessionRepo,
+		ProfileRepo:       ProfileRepo,
+		DogBreedRepo:      DogBreedRepo,
+		SpecificAlertRepo: SpecificAlertRepo,
+		Logger:            slog.Default(),
 	}
 }

@@ -53,7 +53,8 @@ def process_page_source(page_source: str):
                     "gender": data_tds[11].text,
                     "image": image,
                     "identified_breed": identified_breed.name,
-                    "identified_breed_vector": identified_breed.to_pgvector()
+                    "identified_breed_vector": identified_breed.to_pgvector(),
+                    "matched_breed": identified_breed.name
                 }
                 pet_details.append(details)
             else:
@@ -75,7 +76,7 @@ def process_page_source(page_source: str):
         if pet_detail["approximate_age"] != "Adult":
             life_stage = LifeStage.PUPPY.value
         try:
-            dog_repository.create(pet_detail["number"], pet_detail["name"], pet_detail["gender"], str(life_stage), pet_detail["image"], "a94b24b0-b832-425e-9ab0-e06e7f9c0502", pet_detail["identified_breed_vector"])
+            dog_repository.create(pet_detail["number"], pet_detail["name"], pet_detail["gender"], str(life_stage), pet_detail["image"], "a94b24b0-b832-425e-9ab0-e06e7f9c0502", pet_detail["identified_breed_vector"], pet_detail["matched_breed"])
         except Exception as e:
             logging.error(f"Failed to insert data: {e}")
 

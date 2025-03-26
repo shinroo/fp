@@ -75,7 +75,8 @@ def process_page_source(page_source: str):
             'age': age_from_description(dog_link['title']),
             'kennel': kennel_from_description(dog_link['title']),
             'reference': reference_from_description(dog_link['title']),
-            'vector': identified_breed.to_pgvector()
+            'vector': identified_breed.to_pgvector(),
+            'matched_breed': identified_breed.name
         })
 
     try:
@@ -96,7 +97,7 @@ def process_page_source(page_source: str):
             gender = Gender.MALE.value
 
         try:
-            dog_repository.create(pet_detail["reference"], pet_detail["name"], str(gender), str(life_stage), pet_detail["image"], "c0054c53-c8aa-4124-a7e4-ba379028de4d", pet_detail["vector"])
+            dog_repository.create(pet_detail["reference"], pet_detail["name"], str(gender), str(life_stage), pet_detail["image"], "c0054c53-c8aa-4124-a7e4-ba379028de4d", pet_detail["vector"], pet_detail["matched_breed"])
         except Exception as e:
             logging.error(f"Failed to insert data: {e}")
 

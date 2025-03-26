@@ -4,21 +4,38 @@ class DogRepository:
     def __init__(self):
         self.db = Database()
 
-    def create(self, identifier, name, gender, life_stage, image_url, spca_id, embedding):
-        insert_query = """
-        INSERT INTO dog (identifier, name, gender, life_stage, image_url, spca_id, embedding)
-        VALUES (%s, %s, %s, %s, %s, %s, %s)
-        ON CONFLICT (identifier) DO NOTHING;
-        """
-        dog_data = (
-            identifier,
-            name,
-            gender,
-            life_stage,
-            image_url,
-            spca_id,
-            embedding
-        )
+    def create(self, identifier, name, gender, life_stage, image_url, spca_id, embedding, breed):
+        if breed != "Unknown":
+            insert_query = """
+            INSERT INTO dog (identifier, name, gender, life_stage, image_url, spca_id, embedding, breed)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            ON CONFLICT (identifier) DO NOTHING;
+            """
+            dog_data = (
+                identifier,
+                name,
+                gender,
+                life_stage,
+                image_url,
+                spca_id,
+                embedding,
+                breed,
+            )
+        else:
+            insert_query = """
+            INSERT INTO dog (identifier, name, gender, life_stage, image_url, spca_id, embedding)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+            ON CONFLICT (identifier) DO NOTHING;
+            """
+            dog_data = (
+                identifier,
+                name,
+                gender,
+                life_stage,
+                image_url,
+                spca_id,
+                embedding,
+            )
         try:
             conn = self.db.get_conn()
             cursor = conn.cursor()
