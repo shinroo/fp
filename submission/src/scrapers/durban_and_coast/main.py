@@ -50,6 +50,28 @@ def reference_from_description(description: str):
         return match.group(1)
     return None
 
+# Define a function to extract the part of a description that contains "is a"
+def extract_is_a(description: str):
+    try:
+        if "He is" in description:
+            extracted = description.split("He is")[1].split(".")[0]
+            extracted = extracted.replace("old", "")
+            extracted = extracted.replace("year", "")
+            extracted = extracted.replace("month", "")
+            extracted = extracted.replace("He is", "")
+            return extracted
+        elif "She is" in description:
+            extracted = description.split("She is")[1].split(".")[0]
+            extracted = extracted.replace("old", "")
+            extracted = extracted.replace("year", "")
+            extracted = extracted.replace("month", "")
+            extracted = extracted.replace("She is", "")
+            return extracted
+        else:
+            return ""
+    except:
+        return ""
+
 def process_page_source(page_source: str):
     soup = BeautifulSoup(page_source, 'html.parser')
 
@@ -64,13 +86,13 @@ def process_page_source(page_source: str):
     breed_identifier = BreedIdentifier(dog_breed_repository.get_all())
 
     for dog_link in dog_links:
-        identified_breed_name = breed_identifier.identify(dog_link['title'])
+        identified_breed_name = breed_identifier.identify(extract_is_a(dog_link['title']))
         identified_breed = breed_identifier.get_breed_by_name(identified_breed_name)
 
         data.append({
             'name': dog_link.find('h3').text,
             'image': f"https://spcadbn.org.za/{dog_link.find('img')['src']}",
-            'description': dog_link['title'],
+            'description': extract_is_a(dog_link['title']),
             'sex': sex_from_description(dog_link['title']),
             'age': age_from_description(dog_link['title']),
             'kennel': kennel_from_description(dog_link['title']),
