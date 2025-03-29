@@ -1,5 +1,5 @@
 # Final Project: SPCA Pet Matchmaker
-![](logo.jpeg)
+![](https://iili.io/3TEbZn2.jpg)
 
 Final Project for University of London B.Sc. Computer Science (CM3070)
 
