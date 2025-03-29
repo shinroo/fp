@@ -62,3 +62,25 @@ class DogBreed:
 
     def to_pgvector(self) -> str:
         return f"[{self.affectionate_with_family}, {self.good_with_young_children}, {self.good_with_other_dogs}, {self.shedding_level}, {self.coat_grooming_frequency}, {self.drooling_level}, {self.coat_length}, {self.openness_to_strangers}, {self.playfulness_level}, {self.watchdog_protective_nature}, {self.adaptability_level}, {self.trainability_level}, {self.energy_level}, {self.barking_level}, {self.mental_stimulation_needs}]"
+    
+class SpecificAlert:
+    def __init__(self, id, breed, gender: Gender, life_stage: LifeStage, email):
+        self.id = id
+        self.breed = breed
+        self.gender = gender
+        self.life_stage = life_stage
+        self.email = email
+
+class SimilarityAlert:
+    def __init__(self, id, threshold, email, account_id):
+        self.id = id
+        self.threshold = threshold
+        self.email = email
+        self.account_id = account_id
+
+class Dog:
+    def __init__(self, name, breed, spca_name, image_url):
+        self.name = name
+        self.breed = breed
+        self.spca_name = spca_name
+        self.image_url = image_url
