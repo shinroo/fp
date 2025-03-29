@@ -5,3 +5,6 @@ __pycache__
 upload
 bin
 uploads
+extensions
+directus
+.env

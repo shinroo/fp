@@ -4,6 +4,12 @@ class DogRepository:
     def __init__(self):
         self.db = Database()
 
+    def get_similar():
+        pass
+
+    def get_specific():
+        pass
+
     def create(self, identifier, name, gender, life_stage, image_url, spca_id, embedding, breed):
         if breed != "Unknown":
             insert_query = """

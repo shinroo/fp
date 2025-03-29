@@ -1,5 +1,5 @@
 build_base:
-	pushd scrapers && make build && popd
+	pushd base && make build && popd
 
 build_scrapers:
 	pushd scrapers/amanzimtoti && make build && popd
@@ -11,7 +11,10 @@ build_scrapers:
 build_webapp:
 	pushd webapp && make build && popd
 
-build: build_base build_scrapers build_webapp
+build_alerts_worker:
+	pushd alerts && make build && popd
+
+build: build_base build_scrapers build_webapp build_alerts_worker
 	
 up:
 	docker-compose -p spca_pet_matchmaker \
