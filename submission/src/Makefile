@@ -18,6 +18,7 @@ up:
 		-f database/docker-compose.yaml \
 		-f airflow/docker-compose.yaml \
 		-f webapp/docker-compose.yaml \
+		-f admin/docker-compose.yaml \
 		--project-directory . \
 		up -d
 
@@ -26,6 +27,7 @@ down:
 		-f database/docker-compose.yaml \
 		-f airflow/docker-compose.yaml \
 		-f webapp/docker-compose.yaml \
+		-f admin/docker-compose.yaml \
 		--project-directory . \
 		down
 
