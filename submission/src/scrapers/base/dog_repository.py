@@ -7,23 +7,7 @@ class DogRepository:
     def create(self, identifier, name, gender, life_stage, image_url, spca_id, embedding, breed):
         if breed != "Unknown":
             insert_query = """
-            INSERT INTO dog (identifier, name, gender, life_stage, image_url, spca_id, embedding, breed)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-            ON CONFLICT (identifier) DO NOTHING;
-            """
-            dog_data = (
-                identifier,
-                name,
-                gender,
-                life_stage,
-                image_url,
-                spca_id,
-                embedding,
-                breed,
-            )
-        else:
-            insert_query = """
-            INSERT INTO dog (identifier, name, gender, life_stage, image_url, spca_id, embedding)
+            INSERT INTO dog (identifier, name, gender, life_stage, image_url, spca_id, breed)
             VALUES (%s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT (identifier) DO NOTHING;
             """
@@ -34,7 +18,21 @@ class DogRepository:
                 life_stage,
                 image_url,
                 spca_id,
-                embedding,
+                breed,
+            )
+        else:
+            insert_query = """
+            INSERT INTO dog (identifier, name, gender, life_stage, image_url, spca_id)
+            VALUES (%s, %s, %s, %s, %s, %s)
+            ON CONFLICT (identifier) DO NOTHING;
+            """
+            dog_data = (
+                identifier,
+                name,
+                gender,
+                life_stage,
+                image_url,
+                spca_id,
             )
         try:
             conn = self.db.get_conn()

@@ -1,0 +1,1 @@
+SELECT * FROM specific_alert WHERE account_id = $1
