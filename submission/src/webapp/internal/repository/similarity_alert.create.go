@@ -10,6 +10,10 @@ import (
 var similarityAlertCreationQuery string
 
 func (r *SimilarityAlert) CreateSimilarityAlert(ctx context.Context, accountID int, similarityThreshold float32) error {
+	if similarityThreshold < 0 || similarityThreshold > 1 {
+		return fmt.Errorf("failed to insert similarity alert: invalid similarity threshold")
+	}
+
 	res, err := r.db.ExecContext(ctx, similarityAlertCreationQuery, accountID, similarityThreshold)
 	if err != nil {
 		return fmt.Errorf("failed to insert similarity alert: %w", err)
