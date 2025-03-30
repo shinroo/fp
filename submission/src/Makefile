@@ -6,6 +6,7 @@ build_scrapers:
 	pushd scrapers/cape && make build && popd
 	pushd scrapers/durban_and_coast && make build && popd
 	pushd scrapers/lower_south_coast && make build && popd
+	pushd scrapers/mossel_bay && make build && popd
 	pushd scrapers/randburg && make build && popd
 	pushd scrapers/roodepoort && make build && popd
 	pushd scrapers/sandton && make build && popd

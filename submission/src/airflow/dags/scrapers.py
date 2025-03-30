@@ -101,6 +101,12 @@ with DAG(
         op_kwargs={"image_name": "spca_lower_south_coast_scraper:latest"}
     )
 
+    mossel_bay_scraper = PythonOperator(
+        task_id="mossel_bay_scraper",
+        python_callable=run_docker_container,
+        op_kwargs={"image_name": "spca_mossel_bay_scraper:latest"}
+    )
+
     randburg_scraper = PythonOperator(
         task_id="randburg_scraper",
         python_callable=run_docker_container,
@@ -113,18 +119,19 @@ with DAG(
         op_kwargs={"image_name": "spca_roodepoort_scraper:latest"}
     )
 
-    sandton_scraper = PythonOperator(
-        task_id="sandton_scraper",
-        python_callable=run_docker_container,
-        op_kwargs={"image_name": "spca_sandton_scraper:latest"}
-    )
+    # sandton_scraper = PythonOperator(
+    #     task_id="sandton_scraper",
+    #     python_callable=run_docker_container,
+    #     op_kwargs={"image_name": "spca_sandton_scraper:latest"}
+    # )
 
     acquire_docker_connection >> [
         amanzimtoti_scraper,
         #cape_scraper,
         durban_and_coast_scraper, 
-        lower_south_coast_scraper, 
+        lower_south_coast_scraper,
+        mossel_bay_scraper,
         randburg_scraper,
-        roodepoort_scraper,
-        sandton_scraper
+        roodepoort_scraper
+        #sandton_scraper
     ]
