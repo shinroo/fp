@@ -25,4 +25,4 @@ ORDER BY ARRAY [
 	COALESCE(dog_breed.energy_level,5),
 	COALESCE(dog_breed.barking_level,5),
 	COALESCE(dog_breed.mental_stimulation_needs,5)
-]::vector <=> $1;
+]::vector <-> $1;
