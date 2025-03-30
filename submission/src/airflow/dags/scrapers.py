@@ -7,13 +7,12 @@ from airflow import settings
 from airflow.models import Connection
 from airflow.operators.python import PythonOperator
 from airflow.exceptions import AirflowException
-import docker  # Use the Docker SDK directly
+import docker
 import os
 
 def create_connection():
     session = settings.Session()
 
-    # Check if the connection already exists
     existing_conn = session.query(Connection).filter(Connection.conn_id == "docker_default").first()
 
     if not existing_conn:
@@ -22,7 +21,7 @@ def create_connection():
                 conn_id="docker_default",
                 conn_type="docker",
                 host="unix://var/run/docker.sock",  # Use the local Docker daemon
-                extra='{}'  # No need for registry_url
+                extra='{}'
             )
             session.add(conn)
             session.commit()
@@ -37,14 +36,13 @@ def create_connection():
     session.close()
 
 def run_docker_container(image_name: str):
-    # Use the Docker SDK directly to interact with the Docker daemon
     client = docker.DockerClient(base_url="unix://var/run/docker.sock")
 
     # Run the Docker container
     container = client.containers.run(
-        image=image_name,  # Use the local image
-        auto_remove=True,  # Remove the container after it exits
-        detach=True,  # Run the container in detached mode
+        image=image_name,
+        auto_remove=True,
+        detach=True,
         environment={
             "POSTGRES_HOST": "postgres",
             "POSTGRES_PORT": 5432,
@@ -67,7 +65,7 @@ def run_docker_container(image_name: str):
 with DAG(
     dag_id="spca_scrapers",
     schedule=None,
-    start_date=pendulum.datetime(2023, 10, 27, tz="UTC"),  # Updated start date
+    start_date=pendulum.datetime(2023, 10, 27, tz="UTC"), 
     catchup=False,
     dagrun_timeout=pendulum.duration(minutes=60),
     tags=["spca", "scraper", "docker"],

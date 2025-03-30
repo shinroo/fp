@@ -43,7 +43,7 @@ func TestWriteJSON(t *testing.T) {
 		},
 		{
 			name:           "Marshal error with invalid payload",
-			payload:        func() {}, // Functions cannot be marshaled to JSON
+			payload:        func() {},
 			statusCode:     http.StatusOK,
 			expectedStatus: http.StatusInternalServerError,
 			expectedBody:   `{"Msg":"Failed to marshal response","Error":"See server log for more information"}`,
@@ -51,27 +51,16 @@ func TestWriteJSON(t *testing.T) {
 		},
 	}
 
-	// Iterate over the test cases
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			// Create a ResponseRecorder to record the response
 			w := httptest.NewRecorder()
-
-			// Call the function
 			WriteJSON(tc.payload, tc.statusCode, w)
-
-			// Check the status code
 			assert.Equal(t, tc.expectedStatus, w.Code, "status code should match")
-
-			// Check the Content-Type header
 			assert.Equal(t, "application/json", w.Header().Get("Content-Type"), "Content-Type should be application/json")
 
-			// Check the response body
 			if tc.expectError {
-				// For error cases, check the exact error message
 				assert.JSONEq(t, tc.expectedBody, w.Body.String(), "response body should match")
 			} else {
-				// For success cases, check the JSON-encoded body
 				assert.JSONEq(t, tc.expectedBody, w.Body.String(), "response body should match")
 			}
 		})

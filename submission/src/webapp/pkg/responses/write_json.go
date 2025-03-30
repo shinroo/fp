@@ -8,9 +8,8 @@ import (
 func WriteJSON(payload any, statusCode int, w http.ResponseWriter) {
 	w.Header().Set("Content-Type", "application/json")
 
-	encoded, marshalErr := json.Marshal(payload) // Fix: Assign the result of json.Marshal
-
-	if marshalErr != nil {
+	encoded, err := json.Marshal(payload)
+	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		_, _ = w.Write(
 			[]byte(

@@ -8,15 +8,12 @@
     .carousel-inner {
         max-height: none;
         width: 100%;
-        /* Ensure consistent width */
     }
 
     .carousel-item {
         display: flex;
         flex-direction: column;
         width: 100%;
-        /* Ensure items take full width */
-        /* Add transition for smooth animation if needed */
         transition: transform 0.6s ease-in-out;
     }
 
@@ -35,11 +32,9 @@
         padding: 15px;
         text-align: center;
         background: white;
-        /* Optional background */
         color: black;
     }
 
-    /* Override Bootstrap's default caption styles */
     .carousel-caption {
         position: static;
         right: auto;
@@ -49,22 +44,17 @@
         color: inherit;
     }
 
-    /* Optional: Add some spacing between items */
     .carousel-item {
         margin-bottom: 20px;
         will-change: transform;
     }
 
-    /* Ensure carousel container is positioned relatively */
     #exploreCarousel {
         position: relative;
         width: 100%;
-        /* Ensure it takes full width */
         overflow: hidden;
-        /* Prevent content from overflowing during transition */
     }
 
-    /* Style for both buttons */
     .carousel-control-prev,
     .carousel-control-next {
         width: 40px !important;
@@ -75,28 +65,21 @@
         transform: translateY(-50%) !important;
         opacity: 1 !important;
         position: absolute !important;
-        /* Required for proper placement */
         z-index: 10 !important;
-        /* Ensure buttons appear above other elements */
     }
 
-    /* Position the previous button */
     .carousel-control-prev {
         left: 15px !important;
     }
 
-    /* Position the next button */
     .carousel-control-next {
         right: 15px !important;
     }
 
-    /* Style the icons (make them white and larger if needed) */
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
         filter: brightness(0) invert(1) !important;
-        /* Turns black icon to white */
         width: 24px !important;
-        /* Adjust size if needed */
         height: 24px !important;
     }
 </style>
@@ -146,13 +129,11 @@
             .then((responseData) => {
                 console.log("Success:", responseData);
 
-                // Display the search results
                 const exploreResults = document.getElementById("explore-results");
                 exploreResults.innerHTML = "";
 
                 let count = 0;
 
-                // Inside your fetch success handler:
                 responseData.results.forEach((result) => {
                     const spca = responseData.spca_lookup[result.spca_id];
 
@@ -163,7 +144,6 @@
                         petCarouselItem.classList.add("carousel-item", "card", "mb-3");
                     }
 
-                    // Image container
                     const imageContainer = document.createElement("div");
                     imageContainer.classList.add("carousel-image-container");
 
@@ -174,7 +154,6 @@
 
                     imageContainer.appendChild(petCarouselImage);
 
-                    // Caption container (now separate from image)
                     const captionContainer = document.createElement("div");
                     captionContainer.classList.add("carousel-caption-container");
 
@@ -192,7 +171,6 @@
                     captionContainer.appendChild(petCarouselCaptionText);
                     captionContainer.appendChild(petCarouselAdoptionLink);
 
-                    // Add both containers to carousel item
                     petCarouselItem.appendChild(imageContainer);
                     petCarouselItem.appendChild(captionContainer);
 
