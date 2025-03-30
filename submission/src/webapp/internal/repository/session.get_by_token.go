@@ -12,6 +12,10 @@ import (
 var sessionGetByToken string
 
 func (r *Session) GetSessionByToken(ctx context.Context, token string) (*models.Session, error) {
+	if token == "" {
+		return nil, fmt.Errorf("failed to get session by token: empty token")
+	}
+
 	var session models.Session
 	err := r.db.GetContext(ctx, &session, sessionGetByToken, token)
 	if err != nil {
