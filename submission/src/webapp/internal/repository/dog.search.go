@@ -36,8 +36,6 @@ func (r *Dog) Search(ctx context.Context, searchKeyword string, filters []DogSea
 
 	query = r.db.Rebind(query)
 
-	fmt.Println("query:", query)
-
 	err = r.db.SelectContext(ctx, &dogs, query, args...)
 	if err != nil {
 		return nil, fmt.Errorf("failed to search for dogs: failed to select context: %w", err)
