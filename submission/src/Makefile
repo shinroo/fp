@@ -8,6 +8,7 @@ build_scrapers:
 	pushd scrapers/lower_south_coast && make build && popd
 	pushd scrapers/randburg && make build && popd
 	pushd scrapers/roodepoort && make build && popd
+	pushd scrapers/sandton && make build && popd
 
 build_webapp:
 	pushd webapp && make build && popd
