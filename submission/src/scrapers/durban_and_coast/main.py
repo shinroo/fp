@@ -10,7 +10,6 @@ from base.breed_identifier import BreedIdentifier
 
 from bs4 import BeautifulSoup
 
-# Define function to determine gender based on description
 def sex_from_description(description: str):
     if "boy" in description or "Boy" in description:
         return "male"
@@ -18,7 +17,6 @@ def sex_from_description(description: str):
         return "female"
     return None
 
-# Define function to determine age based on description
 def age_from_description(description: str):
     # Match ages like X years
     age_pattern_years = r'\b(\d+)\s+years?\b'
@@ -34,7 +32,6 @@ def age_from_description(description: str):
     
     return None
 
-# Define a function to extract the kennel number from the description
 def kennel_from_description(description: str):
     kennel_pattern = r'\bKennel\s+([A-Z]\d+)\b'
     match = re.search(kennel_pattern, description)
@@ -42,7 +39,6 @@ def kennel_from_description(description: str):
         return match.group(1)
     return None
 
-# Define a function to extract the reference number from the description
 def reference_from_description(description: str):
     reference_pattern = r'\bRef:\s*(\d+)\b'
     match = re.search(reference_pattern, description)
@@ -50,7 +46,6 @@ def reference_from_description(description: str):
         return match.group(1)
     return None
 
-# Define a function to extract the part of a description that contains "is a"
 def extract_is_a(description: str):
     try:
         if "He is" in description:

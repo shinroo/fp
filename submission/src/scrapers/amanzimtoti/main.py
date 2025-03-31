@@ -28,18 +28,13 @@ def process_page_source(page_source: str):
     dog_breed_repository = DogBreedRepository()
     breed_identifier = BreedIdentifier(dog_breed_repository.get_all())
 
-    # Find corresponding pet details:
     pet_details = []
     for image, ref_number in zip(images, ref_numbers):
-        # Find the <td> element with the known text
         td_element = soup.find('td', text=ref_number)
 
-        # Check if the <td> element was found
         if td_element:
-            # Navigate to the closest parent <table> element
             parent_table = td_element.find_parent('table')
             
-            # Check if the parent <table> element was found
             if parent_table:
                 data_tds = parent_table.find_all('td')
                 identified_breed_name = breed_identifier.identify(data_tds[7].text)
